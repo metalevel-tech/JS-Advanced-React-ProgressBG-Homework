@@ -1,4 +1,6 @@
+/*eslint-env es6*/
 "use strict";
+
 const _sensitive = new WeakMap();
 
 function DevConstructor(name, salary) {

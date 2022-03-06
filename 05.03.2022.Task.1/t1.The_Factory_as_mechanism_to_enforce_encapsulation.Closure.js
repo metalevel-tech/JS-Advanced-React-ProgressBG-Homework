@@ -1,4 +1,6 @@
+/*eslint-env es6*/
 "use strict";
+
 const devFactory = function(name, salary) {
     const _sensitive = {
         salary: salary,
