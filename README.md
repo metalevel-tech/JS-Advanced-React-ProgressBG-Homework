@@ -6,7 +6,7 @@
 
     * [**t1.The_Factory_as_mechanism_to_enforce_encapsulation.Closure.js**](05.03.2022.Task.1/t1.The_Factory_as_mechanism_to_enforce_encapsulation.Closure.js)
 
-    It looks like this is the only way, or at least the most elegant, to make the private *names* complete inaccessible from outside.
+      It looks like this is the only way, or at least the most elegant, to make the private *names* complete inaccessible from outside.
 
 * Play with `WeakMap()`:
 
