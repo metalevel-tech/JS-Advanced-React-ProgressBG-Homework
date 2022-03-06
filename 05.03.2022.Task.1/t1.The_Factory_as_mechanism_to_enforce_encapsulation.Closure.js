@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 const devFactory = function(name, salary) {
     const _sensitive = {
         salary: salary,
@@ -16,8 +16,8 @@ const devFactory = function(name, salary) {
             else
                 console.log(`Wrong password! ${this.name} salary will not be increased!`);
         }
-    }
-}
+    };
+};
 
 const dev1 = devFactory('Peter', 1000);
 const dev2 = devFactory('Maria', 1200);

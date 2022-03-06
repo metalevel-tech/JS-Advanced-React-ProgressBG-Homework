@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 const _sensitive = new WeakMap();
 
 function DevConstructor(name, salary) {
     this.name = name;
 
     _sensitive.set(this, {
-        salary: salary,
+        salary,
         pwd: 'abracadabra'
     });
 

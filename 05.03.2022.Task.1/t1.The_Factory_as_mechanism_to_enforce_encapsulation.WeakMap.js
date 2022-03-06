@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 const _sensitive = new WeakMap();
 
 const devFactory = function(name, salary) {
     const obj = {
-        name: name,
-        getSalary: function() {
+        name,
+        getSalary() {
             return _sensitive.get(this).salary;
         },
-        increaseSalary: function(value, pwd) {
+        increaseSalary(value, pwd) {
             if (pwd === _sensitive.get(this).pwd)
                 _sensitive.get(this).salary += value;
             else
@@ -16,12 +16,12 @@ const devFactory = function(name, salary) {
     };
 
     _sensitive.set(obj, {
-        salary: salary,
+        salary,
         pwd: 'abracadabra'
     });
     
     return obj;
-}
+};
 
 const dev1 = devFactory('Peter', 1000);
 const dev2 = devFactory('Maria', 1200);

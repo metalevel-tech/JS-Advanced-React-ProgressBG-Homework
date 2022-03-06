@@ -1,30 +1,29 @@
-"use strict";
+'use strict';
 const _sensitive = new WeakMap();
 
 const devFactory = function(name, salary) {
     const _private = {};
     
     _sensitive.set(_private, {
-        salary: salary,
+        salary,
         pwd: 'abracadabra'
     });
 
     const obj = {
-        name: name,
-        getSalary: function() {
+        name,
+        getSalary() {
             return _sensitive.get(_private).salary;
         },
-        increaseSalary: function(value, pwd) {
+        increaseSalary(value, pwd) {
             if (pwd === _sensitive.get(_private).pwd)
                 _sensitive.get(_private).salary += value;
             else
                 console.log(`Wrong password! ${this.name} salary will not be increased!`);
         }
     };
-
     
     return obj;
-}
+};
 
 const dev1 = devFactory('Peter', 1000);
 const dev2 = devFactory('Maria', 1200);
