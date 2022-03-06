@@ -18,10 +18,12 @@ class DevConstructor {
     }
     
     increaseSalary(value, pwd) {
-        if (pwd === _sensitive.get(this).pwd)
+        if (pwd === _sensitive.get(this).pwd) {
             _sensitive.get(this).salary += value;
-        else
+        }
+        else {
             console.log(`Wrong password! ${this.name} salary will not be increased!`);
+        }
     }
 }
 
