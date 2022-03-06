@@ -1,6 +1,6 @@
 # JS-Advanced-React-ProgressBG-Homework
 
-## 05.03.2022 [TASK: The Factory as mechanism to enforce encapsulation](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/OOPinJS/OOPinJS.html#/taskTheFactoryAsMechanismToEnforceEncapsulation)
+## 05.03.2022 [TASK 1: The Factory as mechanism to enforce encapsulation](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/OOPinJS/OOPinJS.html#/taskTheFactoryAsMechanismToEnforceEncapsulation)
 
 * Factory implementation - this is the solution of the task:
 
@@ -32,3 +32,8 @@
 
       The private *members* could be accessed from the outside, as it it is shown at the bottom of the file.
 
+## 04.03.2022 [TASK 0: Recursion - Traversing the DOM](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/Functions/Functions.html#/13/7)
+Change the elements' color based on the color names, mentioned within their text.
+
+* Files: [04.03.2022.Task.0/](04.03.2022.Task.0)
+* Live preview at: [metalevel-tech.github.io](https://metalevel-tech.github.io/JS-Advanced-React-ProgressBG-Homework/04.03.2022.Task.0/index.html)

@@ -1,5 +1,5 @@
 /**
- * Change the elements color based on the color names, mentioned within its text.
+ * Change the elements' color based on the color names, mentioned within their text.
  */
 /* eslint-env es6 */
 (() => {
