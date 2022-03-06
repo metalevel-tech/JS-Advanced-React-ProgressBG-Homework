@@ -1,4 +1,6 @@
-'use strict';
+/*eslint-env es6*/
+"use strict";
+
 const _sensitive = new WeakMap();
 
 class DevConstructor {

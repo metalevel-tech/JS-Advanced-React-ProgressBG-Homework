@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const _sensitive = new WeakMap();
 
 const devFactory = function(name, salary) {

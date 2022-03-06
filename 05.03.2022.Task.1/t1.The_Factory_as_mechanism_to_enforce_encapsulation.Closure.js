@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const devFactory = function(name, salary) {
     const _sensitive = {
         salary: salary,
