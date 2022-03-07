@@ -179,8 +179,14 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 * [ ] [Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript#reference)
 
   * [ ] [Standard (built-in) objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+
   * [ ] [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
-  * [x] [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
   * [ ] [Statements and declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
+
+  * [x] [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
   * [ ] [Functions - Learn how to work with JavaScript's functions to develop your applications](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+
+  * [x] [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
