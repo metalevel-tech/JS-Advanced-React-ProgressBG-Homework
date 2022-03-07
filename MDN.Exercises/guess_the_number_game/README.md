@@ -1,5 +1,7 @@
 # Guess the number game | MDN JavaScript Guide
 
+* End result [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.html)
+
 Source and references:
 
 * [MDN: A first splash into JavaScript: Example — Guess the number game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#example_%E2%80%94_guess_the_number_game)
