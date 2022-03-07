@@ -1,4 +1,4 @@
-# Example — Guess the number game
+# Guess the number game | MDN JavaScript Guide
 
 Source and references:
 
