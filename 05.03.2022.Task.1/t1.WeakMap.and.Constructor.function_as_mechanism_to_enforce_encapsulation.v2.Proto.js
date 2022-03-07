@@ -20,7 +20,7 @@ DevConstructor.prototype.increaseSalary = function(value, pwd) {
     if (pwd === _sensitive.get(this).pwd)
         _sensitive.get(this).salary += value;
     else
-        console.log(`Wrong password! ${this.name} salary will not be increased!`);
+        console.log(`\nWrong password! ${this.name} salary will not be increased!\n`);
 };
 
 const dev1 = new DevConstructor('Peter', 1000);

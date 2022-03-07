@@ -16,7 +16,7 @@ const devFactory = function(name, salary) {
             if (pwd === _sensitive.pwd)
                 _sensitive.salary += value;
             else
-                console.log(`Wrong password! ${this.name} salary will not be increased!`);
+                console.log(`\nWrong password! ${this.name} salary will not be increased!\n`);
         }
     };
 };
