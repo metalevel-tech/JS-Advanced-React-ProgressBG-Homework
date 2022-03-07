@@ -1,6 +1,6 @@
 # MDN JavaScript Guide
 
-Here are the exercises I've done while reading the MDN's JavaScript Guide.
+Here are the exercises I've done while reading the MDN's JavaScript Guides, Tutorials and References.
 
 ## Exercises
 
@@ -165,6 +165,16 @@ Here are the exercises I've done while reading the MDN's JavaScript Guide.
     - [x] [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
 - [ ] [Advanced](https://developer.mozilla.org/en-US/docs/Web/JavaScript#advanced)
+
+    - [ ] [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+
+    - [ ] [Strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+
+    - [ ] [JavaScript typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+
+    - [ ] [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+
+    - [ ] [Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 
 - [ ] [Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript#reference)
 
