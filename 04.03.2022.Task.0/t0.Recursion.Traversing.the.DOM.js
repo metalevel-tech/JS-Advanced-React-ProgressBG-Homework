@@ -29,7 +29,7 @@
         changeColor(node);
         
         // Do the recursion
-        node.childNodes.forEach(element => {
+        node.childNodes.forEach((element) => {
             if (element.nodeType === 1) traverse(element);
         });
     }

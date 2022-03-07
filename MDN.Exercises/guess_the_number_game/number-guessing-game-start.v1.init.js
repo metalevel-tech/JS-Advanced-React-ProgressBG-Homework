@@ -1,6 +1,5 @@
 /**
- * In this version, by using IIFE, is implemented keyPress event, 
- * so you can press Enter instead click the buttons by the mouse.
+ * This version is pretty the same as in the lesson at the MDN's course.
  */
 
 // Use constants to store references to parts of the interface
@@ -17,31 +16,15 @@ let resetButton;
 
 guessField.focus();
 
-const bindEnterTo = (() => {
-    let lastFunctionName = '';
-
-    return (functionName) => {    
-        if (lastFunctionName)
-            document.removeEventListener('keypress', lastFunctionName);
-        
-        lastFunctionName = functionName;
-
-        const listener = (event) => {
-            if (event.key === 'Enter') lastFunctionName();
-        };
-        document.addEventListener('keypress', listener);
-    };
-})();
-
 let randomNumber = Math.floor(Math.random() * 100) + 1;
-console.log(randomNumber); // Hidden hint, only for the first round
+console.log(randomNumber);
 
 function checkGuess() {
     const userGuess = Number(guessField.value);
 
     // if (! userGuess) return;
     if (userGuess < 1 || userGuess > 100) {
-        alert(`Enter numbers between 1 and 100!`)
+        alert(`Enter numbers between 1 and 100!`);
         return;
     }
 
@@ -78,42 +61,47 @@ function checkGuess() {
     guessField.focus();
 }
 
-// (function init() {
-    guessSubmit.addEventListener('click', checkGuess);
-    bindEnterTo(checkGuess);
-// })();
+guessSubmit.addEventListener('click', checkGuess);
+
+const bindEnterToCheckGuess = (event) => {if (event.key === 'Enter') checkGuess();}
+const bindEnterToResetGame = (event) => {if (event.key === 'Enter') resetGame();}
+
+document.addEventListener('keypress', bindEnterToCheckGuess);
 
 function setGameOver() {
     guessField.disabled = true;
     guessSubmit.disabled = true;
-
+    
     resetButton = document.createElement('button');
     resetButton.textContent = 'Start new game';
     document.body.append(resetButton);
     
     resetButton.addEventListener('click', resetGame);
-
-    bindEnterTo(resetGame);
+    document.removeEventListener('keypress', bindEnterToCheckGuess);
+    document.addEventListener('keypress', bindEnterToResetGame);
 }
 
 function resetGame() {
     guessCount = 1;
-
+    
     const resetParagraphs = document.querySelectorAll('.resultParas p');
     for (const resetParagraph of resetParagraphs) {
         resetParagraph.textContent = '';
     }
-
+    
     resetButton.parentNode.removeChild(resetButton);
-
+    
     guessField.disabled = false;
     guessSubmit.disabled = false;
     guessField.value = '';
     guessField.focus();
-
+    
     lastResult.style.backgroundColor = 'white';
-
+    
     randomNumber = Math.floor(Math.random() * 100) + 1;
-
-    bindEnterTo(checkGuess);
+    console.log(randomNumber);
+    
+    document.removeEventListener('keypress', bindEnterToResetGame);
+    document.addEventListener('keypress', bindEnterToCheckGuess);
 }
+

@@ -1,3 +1,10 @@
+/**
+ * In this version, by using IIFE, is implemented keyPress event, 
+ * so you can press Enter instead click the buttons by the mouse.
+ * 
+ * !!! remove the event within the closure doesn't work !!!
+ */
+
 // Use constants to store references to parts of the interface
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
@@ -12,11 +19,33 @@ let resetButton;
 
 guessField.focus();
 
+const bindEnterTo = (() => {
+    let lastFunctionName = '';
+
+    return (functionName) => {    
+        if (lastFunctionName)
+            document.removeEventListener('keypress', lastFunctionName);
+        
+        lastFunctionName = functionName;
+
+        const listener = (event) => {
+            if (event.key === 'Enter') lastFunctionName();
+        };
+        document.addEventListener('keypress', listener);
+    };
+})();
+
 let randomNumber = Math.floor(Math.random() * 100) + 1;
-console.log(randomNumber);
+console.log(randomNumber); // Hidden hint, only for the first round
 
 function checkGuess() {
     const userGuess = Number(guessField.value);
+
+    // if (! userGuess) return;
+    if (userGuess < 1 || userGuess > 100) {
+        alert(`Enter numbers between 1 and 100!`);
+        return;
+    }
 
     // If the game just starts display the label
     if (guessCount === 1) {
@@ -32,7 +61,7 @@ function checkGuess() {
         setGameOver();
     } else if (guessCount === 10) {
         lastResult.textContent = '!!!GAME OVER!!!';
-        lowOrHi = '';
+        lowOrHi.textContent = '';
 
         setGameOver();
     } else {
@@ -52,20 +81,8 @@ function checkGuess() {
 }
 
 guessSubmit.addEventListener('click', checkGuess);
+bindEnterTo(checkGuess);
 
-// Execute the main function checkGuess() when enter is pressed
-// (event.keyCode === 13) --== deprecated ==-> "event.key === 'Enter'"
-//
-// document.addEventListener('keypress', (event) => {
-//     if (event.key === 'Enter') checkGuess();
-// });
-//
-// Define the callback function outside in order to use removeEventListener
-
-// const checkGuessEnter = (event) => {
-//     if (event.key === 'Enter') checkGuess();
-// };
-// document.addEventListener('keypress', checkGuessEnter);
 
 function setGameOver() {
     guessField.disabled = true;
@@ -77,15 +94,7 @@ function setGameOver() {
     
     resetButton.addEventListener('click', resetGame);
 
-    // const resetButtonEnter = (event) => {
-    //     if (event.key === 'Enter') {
-    //         resetGame();
-
-    //         // Remove the listener once it is executed
-    //         document.removeEventListener('keypress', resetButtonEnter);
-    //     }
-    // };
-    // document.addEventListener('keypress', resetButtonEnter);
+    bindEnterTo(resetGame);
 }
 
 function resetGame() {
@@ -107,5 +116,5 @@ function resetGame() {
 
     randomNumber = Math.floor(Math.random() * 100) + 1;
 
-    // document.addEventListener('keypress', checkGuessEnter);
+    bindEnterTo(checkGuess);
 }

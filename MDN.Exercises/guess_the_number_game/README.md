@@ -54,7 +54,7 @@ Upon looking at this brief, the first thing we can do is to start breaking it do
 
 ## Solutions of the problem
 
-**1.** The file [number-guessing-game-start.v0.initial.js](./number-guessing-game-start.v0.initial.js) contains almost the same script as those provided within the MDN's lesson.
+**0.** The file [number-guessing-game-start.v0.init.js](number-guessing-game-start.v0.init.js) contains almost the same script as those provided within the MDN's lesson.
 
 The main difference is the code added at the beginning of the function `checkGuess()` in order to increase the stability of the game is added an additional condition as follow.
 ```js
@@ -63,48 +63,24 @@ function checkGuess() {
 
     // if (! userGuess) return;
     if (userGuess < 1 || userGuess > 100) {
-        alert(`Enter numbers between 1 and 100!`)
+        alert(`Enter numbers between 1 and 100!`);
         return;
     }
-
     // ...
 }
 ``` 
 
-What I've learned here is more deep understanding about the differences between:
-`.querySelector('#id, .class')`, `.querySelectorAll('.class, .class')`, `.getElementById('id')`, `.getElementsByClassName('class')`, `.getElementsByClassName('class')[0]`, etc.
+**1.** The file [number-guessing-game-start.v1.init.js](number-guessing-game-start.v1.init.js) uses `document.addEventListener('keypress', callback)` and `document.removeEventListener('keypress', callback)` in order to bind the Enter key to the buttons. For this purpose the *callback* functions must be named. 
 
-**2.** The file [number-guessing-game-start.v1.IIFE.js](./number-guessing-game-start.v1.IIFE.js) uses IIFE (Immediately Invoked Function Expression) to bind the Enter key to the different buttons depending on the stage of the game. 
+```js
+const bindEnterToCheckGuess = (event) => {if (event.key === 'Enter') checkGuess();}
+const bindEnterToResetGame = (event) => {if (event.key === 'Enter') resetGame();}
 
-```javascript
-const bindEnterTo = (() => {
-    let lastFunctionName = '';
+document.addEventListener('keypress', bindEnterToCheckGuess);
+document.removeEventListener('keypress', bindEnterToCheckGuess);
 
-    return (functionName) => {    
-        if (lastFunctionName)
-            document.removeEventListener('keypress', lastFunctionName);
-        
-        lastFunctionName = functionName;
-
-        const listener = (event) => {
-            if (event.key === 'Enter') lastFunctionName();
-        };
-        document.addEventListener('keypress', listener);
-    };
-})();
-
-bindEnterTo(checkGuess);
-bindEnterTo(resetGame);
+document.addEventListener('keypress', bindEnterToResetGame);
+document.removeEventListener('keypress', bindEnterToResetGame);
 ```
 
-In addition to practicing IIFE, I've learned we can use named *callback functions* in order to use `.removeEventListener()` along with `.addEventListener()`. Also I've learned `event.keyCode === 13` is deprecated so we must use `event.key === 'Enter'` instead. And finally I've learned we can use the *arrow syntax* everywhere we have *function expression*.
-
-The above code snipped illustrates the following conceptions:
-
-* Function as first-class citizen - a function is used as an argument of another function - callback, and a function is used as value of the `return` operator;
-
-* Arrow function syntax and function expression;
-
-* Function closure - a function is used to create a local scope with private variable names;
-
-* IIFE - the `( anonymous function expression )` is immediately invoked by the function's *internal call property*  by the operator `()` at the end.
+* Note `event.keyCode === 13` is deprecated so we must use `event.key === 'Enter'` instead. 

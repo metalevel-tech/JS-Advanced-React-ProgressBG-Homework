@@ -24,10 +24,10 @@ function checkGuess() {
 
     // if (! userGuess) return;
     if (userGuess < 1 || userGuess > 100) {
-        alert(`Enter numbers between 1 and 100!`)
+        alert(`Enter numbers between 1 and 100!`);
         return;
     }
-
+    
     // If the game just starts display the label
     if (guessCount === 1) {
         guesses.textContent = 'Previous guesses: ';
@@ -92,4 +92,5 @@ function resetGame() {
     lastResult.style.backgroundColor = 'white';
 
     randomNumber = Math.floor(Math.random() * 100) + 1;
+    console.log(randomNumber);
 }
