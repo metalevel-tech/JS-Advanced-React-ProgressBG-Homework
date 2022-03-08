@@ -36,4 +36,5 @@
 Change the elements' color based on the color names, mentioned within their text.
 
 * Files: [04.03.2022.Task.0/](04.03.2022.Task.0)
+
 * Live preview at: [metalevel-tech.github.io](https://metalevel-tech.github.io/js_homework/04.03.2022.Task.0/index.html)
