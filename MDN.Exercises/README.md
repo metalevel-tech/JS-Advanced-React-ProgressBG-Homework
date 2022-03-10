@@ -8,6 +8,8 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 
 * Guess the number game: [README.md](guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.html).
 
+* Conditionals [README.md](ref_conditionals/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/ref_conditionals/conditionals.a_real_example.index.html).
+
 
 ## TOC: Guides, Tutorials and References
 

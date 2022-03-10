@@ -9,9 +9,6 @@
 * [MDN: GlobalEventHandlers`.onchange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
  
 * [MDN: HTMLElement: `change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)
- 
-* [MDN: ]()
- 
 
 ## Conditionals - some tests:
 
