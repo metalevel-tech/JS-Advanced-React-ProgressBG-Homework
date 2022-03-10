@@ -4,6 +4,8 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 
 ## Exercises
 
+* Silly story generator assessment: [README.md](silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/silly_story_generator_arrays_assessment/silly_story_generator.index.html)
+
 * Guess the number game: [README.md](guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.html).
 
 

@@ -1,10 +1,10 @@
 # Guess the number game | MDN JavaScript Guide
 
-[Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.html) of the end result. 
+[Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.index.html) of the end result. 
 
 Source and references:
 
-* [MDN: A first splash into JavaScript: Example — Guess the number game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#example_%E2%80%94_guess_the_number_game)
+* [MDN: A first splash into JavaScript: Example - Guess the number game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#example_%E2%80%94_guess_the_number_game)
 
 * [MDN: JavaScript Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
@@ -75,8 +75,8 @@ function checkGuess() {
 **1.** The file [number-guessing-game-start.v1.init.js](number-guessing-game-start.v1.init.js) uses `document.addEventListener('keypress', callback)` and `document.removeEventListener('keypress', callback)` in order to bind the Enter key to the buttons. For this purpose the *callback* functions must be named. 
 
 ```js
-const bindEnterToCheckGuess = (event) => {if (event.key === 'Enter') checkGuess();}
-const bindEnterToResetGame = (event) => {if (event.key === 'Enter') resetGame();}
+const bindEnterToCheckGuess = (event) => {if (event.key === 'Enter') checkGuess();};
+const bindEnterToResetGame = (event) => {if (event.key === 'Enter') resetGame();};
 
 document.addEventListener('keypress', bindEnterToCheckGuess);
 document.removeEventListener('keypress', bindEnterToCheckGuess);
