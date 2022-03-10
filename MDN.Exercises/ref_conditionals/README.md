@@ -1,4 +1,4 @@
-## Conditionals references
+## Conditionals - references
 
 * [MDN: Making decisions in your code - conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
 
@@ -10,7 +10,7 @@
  
 * [MDN: HTMLElement: `change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)
 
-## Conditionals - some tests:
+## Conditionals - some tests
 
 **1.** If..else statement:
 
