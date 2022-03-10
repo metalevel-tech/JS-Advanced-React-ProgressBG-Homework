@@ -12,7 +12,7 @@ Source and references:
 
 ## Condition of the task
 
-> In this assessment you'll be tasked with taking some of the knowledge you've picked up in this module's articles and applying it to creating a fun app that generates random silly stories. Have fun!.
+> In this assessment you'll be tasked with taking some of the knowledge you've picked up in this module's articles and applying it to creating a fun app that generates random silly stories. Have fun!
 
 
 ## Solutions
