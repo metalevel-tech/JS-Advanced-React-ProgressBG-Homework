@@ -39,7 +39,7 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 
     * [x] [JavaScript building blocks overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks)
 
-    * [ ] [Making decisions in your code - Conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+    * [x] [Making decisions in your code - Conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
 
     * [ ] [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code)
 
