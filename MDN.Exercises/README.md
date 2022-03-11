@@ -4,9 +4,9 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 
 ## Exercises
 
-* Silly story generator assessment: [README.md](silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/silly_story_generator_arrays_assessment/silly_story_generator.index.html).
+* Silly story generator assessment: [README.md](exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
-* Guess the number game: [README.md](guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.html).
+* Guess the number game: [README.md](exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
 
 * Conditionals [README.md](ref_conditionals/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/ref_conditionals/conditionals.a_real_example.index.html).
 
