@@ -23,6 +23,10 @@
             box-sizing: border-box;
         }
 
+        body > div > *:last-child {
+            margin-bottom: .4em;
+        }
+
         div:target {
             background-color: rgba(255, 255, 0, 0.24);
         }
@@ -32,115 +36,73 @@
             font-family: monospace;
             font-size: 1.8em;
         }
+
+        code {
+            background-color: #eaeaff;
+            padding: 0 .2em;
+        }
     </style>
 </head>
 <body>
-    <div id="ifElse">
-        <h1 class="ternary">If..else Statement</h1>
-        <label for="weather" class="ifElse">Select the weather type today: </label>
-        <select id="weather" class="ifElse">
-            <option value="">--Make a choice--</option>
-            <option value="sunny">Sunny</option>
-            <option value="rainy">Rainy</option>
-            <option value="snowing">Snowing</option>
-            <option value="overcast">Overcast</option>
-        </select>
-        <p class="ifElse">&nbsp;</p>
-        <script src="./conditionals.a_real_example_if_else_else-if.js"></script>
-    </div>
-    
-    <div id="switchCase">
-        <h1 class="ternary">Switch..case Statement</h1>
-        <label for="weather" class="switchCase">Select the weather type today: </label>
-        <select id="weather" class="switchCase">
-            <option value="">--Make a choice--</option>
-            <option value="sunny">Sunny</option>
-            <option value="rainy">Rainy</option>
-            <option value="snowing">Snowing</option>
-            <option value="overcast">Overcast</option>
-        </select>
-        <p class="switchCase">&nbsp;</p>
-        <script src="./conditionals.a_real_example_switch_case.js"></script>
-    </div>
-
-    <div id="ternary">
-        <h1 class="ternary">Ternary Operator</h1>
-        <label for="theme" class="ternary">Select theme: </label>
-        <select id="theme" class="ternary">
-            <option value="white">White</option>
-            <option value="black">Black</option>
-        </select>
-        
-        <script src="./conditionals.a_real_example_ternary_operator.js"></script>
-    </div>
-    
-    <div id="onChangeDemo">
-        <h1 class="onchangeDemo">GlobalEventHandlers.onchange</h1>
-        <input
-            type="text" 
-            placeholder="Type something here, then click outside of the field." 
-            size="50"
-        >
-        <p id="logOnChangeDemo" class="onchangeDemo"></p>
-        
-        <script src="./globalEventHandler.onchange.js"></script>
-    </div>
-    
-    <div id="switchCaseColorChoice">
-        <h1 class="colorChoice">Color Choice with Switch..case</h1>
-        
-        <select id="themeColorChoice">
-            <option value="white">White</option>
-            <option value="black">Black</option>
-            <option value="purple">Purple</option>
-            <option value="yellow">Yellow</option>
-            <option value="psychedelic">Psychedelic</option>
-        </select>
-        
-        <script src="./conditionals.active_learning_more_color_choices.js"></script>
-    </div>
-    
-    <div id="simpleCalendar">
-        <h1 class="colorChoice">Simple calendar with Switch..case</h1>
-        
+    <div id="drawRandomItems">
         <style>
-            #simpleCalendar .output li {
-                display: block;
-                float: left;
-                width: 12%;
-                border: 2px solid white;
-                padding: 5px;
-                height: 30px;
-                background-color: #4A2DB6;
-                color: white;
+            #drawRandomItems button#circles {
+                position: absolute;
+                margin: 1em;
             }
-            h1#month {
-                margin-top: 12px;
+            #drawRandomItems button#squares {
+                position: absolute;
+                margin: 1em;
+                margin-left: 80px;
+            }
+            #drawRandomItems canvas {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 21 / 9;
+                background: #eee;
+                border: 1px solid #ccc;
+                border-radius: .2em;
+                display: block;
             }
         </style>
-        
-        <div class="output" style="overflow: auto;">
-            <label for="month">Select month: </label>
-            <select id="month">
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-            </select>
-          
-            <h1 id="month">January</h1>
-          
-            <ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li><li>30</li><li>31</li></ul>
-          </div>
-          <script src="./conditionals.active_learning_simple_calendar.js"></script>
+
+        <h1>Draw 100 Random Items <span id="drawItemType"></span></h1>
+
+        <button id="circles">Circles</button>
+        <button id="squares">Squares</button>
+
+        <canvas></canvas>
     </div>
+    <script src="./example_drawRandomItems.js"></script>
+    
+    <div id="contactsBreakLoop">
+        <h1>Search contacts: <code>break</code> in a loop example</h1>
+
+        <p class="contactList">Available contacts: </p>
+        
+        <label for="searchBreakLoop">Search by contact name: </label>
+        <input id="searchBreakLoop" type="text">
+        
+        <button class="submit">Search</button>
+
+        <p class="output"><em style="color: #999;">Type a contact name and press the search button.</em></p>
+    </div>
+    <script src="./example_search_contact_break_loop.js"></script>
+    
+    <div id="contactsFind">
+        <h1>Search contacts: <code>.find()</code> example</h1>
+
+        <p class="contactList">Available contacts: </p>
+        
+        <label for="searchFind">Search by contact name: </label>
+        <input id="searchFind" type="text">
+        
+        <button class="submit">Search</button>
+
+        <p class="output"><em style="color: #999;">Type a contact name and press the search button.</em></p>
+    </div>
+    <script src="./example_search_contact_find.js"></script>
+
+
 </body>
 </html>

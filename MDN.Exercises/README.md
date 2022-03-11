@@ -2,13 +2,24 @@
 
 Here are the exercises I've done while reading the MDN's JavaScript Guides, Tutorials and References.
 
+Note the internal links will behave in a different way when you browse this *page* as [GitHub Repository](https://github.com/metalevel-tech/JS-Advanced-React-ProgressBG-Homework/tree/master/MDN.Exercises) or as [GitHub Page](https://metalevel.tech/js_homework/MDN.Exercises/).
+
 ## Exercises
+
 
 * Silly story generator assessment: [README.md](exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
 * Guess the number game: [README.md](exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
 
+## Lessons
+
+* Strings [README.md](ref_strings/).
+
+* Arrays [README.md](ref_arrays/).
+
 * Conditionals [README.md](ref_conditionals/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/ref_conditionals/conditionals.index.html).
+
+* Looping code [README.md](ref_loops/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/ref_loops/loops.index.html).
 
 
 ## TOC: Guides, Tutorials and References
@@ -43,7 +54,7 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 
     * [x] [Making decisions in your code - Conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
 
-    * [ ] [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code)
+    * [x] [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code)
 
     * [ ] [Functions - Reusable blocks of code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
 

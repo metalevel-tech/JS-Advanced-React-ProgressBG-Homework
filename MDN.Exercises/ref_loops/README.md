@@ -1,108 +1,85 @@
 ## Conditionals - references
 
-* [MDN: Making decisions in your code - conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+* [MDN: Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_codes)
 
-* [MDN: `if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+* [MDN: `break` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break), read [`break` in `label`-ed blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break#break_in_labeled_blocks).
  
-* [MDN: `switch` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+* [MDN: `continue` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue), read [using `continue` with a `label`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue#using_continue_with_a_label).
  
-* [MDN: GlobalEventHandlers`.onchange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
+* [MDN: `label` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label). The labeled statement can be used with `break` or `continue` statements. 
  
-* [MDN: HTMLElement: `change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)
+* [MDN: ]()
+ 
+* [MDN: ]()
 
-## Exercises
+## Exercises and the most interesting parts
 
-**1.** If..else statement:
+**1.** Draw 100 random circles or squares:
 
-* JavaScript file [conditionals.a_real_example_if_else_else-if.js](conditionals.a_real_example_if_else_else-if.js).
+* JavaScript file: [example_drawRandomItems.js](./example_drawRandomItems.js).
 
-* Live example: [here](conditionals.index.html#ifElse).
+* Live example: [here](./loops.index.html#drawRandomItems).
 
-**2.** Switch statement:
+**2.** One example where the *standard* `for` loop could be preferred over the `for..of` or `for..in` loops.
 
-* JavaScript file: [conditionals.a_real_example_switch_case.js](./conditionals.a_real_example_switch_case.js).
-
-* Live example: [here](conditionals.index.html#switchCase).
-
-**3.** Ternary operator:
-
-* JavaScript file: [conditionals.a_real_example_ternary_operator.js](./conditionals.a_real_example_ternary_operator.js).
-
-* Live example: [here](conditionals.index.html#ternary).
-
-**4.** More color choices by using switch..case statement:
-
-* JavaScript file: [conditionals.active_learning_more_color_choices.js](./conditionals.active_learning_more_color_choices.js).
-
-* Live example: [here](conditionals.index.html#switchCaseColorChoice).
-
-**5.** Simple calendar:
-
-* JavaScript file: [conditionals.active_learning_simple_calendar.js](./conditionals.active_learning_simple_calendar.js).
-
-* Live example: [here](conditionals.index.html#simpleCalendar).
-
-
-
-## The most interesting parts
-
-* The `'change'` event:
+* The desired output is well formatted text sentence, as *My cats are called Pete, Biggles, Jasmine and Tom.* Here are the input variables.
 
     ```js
-    function setWeather() {...}
-    select.addEventListener('change', setWeather);
+    const myCats = ['Pete', 'Biggles', 'Jasmine', 'Tom'];
+    const msg = `My cats are called `;
     ```
 
-* Another example wit the same `onchange` event:
+* `for..of` solution - we can't provide easily a well formatted output.
 
-    * JavaScript file: [globalEventHandler.onchange.js](./globalEventHandler.onchange.js).
-
-    * Live example [here](conditionals.index.html#onChangeDemo).
- 
-    ```html
-    <input type="text" placeholder="Type something here, then click outside of the field." size="50">
-    <p id="log"></p>
-    ```
     ```js
-    const input = document.querySelector('input');
-    const log = document.getElementById('log');
-
-    input.onchange = handleChange;
-
-    function handleChange(e) {
-        log.textContent = `The field's value is
-            ${e.target.value.length} character(s) long.`;
+    let msgForOf = msg;
+    for (const cat of myCats) {
+        msgForOf = `${msgForOf}${cat}, `;
     }
+    console.log(msgForOf);
+    // My cats are called Pete, Biggles, Jasmine, Tom,
     ```
 
-* In order to create `switch`..`case` statement with expression, you need to evaluate the switch's test to `true`. The following pieces of code will do the same job - [reference](https://www.freecodecamp.org/news/javascript-switch-statement-with-js-switch-case-example-code/):
-
+* Solution by the standard `for` loop - most useful and simple in this case.
 
     ```js
-    // Switch..case solution
-    function testScore(score) {
-        switch (true) {
-            case score > 50 && score <= 100:
-                console.log("Score is higher than 50");
-                break;
-            case score <= 50 && score >= 0:
-                console.log("Score is 50 or lower");
-                break;
-            default:
-                console.log("The Score is not in the range [0-100]!");
-        }
+    let msgFor = msg;
+    for (let i = 0; i < myCats.length; i++) {
+        if (i === myCats.length - 1) msgFor = `${msgFor}${myCats[i]}.`;
+        else if (i === myCats.length - 2) msgFor = `${msgFor}${myCats[i]} and `;
+        else msgFor = `${msgFor}${myCats[i]}, `;
     }
+    console.log(msgFor);
+    // My cats are called Pete, Biggles, Jasmine and Tom.
     ```
 
+* `for..in` solution - almost the same as the above, but note the we need to convert the `index` to a number.
+
     ```js
-    // If..else solution
-    function testScore(score) {
-        if (score > 50 && score <= 100) {
-            console.log("Score is higher than 50");
-        } else if (score <= 50 && score >= 0) {
-            console.log("Score is 50 or lower");
-        } else {
-            console.log("The Score is not in the range [0-100]!");
-        }
+
+    let msgForIn = msg;
+    for (const index in myCats) {
+        const i = Number(index);
+        if (i === myCats.length - 1) msgForIn = `${msgForIn}${myCats[i]}.`;
+        else if (i === myCats.length - 2) msgForIn = `${msgForIn}${myCats[i]} and `;
+        else msgForIn = `${msgForIn}${myCats[i]}, `;
     }
+    console.log(msgForIn);
+    // My cats are called Pete, Biggles, Jasmine and Tom.
     ```
+
+**3.** Exiting loops with `break;`. If you want to exit a loop before all the iterations have been completed, you can use the `break` statement. The `break` statement will immediately exit the loop (as it is when we use it with a `switch` statement) and make the browser move on to any code that follows it.
+
+* Example task: [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#exiting_loops_with_break):
+
+    > *Say we wanted to search through an array of contacts and telephone numbers and return just the number we wanted to find?* 
+
+* JavaScript file: [example_search_contact_break_loop.js](./example_search_contact_break_loop.js).
+
+* Live example: [here](./loops.index.html#contactsBreakLoop).
+
+**4.** Accomplish the same ask as in **<3>** but by using the `.find()` method.
+
+* JavaScript file: [example_search_contact_find.js](./example_search_contact_find.js).
+
+* Live example: [here](./loops.index.html#contactsFind).
