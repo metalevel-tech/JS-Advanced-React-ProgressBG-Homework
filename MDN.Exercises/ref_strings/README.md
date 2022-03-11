@@ -1,4 +1,4 @@
-## Strings - references
+## Strings, references
 
 * [MDN: Handling text - Strings in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings)
 
@@ -8,6 +8,6 @@
 
 ## Exercises and the most interesting parts
 
-* [Useful String Methods](./useful_string_methods.js)
+* [Useful String Methods](./useful_string_methods.js).
 
-* [Template literals Strings Methods](./template_literals.js)
+* [Template literals Strings Methods](./template_literals.js).
