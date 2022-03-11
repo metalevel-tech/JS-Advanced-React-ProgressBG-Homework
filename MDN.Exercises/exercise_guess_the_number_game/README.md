@@ -1,6 +1,6 @@
 # Guess the number game | MDN JavaScript Guide
 
-[Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/guess_the_number_game/number-guessing-game-start.index.html) of the end result. 
+[Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.index.html) of the end result. 
 
 Source and references:
 
