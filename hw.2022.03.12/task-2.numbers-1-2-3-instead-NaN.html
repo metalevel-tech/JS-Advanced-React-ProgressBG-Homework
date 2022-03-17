@@ -5,27 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>thisInEventListener </title>
 	<style>
-        div#output {            
-            padding: 3px 6px;
-            margin: 6px 0;
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            width: 1.6em;
-            text-align: center;
-        }
+
 	</style>
 </head>
 <body>
 	<button class="btn-tick">Tick</button>
-    <div id="output">&nbsp;</div>
 	<script>
 		// Do not change the object
 		const counter = {
-			currentCount: 0,
-            output: document.getElementById('output'),
+			currentCount : 0,
 			tick(){
 				this.currentCount+=1;
-				this.output.textContent = this.currentCount;
+				console.log(this.currentCount);
 			}
 		}
 
