@@ -23,6 +23,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 * [Manipulating documents](ref_manipulating_documents/)
    
+* [Functions](ref_functions/)
 
 
 ## TOC: Guides, Tutorials and References
