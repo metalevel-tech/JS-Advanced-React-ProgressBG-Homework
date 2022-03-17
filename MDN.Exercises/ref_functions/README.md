@@ -149,3 +149,54 @@ params => ({foo: "a"}) // returning the object {foo: "a"}
 ([a, b] = [10, 20]) => a + b;  // result is 30
 ({ a, b } = { a: 10, b: 20 }) => a + b; // result is 30
 ```
+
+### Recursion 
+
+For example, consider the following function definition:
+```js
+var foo = function bar() {
+   // statements go here
+}
+```
+
+Within the function body, the following are all equivalent:
+
+* `bar()`;
+
+* `arguments.callee()`;
+
+* `foo()`;
+
+A function that calls itself is called a recursive function. In some ways, recursion is analogous to a loop. Both execute the same code multiple times, and both require a condition (to avoid an infinite loop, or rather, infinite recursion in this case).
+
+For example, the following loop...
+
+```js
+let x = 0;
+while (x < 10) {
+  console.log(x);
+  x++;
+}
+```
+
+...can be converted into a recursive function declaration, followed by a call to that function:
+
+```js
+function loop(x) {
+  if (x >= 10) return;
+  console.log(x);
+  loop(x + 1);  // the recursive call
+}
+```
+
+However, some algorithms cannot be simple iterative loops. For example, getting all the nodes of a tree structure (such as the DOM) is easier via recursion:
+
+```js
+function walkTree(node) {
+  if (node == null) return;
+  // do something with node
+  for (let i = 0; i < node.childNodes.length; i++) {
+    walkTree(node.childNodes[i]);
+  }
+}
+```

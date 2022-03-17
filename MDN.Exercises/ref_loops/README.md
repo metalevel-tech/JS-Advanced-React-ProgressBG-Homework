@@ -2,6 +2,8 @@
 
 * [MDN: Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_codes)
 
+* [Standard `for` loop statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+  
 * [MDN: `break` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break), read [`break` in `label`-ed blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break#break_in_labeled_blocks).
  
 * [MDN: `continue` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue), read [using `continue` with a `label`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue#using_continue_with_a_label).
@@ -144,6 +146,30 @@
     console.log(msgDoWhile);
     // My cats are called Pete, Biggles, and Jasmine.
     ```
+
+* [`break`-ing to a `label:`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#example_2_breaking_to_a_label)
+
+    ```js
+    let x = 0;
+    let z = 0;
+    labeledLoop1: while (true) {
+        console.log(`Outer loops: ${x}`);
+        x++;
+        z = 1;
+
+        while (true) {
+            console.log(`Inner loops: ${z}`);
+            z++;
+
+            if (z === 10 && x === 10) {
+                break labeledLoop1;
+            } else if (z === 10) {
+                break;
+            }
+        }
+    }
+    ```
+
 ## Exercises
 
 **Exercise 1.** Create list items:
