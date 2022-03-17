@@ -1,4 +1,4 @@
-## 05.03.2022 [TASK 1: The Factory as mechanism to enforce encapsulation](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/OOPinJS/OOPinJS.html#/taskTheFactoryAsMechanismToEnforceEncapsulation)
+[TASK: The Factory as mechanism to enforce encapsulation](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/OOPinJS/OOPinJS.html#/taskTheFactoryAsMechanismToEnforceEncapsulation)
 
 * Factory implementation - this is the solution of the task:
 
