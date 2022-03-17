@@ -19,13 +19,16 @@
 	<button class="btn-tick">Tick</button>
     <div id="output">&nbsp;</div>
 	<script>
+		'use strict';
 		// Do not change the object
 		const counter = {
 			currentCount: 0,
             output: document.getElementById('output'),
+			log: console.log,
 			tick(){
 				this.currentCount+=1;
 				this.output.textContent = this.currentCount;
+				this.log(this.currentCount);
 			}
 		}
 
