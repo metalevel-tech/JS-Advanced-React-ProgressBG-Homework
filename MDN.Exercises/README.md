@@ -59,7 +59,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code)
 
-    * [ ] [Functions - Reusable blocks of code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
+    * [x] [Functions - Reusable blocks of code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
 
     * [ ] [Build your own function](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function)
 
@@ -142,7 +142,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [ ] [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
 
-	* [ ] [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+	* [x] [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 
 	* [ ] [Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
 
@@ -186,7 +186,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [ ] [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-    * [ ] [Strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+    * [x] [Strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 
     * [ ] [JavaScript typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
 
