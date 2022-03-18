@@ -1,7 +1,7 @@
 # JS-Advanced-React-ProgressBG-Homework
 
 ## Tasks [2022.03.13](./hw.2022.03.13)
-Task: [Developer_Manager_Person - Task Description](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription)
+Task: [*Developer_Manager_Person - Task Description*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription)
 
 * Solution with Constructors: [**task-1.Developer_Manager_Person.with.constructor.js**](./hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.js) ([live preview](https://metalevel-tech.github.io/js_homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.html))
 
