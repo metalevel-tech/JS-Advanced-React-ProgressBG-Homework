@@ -25,6 +25,8 @@ Note the internal links will behave in a different way when you browse this *pag
    
 * [Functions](ref_functions/)
 
+* [ES6 Classes](ref_es6_classes/)
+
 
 ## TOC: Guides, Tutorials and References
 
@@ -64,7 +66,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Build your own function](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function)
 
-    * [ ] [Function return values](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values)
+    * [x] [Function return values](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values)
 
     * [ ] [Introduction to events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 
@@ -80,7 +82,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [ ] [Object-oriented programming concepts](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming)
 
-    * [ ] [Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+    * [x] [Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
 
     * [ ] [Working with JSON data](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
 
