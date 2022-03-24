@@ -169,34 +169,52 @@ console.log(dev_2.skills);
 dev_2.password = 'some simple';
 console.log(dev_2);
 
+const dev_3 = new Developer('Jury', 31, 'the password', ['JavaScript', 'AJAX', 'jQuery']);
+//
+console.log(`\nPerson count: ${Person.count}, Developer count: ${Developer.count}`);
+console.log(dev_3);
+console.log(Developer.employeePercentage());
+console.log(dev_3.greet());
+console.log(dev_3.skills);
+console.log(dev_3.password);
+
 /** 
  * Create 'sub' 'class' Manager
  */
  class Manager extends Person {
-    // field declaration: list of only the new members of the new objects
-    #managed = [];
-
+     // field declaration: list of only the new members of the new objects
+    #managed = [];  // array of objects
+    
     // model of the new objects that will be constructed by this class
     constructor(name = 'manager', age = 0, password, managed = []) {
         super(name, age, password);
         this.#managed = managed;
     }
-
+    
     // Model of the prototype of the new objects
     get managed() {
-        return `Hello, I'm ${this.name} and I menage: ${this.#managed.join(', ').replace(/ \,$/, '')}.`;
+        return `Hello, I'm ${this.name} and I menage: ${this.#managed.map(employee => employee.name).join(', ').replace(/ \,$/, '')}.`;
     }
-    set addSkill(skill) {
-        if (skill) {
-            this.#managed.push(skill);
-            console.log(`${this.name}'s managed were upgraded!`);
+    set addTeamMember(member) {
+        if (typeof(member) === 'object') {
+            this.#managed.push(member);
+            console.log(`${this.name}'s team was grown!`);
         }
     }
-
+    
     static count = 0;
     static counter() { this.count++; Person.counter(); }
-    // we can't use `super.counter()` here,
-    // because it does the same as `this.constructor.counter()`, 
-    // but `this.constructor === Developer` so it increments
-    // the `static count` value of Developer class...
 }
+const manager = new Manager('George', 45, 'gogo\'s password', [dev_1, dev_2]);
+console.log(`\nPerson count: ${Person.count}, Developer count: ${Developer.count}, Manager count: ${Manager.count}`);
+console.log(manager.greet());
+console.log(manager.managed);
+manager.addTeamMember = dev_3;
+console.log(manager.managed);
+manager.addTeamMember = person_3;
+console.log(manager.managed);
+
+//
+console.log(`\nPerson count: ${Person.count}, Developer count: ${Developer.count}, Manager count: ${Manager.count}`);
+console.log(Developer.employeePercentage());
+console.log(Manager.employeePercentage());
