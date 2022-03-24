@@ -126,7 +126,7 @@ class Developer extends Person {
 
     // Model of the prototype of the new objects
     get skills() {
-        return `Hello, I'm ${this.name} and I know: ${this.#skills.join(', ').replace(/ \,$/, '')}.`;
+        return `Hello, I'm ${this.name} and I know: ${this.#skills.join(', ').replace(/,(\s+[^,]+)/, ' and$1')}.`;
     }
     set addSkill(skill) {
         if (skill) {
@@ -193,7 +193,7 @@ console.log(dev_3.password);
     
     // Model of the prototype of the new objects
     get managed() {
-        return `Hello, I'm ${this.name} and I menage: ${this.#managed.map(employee => employee.name).join(', ').replace(/ \,$/, '')}.`;
+        return `Hello, I'm ${this.name} and I menage: ${this.#managed.map(employee => employee.name).join(', ').replace(/,(\s+[^,]+)$/, ' and$1')}.`;
     }
     set addTeamMember(member) {
         if (typeof(member) === 'object') {

@@ -1,5 +1,21 @@
 # JS-Advanced-React-ProgressBG-Homework
 
+
+## Tasks [2022.03.20](./hw.2022.03.20)
+Task 3: [*Sort array of objects by key*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/25/2)
+
+* Solution: [task-3.Sort_array_of_objects_by_key.js](./hw.2022.03.20/task-3.Sort_array_of_objects_by_key.js)
+
+Task 2: [*Sort array of strings*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/createNewSortedArray)
+
+* Solution: [task-2.Sort_array_of_strings.js](./hw.2022.03.20/task-2.Sort_array_of_strings.js)
+
+Task 1: [*Developer_Manager_Person with Class Syntax- task description*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/DeveloperManagerPersonClassSyntaxTaskDescription)
+
+* Solution (already made - see the Tasks from 2022.03.13): [**task-1.Developer_Manager_Person.with.es6.classes.js**](./hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.js) ([live preview](https://metalevel-tech.github.io/js_homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.html))
+
+* Extend exercise which includes private members, static constructor members and more: [**es6-classes.js**](labs/es6-classes.js)
+
 ## Tasks [2022.03.13](./hw.2022.03.13)
 Task: [*Developer_Manager_Person - Task Description*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription)
 
