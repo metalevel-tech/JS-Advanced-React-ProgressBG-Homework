@@ -1,0 +1,28 @@
+update after JS Inheritance:
+	// the "magic" of "new" keyword:
+	// 1. this = {}
+	// 2. this.__proto = Student.prototype
+	// 3. return this
+
+update Decorator examples not to be "fake"
+use lab14/observerPattern code to make it meaningfull...
+
+example on sync vs asyn XHR request
+
+Demo and fix for: https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/ReactComponentsAndElements/ReactComponentsAndElements.html#/11
+
+React el vs DOM el
+
+Update https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/ReactPropsState/ReactPropsState.html#/5/5
+	add example with function sytax method
+
+25.11.2021
+Update slides with es6 modules in browser demo
+
+07.12.2021:
+Update slides with fetch api demo with arrow syntax
++ example for multiple fetch with axios
+
+19.03.2022
+Merge https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/9/1 with prev slide
+Fix:https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/9/1
