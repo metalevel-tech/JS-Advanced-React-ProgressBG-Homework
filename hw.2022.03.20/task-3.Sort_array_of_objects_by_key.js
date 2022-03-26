@@ -39,14 +39,12 @@ const todos = [
 function sortArrayByKey(arr, key) {
     return arr.sort((a, b) => {
         // case insensitivity, get the ASCII number
-        // it works with the first char like we use a[key][0]
         const A = a[key].toLowerCase().charCodeAt();
         const B = b[key].toLowerCase().charCodeAt();
         return A - B;
     });
 }
-
-sortArrayByKey(todos, 'priority').forEach(el => console.log(el));
+// sortArrayByKey(todos, 'priority').forEach(el => console.log(el));
 
 /* --------------------------- YOUR CODE ENDS HERE -------------------------- */
 
