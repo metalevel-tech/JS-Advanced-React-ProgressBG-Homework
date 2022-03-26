@@ -37,15 +37,20 @@ const todos = [
 /* -------------------------- YOUR CODE STARTS HERE ------------------------- */
 
 function sortArrayByKey(arr, key) {
-    return arr.sort((a, b) => {
+	const newArr = [...arr];
+    return newArr.sort((a, b) => {
         // case insensitivity, get the ASCII number
         const A = a[key].toLowerCase().charCodeAt();
         const B = b[key].toLowerCase().charCodeAt();
         return A - B;
     });
 }
-// sortArrayByKey(todos, 'priority').forEach(el => console.log(el));
 
+sortArrayByKey(todos, 'priority').forEach(el => console.log(el));
+console.log('_'.repeat(10));
+
+todos.forEach(el => console.log(el));
+console.log('_'.repeat(10));
 /* --------------------------- YOUR CODE ENDS HERE -------------------------- */
 
 // TEST CASE (do not modify):
