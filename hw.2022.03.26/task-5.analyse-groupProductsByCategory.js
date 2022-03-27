@@ -46,7 +46,8 @@ const products = [
 
 /* -------------------------- Solution with forLoop ------------------------- */
 function groupProductsByCategory_ForLoop(products) {
-	let groupedProducts = [];
+	let groupedProducts = {};
+	// let groupedProducts = [];
 
 	for (let i = 0; i < products.length; i++) {
 		const product = products[i];
@@ -72,11 +73,16 @@ function groupProductsByCategory_Reduce(products) {
 		}
 		acc[product.category].push(product);
 		return acc;
-	}, []);
-    // }, {});
+    }, {});
+	// }, []);
 }
 
 
 // TEST:
+console.time('label: groupProductsByCategory_ForLoop');
 console.log( groupProductsByCategory_ForLoop(products) );
+console.timeEnd('label: groupProductsByCategory_ForLoop');
+
+console.time('label: groupProductsByCategory_Reduce');
 console.log( groupProductsByCategory_Reduce(products) );
+console.timeEnd('label: groupProductsByCategory_Reduce');
