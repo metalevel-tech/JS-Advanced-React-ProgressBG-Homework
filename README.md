@@ -1,5 +1,26 @@
 # JS-Advanced-React-ProgressBG-Homework
 
+## Tasks [2022.03.26](./hw.2022.03.26)
+
+Task 5: [*Map array of objects*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/analyseGroupProductsByCategory)
+
+* Solution: [task-5.analyse-groupProductsByCategory.js](./hw.2022.03.26/task-5.analyse-groupProductsByCategory.js)
+
+Task 4: [*Map array of objects*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/mapArrayOfObjects)
+
+* Solution: [task-4.mapArrayOfObjects.js](./hw.2022.03.26/task-4.mapArrayOfObjects.js)
+
+Task 3: [*Calc products prices*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/calcProductsPrices)
+
+* Solution: [task-3.calcProductsPrices.js](./hw.2022.03.26/task-3.calcProductsPrices.js)
+
+Task 2: [*Sum of squares of even numbers*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/sumOfSquaresOfEvenNumbers)
+
+* Solution: [task-2.sumOfSquaresOfEvenNumbers.js](./hw.2022.03.26/task-2.sumOfSquaresOfEvenNumbers.js)
+
+Task 1: [*Filter Words Starting WithLetter*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/filterWordsStartingWithLetter)
+
+* Solution: [task-1.filterWordsStartingWithLetter.js](./hw.2022.03.26/task-1.filterWordsStartingWithLetter.js)
 
 ## Tasks [2022.03.20](./hw.2022.03.20)
 Task 3: [*Sort array of objects by key*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/25/2)

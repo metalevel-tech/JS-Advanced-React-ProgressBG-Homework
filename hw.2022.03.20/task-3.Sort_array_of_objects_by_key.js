@@ -46,11 +46,11 @@ function sortArrayByKey(arr, key) {
     });
 }
 
-sortArrayByKey(todos, 'priority').forEach(el => console.log(el));
-console.log('_'.repeat(10));
+// sortArrayByKey(todos, 'priority').forEach(el => console.log(el));
+// console.log('_'.repeat(10));
 
-todos.forEach(el => console.log(el));
-console.log('_'.repeat(10));
+// todos.forEach(el => console.log(el));
+// console.log('_'.repeat(10));
 /* --------------------------- YOUR CODE ENDS HERE -------------------------- */
 
 // TEST CASE (do not modify):
