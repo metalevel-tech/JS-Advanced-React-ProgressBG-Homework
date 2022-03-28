@@ -16,7 +16,7 @@ console.log(`usersSortedAlphabetically:\n\t${usersSortedAlphabetically}`);
 /*                              EXPECTED OUTPUT:                              */
 /* -------------------------------------------------------------------------- */
 // users:
-//  Maria,Ada,Ivan
+//      Maria,Ada,Ivan
 //
 // usersSortedAlphabetically:
-//  Ada,Ivan,Maria
+//      Ada,Ivan,Maria
