@@ -1,5 +1,5 @@
 /**
- * Create 'super' 'class' Person
+ * Create 'super' 'class' Person 
  */
 class Person {
     // field declaration: list of the members of the new objects
