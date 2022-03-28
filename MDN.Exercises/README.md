@@ -27,6 +27,8 @@ Note the internal links will behave in a different way when you browse this *pag
 
 * [ES6 Classes](ref_es6_classes/)
 
+* [Events](ref_events/)
+
 
 ## TOC: Guides, Tutorials and References
 
@@ -68,13 +70,13 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Function return values](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values)
 
-    * [ ] [Introduction to events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+    * [x] [Introduction to events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 
     * [ ] Assessment: [Image gallery](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery)
 
-  * [ ] [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
+  * [x] [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
-    * [ ] [Introducing JavaScript objects overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
+    * [x] [Introducing JavaScript objects overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
     * [ ] [Object basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
 

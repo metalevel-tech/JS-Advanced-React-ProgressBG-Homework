@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            line-height: 1.75;
+        }
+        kbd {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px;
+        }
+        .btn {
+            margin: 0 auto;
+            border: 1px solid #888;
+            padding: .5em;
+            border-radius: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+        #btn1 {
+            cursor: pointer;
+        }
+        .box * {
+            user-select: none;
+        }
+        .box > * {
+            cursor: pointer;
+        }
+        .box {
+            max-width: 600px;
+            margin: 1em auto;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1em;
+            box-sizing: border-box;
+            overflow: hidden;
+            height: auto;
+        }
+        body > .box {
+            min-height: 6em;
+        }
+        .box > *:first-child {
+            margin-top: 0;
+        }
+        .box > *:last-child {
+            margin-bottom: 0;
+        }
+        .box > p {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .box input.type-here {
+            line-height: 2em;
+            padding: 1em;
+            border: 1px solid #a5c;
+            border-radius: 3px;
+        }
+        .box input.type-here + label {
+            display: inline-block;
+            border: 1px solid #ddd;
+            padding: .5em;
+            margin: 0 1em;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+   
+    <style>
+        #box6 > form label {
+            width: 80px;
+            display: inline-block;
+        }    
+        #box6 > form > div {
+            line-height: 3em;
+        }
+    </style>
+    <div id="box6" class="box">
+        <form>
+            <div>
+                <label for="fname">First name:</label>
+                <input id="fname" name="fname" type="text" placeholder="Yur first name">
+            </div>
+            <div>
+                <label for="lname">Last name:</label>
+                <input id="lname" name="lname" type="text" placeholder="Yur last name">
+            </div>
+            <div>
+                <input id="submit" type="submit">
+            </div>
+
+        </form>
+        <p></p>
+    </div>
+    <script>
+        (function() {
+      
+        })();
+    </script>
+</body>
+</html>
