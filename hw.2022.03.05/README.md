@@ -24,7 +24,7 @@
 
       In both variants, the private *members* could be accessed from the outside, as it it is shown at the bottom of the file.
 
-* Play with `WeakMap()` and ES6 Classes:
+* **Play with `WeakMap()` and ES6 Classes:**
 
     * [t1.WeakMap.and.ES6.Class.Proto.js](t1.WeakMap.and.ES6.Class.Proto.js)
 
