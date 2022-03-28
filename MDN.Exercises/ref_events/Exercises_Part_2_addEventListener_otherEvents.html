@@ -95,21 +95,24 @@
     <div id="box1" class="box">
         <p>Press <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> to change the color.    </p>
         <div style="position: relative; min-height: 2em; padding: 0;">
+            <input id="hidden" style="opacity: 0; height:0; position: absolute;">   
             <button id="btn_1" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left: 0;">Tab</button>
             <button id="btn_2" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left:calc(50% - 15%);">Tab</button>
-            <button id="btn_3" class="btn" style="width:30%; margin: auto; display: block; position: absolute; right:0;">Shift+Tab</button>   
+            <button id="btn_3" class="btn" style="width:30%; margin: auto; display: block; position: absolute; right:0;">Tab</button>
         </div>
         <div style="height: auto; width: 100%;" class="box successOutput">
-            <pre style="overflow-x: auto;">buttons.forEach(button => button.addEventListener('focus', evHandler));
-buttons.forEach(button => button.addEventListener('blur', evHandler));</pre></div>
+            <pre style="overflow-x: auto;">buttons.forEach(btn => btn.addEventListener('focus', evHandler));
+buttons.forEach(btn => btn.addEventListener('blur', evHandler));</pre></div>
     </div>
     <script>
         (function() {
             const buttons = document.querySelectorAll('#box1 button');
             const output = document.querySelector('#box1 .successOutput');
-            const canvas = document.getElementById('box1');
+            const hidden = document.getElementById('hidden');
             
-            buttons[0].focus();
+            document.addEventListener('DOMContentLoaded', () => hidden.focus(), false);
+            document.addEventListener('click', () => { hidden.focus(); }, false);
+            
             // buttons[0].addEventListener('blur', (ev) => {ev.preventDefault(); buttons[1].focus();});
             // buttons[1].addEventListener('blur', (ev) => {ev.preventDefault(); buttons[2].focus();});
             buttons[2].addEventListener('blur', (ev) => {ev.preventDefault(); buttons[0].focus();});
@@ -121,29 +124,30 @@ buttons.forEach(button => button.addEventListener('blur', evHandler));</pre></di
             }
 
             function evHandler(event) {
+                // event.preventDefault()
                 console.log(event.target.id);
-                const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+                const randomColor = `rgba(${random(255)}, ${random(255)}, ${random(255)}, 30%)`;
                 event.target.style.backgroundColor = randomColor;
             }
 
-            buttons.forEach(button => button.addEventListener('focus', evHandler));
-            buttons.forEach(button => button.addEventListener('blur', evHandler));
+            // buttons.forEach(btn => btn.addEventListener('click', (event) => event.preventDefault()));
+            buttons.forEach(btn => btn.addEventListener('focus', evHandler));
+            buttons.forEach(btn => btn.addEventListener('blur', evHandler));
             
             
         })();
     </script>
 
     <div id="box2" class="box">
-        <p>Press <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> to change the color.    </p>
+        <p>Hover the buttons.</p>
         <div style="position: relative; min-height: 2em; padding: 0;">
             <button id="btn_1" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left: 0;">Hover</button>
             <button id="btn_2" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left:calc(50% - 15%);">Hover</button>
             <button id="btn_3" class="btn" style="width:30%; margin: auto; display: block; position: absolute; right:0;">Hover</button>   
         </div>
         <div style="height: auto; width: 100%;" class="box successOutput">
-            <pre style="overflow-x: auto;">buttons.forEach(button => button.addEventListener('mouseover', evHandler));
-buttons.forEach(button => button.addEventListener('mouseout', evHandler));
-            </pre>
+            <pre style="overflow-x: auto;">buttons.forEach(btn => btn.addEventListener('mouseover', evHandler));
+buttons.forEach(btn => btn.addEventListener('mouseout', evHandler));</pre>
         </div>
     </div>
     <script>
@@ -159,15 +163,12 @@ buttons.forEach(button => button.addEventListener('mouseout', evHandler));
 
             function evHandler(event) {
                 console.log(event.target.id);
-                const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+                const randomColor = `rgba(${random(255)}, ${random(255)}, ${random(255)}, 30%)`;
                 event.target.style.backgroundColor = randomColor;
             }
 
-            buttons.forEach(button => button.addEventListener('mouseover', evHandler));
-            buttons.forEach(button => button.addEventListener('mouseout', evHandler));
-            
-
-
+            buttons.forEach(btn => btn.addEventListener('mouseover', evHandler));
+            buttons.forEach(btn => btn.addEventListener('mouseout', evHandler));
         })();
     </script>
 </body>

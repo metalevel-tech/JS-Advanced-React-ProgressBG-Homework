@@ -70,39 +70,73 @@
             margin: 0 1em;
             border-radius: 3px;
         }
+        .box > button.btn {
+            float:left;
+            margin-right: 1em;
+        }
     </style>
 </head>
 <body>
-   
-    <style>
-        #box6 > form label {
-            width: 80px;
-            display: inline-block;
-        }    
-        #box6 > form > div {
-            line-height: 3em;
-        }
-    </style>
-    <div id="box6" class="box">
-        <form>
-            <div>
-                <label for="fname">First name:</label>
-                <input id="fname" name="fname" type="text" placeholder="Yur first name">
-            </div>
-            <div>
-                <label for="lname">Last name:</label>
-                <input id="lname" name="lname" type="text" placeholder="Yur last name">
-            </div>
-            <div>
-                <input id="submit" type="submit">
-            </div>
-
-        </form>
-        <p></p>
+    <div id="box0" class="box">
+        <button id="btn_1" class="btn">Change color</button>
+        <button id="btn_2" class="btn"><code> btn1.removeEventListener('click', boxClick)</code></button>
     </div>
     <script>
         (function() {
-      
+            const btn1 = document.querySelector('#box0 #btn_1');
+            const btn2 = document.querySelector('#box0 #btn_2');
+            const box = document.getElementById('box0');
+    
+            function random(number) {
+                return Math.floor(Math.random() * (number + 1));
+            }
+    
+            function boxClick() {
+                const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+                box.style.backgroundColor = randomColor;
+            }
+
+            btn1.addEventListener('click', boxClick);
+            btn2.addEventListener('click', function() {
+                this.style.backgroundColor = '#ccc';
+                btn1.removeEventListener('click', boxClick);
+            });
+
+        })();
+    </script>
+
+    <div id="box1" class="box">
+        <button id="btn_1" class="btn">Change color</button>
+        <button id="btn_2" class="btn"><code>controller.abort()</code></button>
+    </div>
+    <script>
+        (function() {
+            const btn1 = document.querySelector('#box1 #btn_1');
+            const btn2 = document.querySelector('#box1 #btn_2');
+            const box = document.getElementById('box1');
+    
+            function random(number) {
+                return Math.floor(Math.random() * (number + 1));
+            }
+    
+            function boxClick() {
+                const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+                box.style.backgroundColor = randomColor;
+            }
+
+            // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+            // https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+            // https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+            var controller = new AbortController();
+            btn1.addEventListener('click', boxClick, {
+                signal: controller.signal
+            });
+
+            btn2.addEventListener('click', function() {
+                this.style.backgroundColor = '#ccc';
+                controller.abort();
+            });
+
         })();
     </script>
 </body>

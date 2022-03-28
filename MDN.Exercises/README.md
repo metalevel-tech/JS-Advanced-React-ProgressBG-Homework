@@ -78,7 +78,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Introducing JavaScript objects overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
-    * [ ] [Object basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+    * [x] [Object basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
 
     * [ ] [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
@@ -165,7 +165,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [ ] [Details of the object model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
 
-	* [ ] [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+	* [ ] [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) + [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
 
 	* [ ] [Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
 

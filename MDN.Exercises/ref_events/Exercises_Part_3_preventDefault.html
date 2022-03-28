@@ -73,7 +73,6 @@
     </style>
 </head>
 <body>
-   
     <style>
         #box6 > form label {
             width: 80px;
@@ -81,6 +80,10 @@
         }    
         #box6 > form > div {
             line-height: 3em;
+        }
+        p.msg {
+            border: 1px solid #ccc;
+            border-radius: 3px;
         }
     </style>
     <div id="box6" class="box">
@@ -98,11 +101,38 @@
             </div>
 
         </form>
-        <p></p>
+        <p class="msg">&nbsp;</p>
     </div>
     <script>
         (function() {
-      
+            const nodes = {
+                box: document.querySelector('#box6'),
+                form: document.querySelector('#box6 form'),
+                fname: document.querySelector('#box6 #fname'),
+                lname: document.querySelector('#box6 #lname'),
+                submit: document.querySelector('#box6 #submit'),
+                p: document.querySelector('#box6 p.msg')
+            };
+            const {
+                box,
+                form,
+                fname,
+                lname,
+                submit,
+                p
+            } = nodes;
+            const onSubmit = (e) => {
+                e.preventDefault();
+  
+                if (fname.value && lname.value) {
+                    p.innerHTML = `Hello, ${fname.value} ${lname.value}!`;
+                    p.style.backgroundColor = '';                  
+                } else {
+                    p.innerHTML = 'Please, fill in the form!';
+                    p.style.backgroundColor = '#faa';
+                }             
+            };
+            form.addEventListener('submit', onSubmit);
         })();
     </script>
 </body>
