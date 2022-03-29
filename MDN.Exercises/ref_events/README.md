@@ -42,7 +42,9 @@
 
 * [Exercises Part 7](./Exercises_Part_7_event_delegation.html) `Event delegation`
 
-* Exercise: [Move Circle](./Exercise_move_a_circle.html) ([source](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Events#events_2))
+* Exercise: [Move a Circle](./Exercise_move_a_circle.html) ([source](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Events#events_2))
+
+* Exercise: [Move a Circle with setInterval](./Exercise_move_a_circle_setInterval.html) extends the above.
 
 * Exercise: [Change color from data-attribute and use `event.target.matches('button')`](./Exercise_buttons_data-attribute.html) ([source](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Events#events_2))
 
