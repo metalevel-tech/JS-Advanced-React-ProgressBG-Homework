@@ -4,7 +4,6 @@
 Source and references:
 
 * [MDN: Image gallery](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery)
-us.html)
 
 ## Condition of the task
 
@@ -20,4 +19,4 @@ us.html)
 
 * The HTML file [image-gallery-exercise-index.html](./image-gallery-exercise-index.html).
 
-* The JavaScript file [image-gallery-exercise-index.html](./image-gallery-exercise-index.html). Actually I've tested GitHub Copilot here :)
+* The JavaScript file [image-gallery-exercise-index.html](./image-gallery-exercise-index.js). Actually I've tested GitHub Copilot here :)
