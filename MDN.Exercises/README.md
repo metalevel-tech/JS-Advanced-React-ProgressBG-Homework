@@ -6,10 +6,11 @@ Note the internal links will behave in a different way when you browse this *pag
 
 ## Exercises
 
-* Silly story generator assessment: [README.md](exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
+* Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
-* Guess the number game: [README.md](exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
- 
+* Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
+
+* Image gallery: [README.md](./exercise_image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_image_gallery/image-gallery-exercise-index.html). 
 
 ## Lessons, notes and exercises
 
@@ -72,7 +73,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Introduction to events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 
-    * [ ] Assessment: [Image gallery](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery)
+    * [x] Assessment: [Image gallery](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery)
 
   * [x] [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
@@ -80,9 +81,9 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Object basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
 
-    * [ ] [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+    * [x] [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
-    * [ ] [Object-oriented programming concepts](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming)
+    * [x] [Object-oriented programming concepts](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming)
 
     * [x] [Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
 
@@ -132,7 +133,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
   * [x] [JavaScript First Steps](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
 
-   * [ ] [JavaScript building blocks](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks)
+   * [x] [JavaScript building blocks](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks)
 
   * [ ] [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
