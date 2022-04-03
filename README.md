@@ -1,5 +1,13 @@
 # JS-Advanced-React-ProgressBG-Homework
 
+## Tasks [2022.04.02](./hw.2022.04.02)
+
+Task 1: [*From a given string find and print all words, which are 3 characters or more length and doesn't start with a number*](https://gist.githubusercontent.com/WWWCourses/f9212e587f8cf874c5b198c99147a27e/raw/b1797eba087773c354da00e75814592fdd8626f1/findAllWords.js)
+
+* Solution: [task-1.find-and-print-all-words-3-or-more-chars-long.js](./hw.2022.04.02/task-1.find-and-print-all-words-3-or-more-chars-long.js)
+
+* The solution at [regex101.com](https://regex101.com/r/Hx9DUl/1)
+
 ## Tasks [2022.03.26](./hw.2022.03.26)
 
 Task 5: [*Map array of objects*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/analyseGroupProductsByCategory)
