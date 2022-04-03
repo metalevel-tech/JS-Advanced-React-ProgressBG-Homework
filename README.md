@@ -4,7 +4,7 @@
 
 Task 5: [*Map array of objects*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/analyseGroupProductsByCategory)
 
-* Solution: [task-5.analyse-groupProductsByCategory.js](./hw.2022.03.26/task-5.analyse-groupProductsByCategory.js)
+* Solution: [task-5.analyze-groupProductsByCategory.js](./hw.2022.03.26/task-5.analyze-groupProductsByCategory.js)
 
 Task 4: [*Map array of objects*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/mapArrayOfObjects)
 
