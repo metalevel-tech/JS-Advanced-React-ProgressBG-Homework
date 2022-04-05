@@ -29,6 +29,8 @@ Note the internal links will behave in a different way when you browse this *pag
 * [ES6 Classes](ref_es6_classes/)
 
 * [Events](ref_events/)
+  
+* [Regular Expressions](ref_regexp/)
 
 
 ## TOC: Guides, Tutorials and References
@@ -156,7 +158,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [ ] [Text formatting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting)
 
-	* [ ] [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+	* [x] [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 	* [ ] [Indexed collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections)
 
