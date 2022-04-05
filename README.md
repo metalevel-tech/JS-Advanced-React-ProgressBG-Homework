@@ -6,7 +6,8 @@ Task 1: [*From a given string find and print all words, which are 3 characters o
 
 * Solution: [task-1.find-and-print-all-words-3-or-more-chars-long.js](./hw.2022.04.02/task-1.find-and-print-all-words-3-or-more-chars-long.js)
 
-* The solution at [regex101.com](https://regex101.com/r/Hx9DUl/1)
+Exercise 1: Learn how actually `RexExp.exec()` works and why `rx.lastIndex` is not terminated after each execution - [exercise-1.String.methods-vs.RegExp.methods.js](./hw.2022.04.02/exercise-1.String.methods-vs.RegExp.methods.js)
+
 
 ## Tasks [2022.03.26](./hw.2022.03.26)
 
