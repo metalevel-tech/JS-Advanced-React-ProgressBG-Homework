@@ -33,7 +33,7 @@
 
     If you only want to know if it exists, use the similar `test()` method on the `RegExp` prototype, which **returns a boolean** and it is faster.
 
- * [`str.split(separator, limit)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - divides a `String` into an ordered list of substrings, puts these substrings into an array, and **returns the array**. The division is done by searching for a pattern; where the `pattern` is provided as the first parameter in the method's call.
+  * [`str.split(separator, limit)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - divides a `String` into an ordered list of substrings, puts these substrings into an array, and **returns the array**. The division is done by searching for a pattern; where the `pattern` is provided as the first parameter in the method's call.
  
     The `separator` can be a simple *string* or it can be a *RegExp*. If `separator` is a **regular expression** that contains capturing parentheses ( ), matched results are included in the array.
 
