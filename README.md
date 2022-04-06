@@ -1,5 +1,13 @@
 # JS-Advanced-React-ProgressBG-Homework
 
+## Tasks [2022.04.03](./hw.2022.04.03)
+
+Exercise: Play with RegExp at [Regular expressions 101](https://regex101.com/account/library) and also here:
+
+ * [exercise-1.regexp-match.html](./hw.2022.04.03/exercise-1.regexp-match.html)
+
+ * Live preview: [**exercise-1.regexp-match.html**](https://metalevel-tech.github.io/js_homework/hw.2022.04.03/exercise-1.regexp-match.html)
+
 ## Tasks [2022.04.02](./hw.2022.04.02)
 
 Task 1: [*From a given string find and print all words, which are 3 characters or more length and doesn't start with a number*](https://gist.githubusercontent.com/WWWCourses/f9212e587f8cf874c5b198c99147a27e/raw/b1797eba087773c354da00e75814592fdd8626f1/findAllWords.js)
