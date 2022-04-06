@@ -3,7 +3,9 @@
 * [**regular-expressions.info**](https://www.regular-expressions.info/lookaround.html)
 
 * [**regex101.com**](https://regex101.com/)
-  
+
+* [YouTube: Best of Fluent 2012: /Reg(exp){2}lained/: Demystifying Regular Expressions](https://www.youtube.com/watch?v=EkluES9Rvak&list=PL-BwA4EWrxLCZ73--QvjEd1IOkJsfTa05&index=1)
+
 * [MDN: Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            line-height: 1.75;
+        }
+
+        kbd {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px;
+        }
+
+        .box * {
+            user-select: none;
+        }
+
+        
+        .box {
+            max-width: 800px;
+            margin: 1em auto;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1em;
+            box-sizing: border-box;
+            overflow: hidden;
+            height: auto;
+            position: relative;
+        }
+
+        body > .box {
+            min-height: 6em;
+        }
+
+        .box > *:first-child> *:first-child,
+        .box > *:first-child {
+            margin-top: 0;
+        }
+
+        .box > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .box > p {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .regExpContainer {
+            border: 1px solid #a5c;
+            border-radius: 3px;
+            overflow: hidden;
+            height: auto;
+        }
+
+        .regExpFlags,
+        .regExp {
+            /*border: 1px solid;*/
+            display: block;
+            position: relative;
+            box-sizing: border-box;
+            outline-color: #a5c;
+            font-size: 20px;
+        }
+
+        .regExpFlags {
+            width: 23%;
+            float: right;
+            padding: .3em .6em .3em 0;
+        }
+
+        .regExp {
+            padding: .3em 1.8em .3em 2.2em;
+            width: 76%;
+            /*margin: 1em 0;*/
+            float: left;
+        }
+
+        .regExpFlags input,
+        .regExp input {
+            outline-color: #aa55cc4a;
+            font-size: 20px;
+            font-family: monospace;
+            border: none;
+            /*background-color: #a5c;*/
+            width: 99%;
+            border: 1px dashed #aa55cc4a;
+            border-radius: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+            box-sizing: border-box;
+        }
+
+        .regExpFlags input {
+            width: 100%;
+        }
+
+        .regExp::before, .regExp::after {
+            position: absolute;
+            display: block;
+            content: '/';
+            font-size: 32px;
+            line-height: 32px;
+            width: 1.5em;
+            text-align: center;
+            height: 100%;
+            z-index: 100;
+            overflow: hidden;
+            color: #a5c;
+            font-weight: 900;
+            font-family: monospace;
+            top: calc(50% - 17px);
+        }
+
+        .regExp::before {
+            left: 0;
+        }
+        .regExp::after {
+
+            right: -9px;
+        }
+
+        .output {
+            border: 1px solid rgb(255, 208, 0);
+            border-radius: 3px;
+            overflow: hidden;
+            height: auto;
+            display: block;
+            width: -webkit-fill-available;
+            margin: 1em 0;
+            box-sizing: border-box;
+            padding: 0 0 1.4em;
+            position: relative;
+        }
+
+        .output .out {
+            overflow-y: scroll;
+            height: 92px;
+            min-height: 56px;
+            padding: .4em .7em 1.4em;
+        }
+
+        /** -- **/
+        .textInput::-webkit-scrollbar,
+        .output .out::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .textInput::-webkit-scrollbar-track,
+        .output .out::-webkit-scrollbar-track {
+            background: #eee;
+            margin-left: 6px;
+            padding: 3px 0;
+        }
+
+        .textInput::-webkit-scrollbar-thumb,
+        .output .out::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 2px;
+        }
+
+        .textInput:active::-webkit-scrollbar-thumb,
+        .textInput:hover::-webkit-scrollbar-thumb,
+        .output .out:active::-webkit-scrollbar-thumb,
+        .output .out:hover::-webkit-scrollbar-thumb {
+            background: #555;
+        }
+        /** -- **/
+
+        .output .out pre {
+            padding-left: 6px;
+            padding-right: 6px;
+            margin: 0;
+        }
+
+        .output pre.method {
+            display: block;
+            font-size: 12px;
+            color: #555;
+            padding-top: .5em;
+            position: absolute;
+            right: 1.2em;
+            top: 0;
+            margin: 0;
+            user-select: text;
+        }
+
+        .textInput {
+            display: block;
+            width: -webkit-fill-available;
+            margin: 1em 0;
+            border: 1px dashed #a5c;
+            border-radius: 3px;
+            padding: .6em;
+            box-sizing: border-box;
+            resize: none;
+            outline-color: #aa55cc4a;
+            line-height: 1.75;
+        }
+        .box button {
+            position: absolute;
+            right: 2.2em;
+            top: 2.2em;
+            padding: .6em 1em;
+        }
+
+        .info {
+            background-color: rgb(255 208 0);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-family: monospace;
+            padding: 0 .7em;
+        }
+        span.index {
+            color: rgb(213 147 0);
+            display: inline-block;
+            width: 2.5em;
+            position: relative;
+            margin-left: -1.7em;
+            margin-right: 1em;
+            padding-right: .2em;
+            text-align: right;
+            user-select: none;
+        }
+        
+        pre.main {
+            user-select: text;
+        }
+
+        pre.main::before {
+            content: ' ';
+            color: #a5c;
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2.5em;
+            height: 100%;
+            border-right: 1px solid rgb(255 208 0);
+            background-color: rgb(255 208 0 / 33%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box1" class="box">
+        <textarea name="textInput" class="textInput" cols="auto" rows="5" tabindex="0">Input text to parse...&#13;&#10;This is some default content...</textarea>
+        <button>Submit</button>
+        <div class="regExpContainer">
+            <div class="regExp"><input placeholder="Regular expression" type="text" tabindex="2"></div>
+            <div class="regExpFlags"><input placeholder="flags" type="text" tabindex="3"></div>
+        </div>
+     
+        <div id="output1" class="output" tabindex="1">
+            <div class="out"><pre class="main">&nbsp;</pre><pre class="method">String.prototype.match();</pre></div>
+            <div class="info">&nbsp;</div>
+        </div>
+
+        <div id="output2" class="output" tabindex="1">
+            <div class="out"><pre class="main">&nbsp;</pre><pre class="method">String.prototype.matchAll();</pre></div>
+            <div class="info">&nbsp;</div>
+        </div>
+
+    </div>
+    <script>
+        (function () {
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#escaping
+            // It looks like nowadays JS engine escapes all special characters in regular expressions by default.
+            // function escapeRegExp(string) {
+            //    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+            // }
+            
+            const form = document.querySelector('#box1');
+            const regExpInput = document.querySelector('#box1 .regExp input');
+            const flagsInput = document.querySelector('#box1 .regExpFlags input');
+            const textInput = document.querySelector('#box1 .textInput');
+            const submitButton = document.querySelector('#box1 button');
+            
+            const output1 = document.querySelector('#box1 #output1');
+            const output2 = document.querySelector('#box1 #output2');
+
+            regExpInput.addEventListener('blur', processUserInput);
+            flagsInput.addEventListener('blur', processUserInput);
+            submitButton.addEventListener('click', processUserInput);
+
+            // regExpInput.focus();
+            flagsInput.addEventListener('blur', e => {e.preventDefault(); regExpInput.focus();} );
+            textInput.addEventListener('blur', e => {e.preventDefault(); regExpInput.focus();} );
+
+            function processUserInput(event) {
+                const text = textInput.value;
+                const regExpString = regExpInput.value;
+
+                let flags = flagsInput.value;
+                let regExp, regExpG; 
+
+                if (regExpString.endsWith('\\') && !regExpString.endsWith('\\\\')) {
+                    return;
+                }
+
+                try {
+                    regExp = new RegExp(regExpString, flags);
+                } catch (err) {
+                    flagsInput.focus();
+                    flagsInput.value = flagsInput.value.replace(/.$/, '');
+                    flagsInput.focus();
+                    window.alert(`Available flags: d, g, i, m, s, u, y. Also you can't leave the last character of the regular expression as a backslash.`);
+                    console.error(err);
+                    return;
+                }
+
+                // .match() --->
+                const matches = text.match(regExp);
+                if (matches) {
+                    const regExpStr = regExp.toString().replace('<', '&lt;').replace('>', '&gt;');  // ..(?<!.*\s) 
+                    
+                    const outputText = matches.map((match, index) => `<span class="index">${index}</span>${match}`).join('\n');
+
+                    output1.querySelector('pre.main').innerHTML = `${outputText}`;
+                    output1.querySelector('pre.method').innerHTML = `let m = 'text'.match(${regExpStr}).join('\\n');\nlet m = 'text'.match(${regExpStr})\n\t.map((m, i) => &#96;\${i} \${m}&#96;).join('\\n');`;
+                    output1.querySelector('.info').innerHTML = `${typeof(matches)}: ${matches}`;
+                } else {
+                    output1.querySelector('pre.main').innerHTML = `<span class='index'></span>No matches found.`;
+                    output1.querySelector('pre.method').innerHTML = `String.prototype.match();`;
+                    output1.querySelector('.info').innerHTML = `&nbsp;`;
+                }
+
+                // .matchAll() --->
+                if (!flags.includes('g')) {
+                    flags += 'g';
+                    regExpG = new RegExp(regExpString, flags);
+                } else {
+                    regExpG = regExp;
+                }
+                const allMatches = text.matchAll(regExpG);
+                const allMatchesArr = [...allMatches];
+                
+                if (allMatchesArr.length > 0) {
+                    const regExpStr = (regExpG) ? regExpG.toString().replace('<', '&lt;').replace('>', '&gt;') : '';
+                    
+                    output2.querySelector('pre.main').innerHTML = ``;
+                    //for (const line of allMatches) {
+                        // output2.querySelector('pre.main').innerHTML += `<span class='index'>${line.index}</span>${line}\n`;
+                    //}
+                    output2.querySelector('pre.main').innerHTML = allMatchesArr.map(m => `<span class='index'>${m.index}</span>${m}`).join('\n');
+
+                    output2.querySelector('pre.method').innerHTML = `const matches = 'text'.matchAll(${regExpStr});\nlet m = [...matches]\n\t.map(m => &#96;\${m.index} \${m}&#96;)\n\t.join('\\n');\nfor (const m of matches) { console.log(m); }`;
+                    output2.querySelector('.info').innerHTML = `${typeof(allMatches)}: ${allMatches} you can iterate only once on it!`;
+                } else {
+                    output2.querySelector('pre.main').innerHTML = `<span class='index'></span>No matches found.`;
+                    output2.querySelector('pre.method').innerHTML = `String.prototype.matchAll();`;
+                    output2.querySelector('.info').innerHTML = `&nbsp;`;
+                }
+            }
+          
+        })();
+    </script>
+
+</body>
+
+</html>
