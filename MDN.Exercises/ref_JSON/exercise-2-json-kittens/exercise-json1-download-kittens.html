@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Test_your_skills:_JSON -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JSON: Task 1</title>
+    <style>
+        p {
+            color: purple;
+            margin: 0.5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <!-- link rel="stylesheet" href="../styles.css" / -->
+</head>
+
+<body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+</body>
+<script>
+    const section = document.querySelector('section');
+
+    let para1 = document.createElement('p');
+    let para2 = document.createElement('p');
+    let motherInfo = 'The mother cats are called ';
+    let kittenInfo;
+    const requestURL = './exercise-json1-download-kittens.json'; // 'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json';
+
+    fetch(requestURL)
+        .then(response => response.text())
+        .then(text => displayCatInfo(text))
+
+    function displayCatInfo(catString) {
+        let total = 0;
+        let male = 0;
+
+        // Add your code here
+        const catObj = JSON.parse(catString);
+        motherInfo += catObj.map(cat => cat.name).join(', ').replace(/,(?=[^,]*?$)/, ' and') + '.';
+        
+        for (cat of catObj) {
+            for (kitten of cat.kittens) {
+                total++;
+                if (kitten.gender === 'm') {
+                    male++;
+                };
+            }
+        }
+
+        kittenInfo = `There are ${total} kittens at all. ${male} of them are male and the rest ${total - male} are female.`;
+        // Don't edit the code below here!
+
+        para1.textContent = motherInfo;
+        para2.textContent = kittenInfo;
+    }
+
+    section.appendChild(para1);
+    section.appendChild(para2);
+</script>
+
+</html>

@@ -4,14 +4,6 @@ Here are the exercises I've done while reading the MDN's JavaScript Guides, Tuto
 
 Note the internal links will behave in a different way when you browse this *page* as [GitHub Repository](https://github.com/metalevel-tech/JS-Advanced-React-ProgressBG-Homework/tree/master/MDN.Exercises) or as [GitHub Page](https://metalevel.tech/js_homework/MDN.Exercises/).
 
-## Exercises
-
-* Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
-
-* Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
-
-* Image gallery: [README.md](./exercise_image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_image_gallery/image-gallery-exercise-index.html). 
-
 ## Lessons, notes and exercises
 
 * [Strings](ref_strings/)
@@ -32,6 +24,15 @@ Note the internal links will behave in a different way when you browse this *pag
   
 * [Regular Expressions](ref_regexp/)
 
+* [JSON](ref_JSON/)
+
+## Separate exercises
+
+* Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
+
+* Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
+
+* Image gallery: [README.md](./exercise_image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_image_gallery/image-gallery-exercise-index.html). 
 
 ## TOC: Guides, Tutorials and References
 
@@ -89,7 +90,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
 
-    * [ ] [Working with JSON data](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+    * [x] [Working with JSON data](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
 
     * [ ] [Object building practice](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice)
 
