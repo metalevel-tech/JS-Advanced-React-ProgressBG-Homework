@@ -92,9 +92,9 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [Working with JSON data](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
 
-    * [ ] [Object building practice](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice)
+    * [x] [Object building practice](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice)
 
-    * [ ] Assessment: [Adding features to our bouncing balls demo](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Adding_bouncing_balls_features)
+    * [x] Assessment: [Adding features to our bouncing balls demo](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Adding_bouncing_balls_features)
 
   * [ ] [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 
@@ -130,15 +130,15 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [ ] [Client-side storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
 
-* [ ] [Complete beginners](https://developer.mozilla.org/en-US/docs/Web/JavaScript#for_complete_beginners)
+* [x] [Complete beginners](https://developer.mozilla.org/en-US/docs/Web/JavaScript#for_complete_beginners)
 
   * [x] [JavaScript basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
 
   * [x] [JavaScript First Steps](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
 
-   * [x] [JavaScript building blocks](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks)
+  * [x] [JavaScript building blocks](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks)
 
-  * [ ] [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
+  * [x] [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
 
 * [ ] [JavaScript guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript#javascript_guide)

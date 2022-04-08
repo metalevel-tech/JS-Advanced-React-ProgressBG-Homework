@@ -13,56 +13,8 @@ function random(min, max) {
 
 // function to generate random color
 function randomRGB() {
-    return `rgb(${random(100, 255)},${random(100, 255)},${random(100, 255)})`;
+    return `rgb(${random(50, 255)},${random(50, 255)},${random(50, 255)})`;
 }
-
-// function to play sound, fmpeg -i in.mp3 -af "volume=0.25" out.mp3
-const sound = (function () {
-    const channel = { a: 0, b: 0, c: 0, d: 0, soundtrack: 0 };
-    const path = './sound/';
-    const extension = '.mp3';
-
-    const files = {
-        collision: 'long-pop-q',
-        catch: 'cooking-stopwatch-alert',
-        moved: 'pop-alert',
-        nextStage: 'orchestral-emergency-alarm-q',
-        changeSize: 'software-interface-remove-q',
-        soundtrack: 'very80s.storyblocks.com'
-    };
-
-    function play(name, the_channel) {
-        const audio = new Audio(path + files[name] + extension);
-        audio.addEventListener("canplaythrough", event => { audio.play(); });
-
-        channel[the_channel]++;
-        setTimeout(() => { channel[the_channel]--; }, 250);
-    }
-
-    // Play the soundtrack here // play('soundtrack', 'soundtrack');
-    const soundtrack = new Audio(path + files.soundtrack + extension);
-    soundtrack.loop = true;
-    soundtrack.volume = 0.9;
-    soundtrack.autoplay = true;
-    soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
-    channel.soundtrack = 1;
-
-    return function (name, priority = 'a') {
-        try {
-            if (channel[priority] <= 50 && priority === 'a') {
-                play(name, priority);
-            } else if (channel[priority] < 1 && priority === 'b') {
-                play(name, priority);
-            } else if (channel[priority] < 1 && priority === 'c') {
-                play(name, priority);
-            } else if (priority === 'd') {
-                play(name, priority);
-            }
-        } catch (error) {
-            // console.log(error);
-        }
-    }
-})();
 
 class Shape {
     constructor(x, y, velX, velY, color, size) {
@@ -79,8 +31,7 @@ class EvilCircle extends Shape {
         this.color = 'white';
         this.size = size;
         this.active = false;
-        
-        // Keyboard AWSD/Enter=begin
+
         window.addEventListener('keydown', (e) => {
             switch (true) {
                 case (e.key === 'a' || e.key === 'ArrowLeft'):
@@ -97,27 +48,7 @@ class EvilCircle extends Shape {
                     break;
             }
         });
-        window.addEventListener('keypress', e => {
-            if (e.key === 'Enter') {
-                if (this.active === false) this.active = true;
-                else this.active = false;
-            }
-        });
-
-
-        // Mouse/LeftClick=begin
-        window.addEventListener('mousemove', event => {
-            this.x = event.clientX;
-            this.y = event.clientY;
-        });
-        window.addEventListener('mouseup', e => {
-            if (e) {
-                if (this.active === false) this.active = true;
-                else this.active = false;
-            }
-        });
     }
-
     draw() {
         ctx.beginPath();
         ctx.strokeStyle = this.color;
@@ -148,7 +79,6 @@ class EvilCircle extends Shape {
 
                 if (distance < this.size + ball.size) {
                     ball.exists = false;
-                    sound('catch', 'd');
                 }
             }
         }
@@ -161,7 +91,6 @@ class Ball extends Shape {
         this.color = color;
         this.size = size;
         this.exists = true;
-        this.removedTime = 0; // not used yet
     }
     draw() {
         if (this.exists) {
@@ -179,6 +108,12 @@ class Ball extends Shape {
             let factorBallSize = ((game.maxRadius / this.size) + 1);
             let factorBallsCount = game.stageBalls / game.balls.length + 1;
             let factorVelocity = Math.sqrt(this.velX ** 2 + this.velY ** 2);
+            console.log(
+                Math.floor(game.stageCaughtBalls),
+                Math.floor(factorBallSize),
+                Math.floor(factorBallsCount),
+                Math.floor(factorVelocity)
+            );
 
             game.lastScore = Math.floor(
                 game.stageCaughtBalls *
@@ -188,30 +123,31 @@ class Ball extends Shape {
             );
             game.score += game.lastScore;
 
-            game.ballsRemoved = game.balls.splice(game.balls.findIndex(ball => ball === this), 1);
+            game.balls.splice(game.balls.findIndex(ball => ball === this), 1);
             return;
         }
     }
     update() {
         const { velLimit } = this.constructor;
 
+        
         if (this.velX === 0) {
             this.velX = random(-velLimit, velLimit);
         }
-        if ((this.x + this.size) >= width - 2) {
+        if ((this.x + this.size) >= width) {
             this.velX = -(this.velX);
         }
-        if ((this.x - this.size) <= 0 + 2) {
+        if ((this.x - this.size) <= 0) {
             this.velX = -(this.velX);
         }
-
+        
         if (this.velY === 0) {
             this.velY = random(-velLimit, velLimit);
         }
-        if ((this.y + this.size) >= height - 2) {
+        if ((this.y + this.size) >= height) {
             this.velY = -(this.velY);
         }
-        if ((this.y - this.size) <= 0 + 2) {
+        if ((this.y - this.size) <= 0) {
             this.velY = -(this.velY);
         }
 
@@ -219,10 +155,10 @@ class Ball extends Shape {
         this.y += this.velY;
 
         if (
-            this.x < 0 - 2 ||
-            this.y < 0 - 2 ||
-            this.x > width + 2 ||
-            this.y > height + 2
+            this.x < 0 ||
+            this.y < 0 ||
+            this.x > width ||
+            this.y > height
         ) {
             this.x = width / 2;
             this.y = height / 2;
@@ -251,7 +187,6 @@ class Ball extends Shape {
                 if (distance < this.size + ball.size) {
                     // ball.color = this.color = randomRGB();
                     collisionsCount++;
-                    sound('collision', 'a');
 
                     if (this.size < ball.size) {
                         this.color = randomRGB();
@@ -275,8 +210,6 @@ class Ball extends Shape {
                     }
 
                     if (collisionsCount >= game.collisionsLimit) {
-                        sound('moved', 'c');
-
                         if (this.x > width / 2) this.x = random(0 + this.size, width / 2 - this.size);
                         else this.x = random(width / 2 + this.size, width - this.size);
 
@@ -315,9 +248,10 @@ function loop(number, minRadius, maxRadius, velLimit) {
     if (game.balls.length === 0) {
         Ball.defaults(minRadius, maxRadius, velLimit);
         createBalls(number, minRadius, maxRadius, velLimit);
+
     }
 
-    ctx.fillStyle = `rgba(0, 0, 0, 0.3)`;
+    ctx.fillStyle = `rgba(0, 0, 0, 0.2)`;
     ctx.fillRect(0, 0, width, height);
 
     for (const ball of game.balls) {
@@ -339,7 +273,6 @@ function loop(number, minRadius, maxRadius, velLimit) {
         window.requestAnimationFrame(loop);
     } else {
         console.log(`Stage ${game.stage++} completed`);
-        sound('nextStage', 'b');
 
         game.stageCaughtBalls = 0;
 
@@ -348,20 +281,20 @@ function loop(number, minRadius, maxRadius, velLimit) {
             return;
         }
 
-        if (game.collisionsLimit > 2 && game.stage % 2 === 0) {
+        if (game.collisionsLimit > 1 && game.stage % 2 === 0) {
             game.collisionsLimit--;
         }
 
         if (evilCircle.size > 0) {
             evilCircle.size--;
-            evilCircle.velX = evilCircle.velY--;
+            evilCircle.velX = evilCircle.velY++;
         }
 
         if (game.minRadius > 0) {
             game.minRadius--;
         }
 
-        if (game.maxRadius > 20) {
+        if (game.maxRadius > 0) {
             game.maxRadius -= 10;
         }
 
@@ -393,7 +326,6 @@ const interface = {
 
 const game = {
     balls: [],
-    ballsRemoved: [],
     stageBalls: 5,
     stageCaughtBalls: 0,
     totalCaughtBalls: 0,
@@ -415,5 +347,13 @@ const evilCircle = new EvilCircle(
     game.evilCircleSize,
     game.evilCircleVel
 );
+
+window.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+        if (evilCircle.active === false) evilCircle.active = true;
+        else evilCircle.active = false;
+    }
+});
+
 
 loop(game.stageBalls, game.minRadius, game.maxRadius, game.velLimit);

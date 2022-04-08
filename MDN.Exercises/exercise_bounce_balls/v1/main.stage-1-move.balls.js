@@ -16,7 +16,7 @@ function random(min, max) {
 // function to generate random color
 
 function randomRGB() {
-    return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
+    return `rgb(${random(50, 255)},${random(50, 255)},${random(50, 255)})`;
 }
 
 class Ball {
@@ -70,12 +70,15 @@ class Ball {
         this.velLimit = velLimit;
 
     }
-    colisionDetect() {
+    collisionDetect() {
+        let colisions = 0;
         for (const ball of balls) {
+            
             if (!(this === ball)) {
                 const dx = this.x - ball.x;
                 const dy = this.y - ball.y;
                 const distance = Math.sqrt(dx**2 + dy**2);
+
 
                 const ballsMaxSize = balls.map(ball => ball.size).reduce((max, size) => (size > max) ? size : max);
                 const ballsMinSize = balls.map(ball => ball.size).reduce((min, size) => (size < min) ? size : min);
@@ -83,12 +86,10 @@ class Ball {
 
                 const {minRadius, maxRadius, velLimit} = this.constructor;
                 
-
+                
                 if (distance < this.size + ball.size) {
                     // ball.color = this.color = randomRGB();
                     // ball.color = randomRGB();
-                    
-                    
                     if (this.size < ball.size) {
                         this.color = randomRGB();
                         if (this.velX < velLimit) this.velX++;
@@ -102,13 +103,27 @@ class Ball {
                         else ball.velX = random(-velLimit, velLimit);
                         
                         if (ball.velY < velLimit) ball.velY++;
-                        else ball.velY = random(-velLimit, velLimit);
-
+                        else ball.velY = random(-velLimit, velLimit);    
                     }
-
-                    if (this.size >= ballsMaxSize || this.size <= ballsMinSize) {
+                    
+                    
+                    if (this.size === ballsMaxSize || this.size === ballsMinSize) {
                         this.size = random(minRadius, maxRadius);
-                    } 
+                    }
+                    
+                    
+                    colisions++;
+                    if (colisions >= 5) {
+                        if (this.x > width/2) this.x = random(0 + this.size, width/2 - this.size);
+                        else this.x = random(width/2 + this.size, width - this.size);
+                        
+                        if (this.y > height/2) this.y = random(0 + this.size, height/2- this.size);
+                        else this.y = random(height/2 + this.size, height - this.size);
+    
+                        this.velX = random(-velLimit, velLimit);
+                        this.velY = random(-velLimit, velLimit);
+                        // return;
+                    }
                 }
             }
         }
@@ -144,12 +159,12 @@ function loop(number, minRadius, maxRadius, velLimit) {
     ctx.fillRect(0, 0, width, height);
 
     for (const ball of balls) {
-        ball.colisionDetect();
         ball.draw();
         ball.update();
+        ball.collisionDetect();
     }
 
     window.requestAnimationFrame(loop);
 }
 
-loop(100, 1, 70, 7);
+loop(55, 1, 150, 5);

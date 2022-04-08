@@ -46,7 +46,7 @@ const sound = (function () {
     soundtrack.autoplay = true;
     soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
     channel.soundtrack = 1;
-
+    
     return function (name, priority = 'a') {
         try {
             if (channel[priority] <= 50 && priority === 'a') {
@@ -79,31 +79,6 @@ class EvilCircle extends Shape {
         this.color = 'white';
         this.size = size;
         this.active = false;
-        
-        // Keyboard AWSD/Enter=begin
-        window.addEventListener('keydown', (e) => {
-            switch (true) {
-                case (e.key === 'a' || e.key === 'ArrowLeft'):
-                    this.x -= this.velX;
-                    break;
-                case (e.key === 'd' || e.key === 'ArrowRight'):
-                    this.x += this.velX;
-                    break;
-                case (e.key === 'w' || e.key === 'ArrowUp'):
-                    this.y -= this.velY;
-                    break;
-                case (e.key === 's' || e.key === 'ArrowDown'):
-                    this.y += this.velY;
-                    break;
-            }
-        });
-        window.addEventListener('keypress', e => {
-            if (e.key === 'Enter') {
-                if (this.active === false) this.active = true;
-                else this.active = false;
-            }
-        });
-
 
         // Mouse/LeftClick=begin
         window.addEventListener('mousemove', event => {
@@ -208,10 +183,10 @@ class Ball extends Shape {
         if (this.velY === 0) {
             this.velY = random(-velLimit, velLimit);
         }
-        if ((this.y + this.size) >= height - 2) {
+        if ((this.y + this.size) >= height -2) {
             this.velY = -(this.velY);
         }
-        if ((this.y - this.size) <= 0 + 2) {
+        if ((this.y - this.size) <= 0 +2) {
             this.velY = -(this.velY);
         }
 
