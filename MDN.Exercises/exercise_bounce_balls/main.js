@@ -442,8 +442,9 @@ const gameInterface = {
         soundtrack.loop = true;
         soundtrack.volume = 0.9;
         // soundtrack.autoplay = true;
-        soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
-        // channel.soundtrack = 1;
+        setTimeout(() => {
+            soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
+        }, 1000);
 
         this.changeMode();
     },
@@ -455,8 +456,6 @@ const gameInterface = {
         } else if (game.mode !== 'demo') {
             this.modeIndicator.textContent = 'Fire mode!';
             this.modeIndicator.classList = 'fire-mode';
-
-
         }
     }
 }
