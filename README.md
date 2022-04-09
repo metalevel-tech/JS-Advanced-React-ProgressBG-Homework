@@ -2,6 +2,11 @@
 
 ## Tasks [2022.04.03](./hw.2022.04.03)
 
+ 
+JavaScript Objects, Events and Functions recap:
+
+* **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_bounce_balls/index.html).**
+  
 Exercise: Play with RegExp at [Regular expressions 101](https://regex101.com/account/library) and also here:
 
  * [exercise-1.regexp-match.html](./hw.2022.04.03/exercise-1.regexp-match.html)

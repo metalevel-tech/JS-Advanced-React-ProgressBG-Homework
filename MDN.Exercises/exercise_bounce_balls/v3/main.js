@@ -16,6 +16,13 @@ function randomRGB() {
     return `rgb(${random(100, 255)},${random(100, 255)},${random(100, 255)})`;
 }
 
+// function to show Game Over banner
+const gameOverBanner = document.querySelector('.message-game-over');
+function gameOver() {
+    gameOverBanner.querySelector('.total-sore').innerHTML = game.score;
+    gameOverBanner.style.display = 'block';
+}
+
 // function to play sound, fmpeg -i in.mp3 -af "volume=0.25" out.mp3
 const sound = (function () {
     const channel = { a: 0, b: 0, c: 0, d: 0, soundtrack: 0 };
@@ -39,9 +46,15 @@ const sound = (function () {
         setTimeout(() => { channel[the_channel]--; }, 250);
     }
 
+    // Play the soundtrack here // play('soundtrack', 'soundtrack');
+    const soundtrack = new Audio(path + files.soundtrack + extension);
+    soundtrack.loop = true;
+    soundtrack.volume = 0.9;
+    soundtrack.autoplay = true;
+    soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
+    channel.soundtrack = 1;
+
     return function (name, priority = 'a') {
-        if (game.mode === 'demo') return;
-        
         try {
             if (channel[priority] <= 50 && priority === 'a') {
                 play(name, priority);
@@ -91,38 +104,23 @@ class EvilCircle extends Shape {
                     break;
             }
         });
-
-        // Persistent capture mode
         window.addEventListener('keypress', e => {
             if (e.key === 'Enter') {
-                if (this.active === false) {
-                    this.active = true;
-                    game.mode = 'persistent';
-                    gameInterface.changeMode();
-                } else {
-                    this.active = false;
-                    game.mode = 'fire'
-                    gameInterface.changeMode();
-                }
-            }
-        });
-
-        // Mouse
-        window.addEventListener('mousemove', event => {
-            this.x = event.clientX;
-            this.y = event.clientY;
-        });
-        // Fire capture mode
-        window.addEventListener('mousedown' , e => {
-            if (e) {
                 if (this.active === false) this.active = true;
                 else this.active = false;
             }
         });
-        window.addEventListener('mouseup' , e => {
+
+
+        // Mouse/LeftClick=begin
+        window.addEventListener('mousemove', event => {
+            this.x = event.clientX;
+            this.y = event.clientY;
+        });
+        window.addEventListener('mouseup', e => {
             if (e) {
-                if (this.active === true) this.active = false;
-                else this.active = true;
+                if (this.active === false) this.active = true;
+                else this.active = false;
             }
         });
     }
@@ -149,7 +147,6 @@ class EvilCircle extends Shape {
         }
     }
     collisionDetect() {
-        if (game.mode === 'demo') return;
         for (const ball of game.balls) {
             if (ball.exists) {
                 const dx = this.x - ball.x;
@@ -189,14 +186,12 @@ class Ball extends Shape {
             let factorBallSize = ((game.maxRadius / this.size) + 1);
             let factorBallsCount = game.stageBalls / game.balls.length + 1;
             let factorVelocity = Math.sqrt(this.velX ** 2 + this.velY ** 2);
-            let factorGameMode = (game.mode === 'fire') ? 1.2 : 1;
 
             game.lastScore = Math.floor(
                 game.stageCaughtBalls *
                 factorBallSize *
                 factorBallsCount *
-                factorVelocity *
-                factorGameMode
+                factorVelocity
             );
             game.score += game.lastScore;
 
@@ -323,7 +318,6 @@ function createBalls(number, minRadius, maxRadius, velLimit) {
     }
 }
 
-// This is the main loop, it is triggered by the Esc key
 function loop(number, minRadius, maxRadius, velLimit) {
     if (game.balls.length === 0) {
         Ball.defaults(minRadius, maxRadius, velLimit);
@@ -346,20 +340,19 @@ function loop(number, minRadius, maxRadius, velLimit) {
         evilCircle.collisionDetect();
     }
 
-    gameInterface.update();
+    interface.update();
 
     if (game.balls.length > 0) {
         window.requestAnimationFrame(loop);
     } else {
-        // console.log(`Stage ${game.stage++} completed`);
-        game.stage++;
-        sound('nextStage', 'd');
+        console.log(`Stage ${game.stage++} completed`);
+        sound('nextStage', 'b');
 
         game.stageCaughtBalls = 0;
 
         if (game.stage > 10) {
-            // console.log('Game Over!');
-            gameInterface.gameOver();
+            console.log('Game Over!');
+            gameOver();
             return;
         }
 
@@ -388,30 +381,8 @@ function loop(number, minRadius, maxRadius, velLimit) {
     }
 }
 
-// This is the demo loop that starts at the beginning 
-function demoLoop(number, minRadius, maxRadius, velLimit) {
-    if (game.balls.length === 0) {
-        Ball.defaults(minRadius, maxRadius, velLimit);
-        createBalls(number, minRadius, maxRadius, velLimit);
-    }
 
-    ctx.fillStyle = `rgba(0, 0, 0, 0.3)`;
-    ctx.fillRect(0, 0, width, height);
-
-    for (const ball of game.balls) {
-        ball.draw();
-        ball.update();
-        ball.collisionDetect();
-        ball.countAndRemove();
-    }
-  
-    if (game.mode === 'demo') window.requestAnimationFrame(demoLoop);
-    else return;
-}
-
-// Encapsulate the interface interactions,
-// some of the function at the beginning must go here
-const gameInterface = {
+const interface = {
     score: document.querySelector('#score-indicator'),
     scoreWon: document.querySelector('#score-won-indicator'),
     stage: document.querySelector('#stage-indicator'),
@@ -425,44 +396,9 @@ const gameInterface = {
         this.stageBalls.textContent = game.stageBalls;
         this.stageCaughtBalls.textContent = game.stageCaughtBalls;
         this.totalCaughtBalls.textContent = game.totalCaughtBalls;
-    },
-    gameOverBanner: document.querySelector('.message-game-over'),
-    gameLegend: document.querySelector('.legend'),
-    gameStatistic: document.querySelector('.statistic'),
-    gameOver() {
-        this.gameOverBanner.querySelector('.total-sore').innerHTML = game.score;
-        this.gameOverBanner.style.display = 'block';
-    },
-    gameStart() {
-        this.gameLegend.style.display = 'none';
-        this.gameStatistic.style.display = 'block';
-        
-        // Play the soundtrack here // play('soundtrack', 'soundtrack');
-        const soundtrack = new Audio('./sound/very80s.storyblocks.com.mp3');
-        soundtrack.loop = true;
-        soundtrack.volume = 0.9;
-        // soundtrack.autoplay = true;
-        soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
-        // channel.soundtrack = 1;
-
-        this.changeMode();
-    },
-    modeIndicator: document.querySelector('#mode-indicator'),
-    changeMode() {
-        if (game.mode === 'persistent' && game.mode !== 'demo') {
-            this.modeIndicator.textContent = 'Persistent mode';
-            this.modeIndicator.classList = '';
-        } else if (game.mode !== 'demo') {
-            this.modeIndicator.textContent = 'Fire mode!';
-            this.modeIndicator.classList = 'fire-mode';
-
-
-        }
     }
 }
 
-// Initialize the game circumstances
-// This object is changed at the end of the main loop when the balls.length = 0
 const game = {
     balls: [],
     ballsRemoved: [],
@@ -476,13 +412,11 @@ const game = {
     stage: 1,
     evilCircleSize: 20,
     evilCircleVel: 20,
-    collisionsLimit: 3,
+    collisionsLimit: 5,
     score: 0,
-    lastScore: 0,
-    mode: 'demo'
+    lastScore: 0
 }
 
-// Evil circle will not eat the balls until game.mode === 'demo'
 const evilCircle = new EvilCircle(
     width / 2,
     height / 2,
@@ -490,23 +424,4 @@ const evilCircle = new EvilCircle(
     game.evilCircleVel
 );
 
-// Start the demoLoop when the page is loaded
-demoLoop(75, 5, 120, 7);
-
-// Start the game by Esc key
-window.addEventListener('keydown', function startGameHandler(e) {
-     if (e.key === 'Esc' || e.key === 'Escape') {
-        this.window.removeEventListener('keydown', startGameHandler);
-
-        game.mode = 'fire';
-        game.balls = [];
-        game.collisionsLimit = 5;
-        
-        gameInterface.gameStart(); // gameInterface.changeMode();
-
-        loop(game.stageBalls, game.minRadius, game.maxRadius, game.velLimit);
-
-        ctx.fillStyle = `rgba(0, 0, 0, 1)`;
-        ctx.fillRect(0, 0, width, height);
-    }
-});
+loop(game.stageBalls, game.minRadius, game.maxRadius, game.velLimit);

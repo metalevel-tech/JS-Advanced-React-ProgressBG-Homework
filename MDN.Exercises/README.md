@@ -28,6 +28,8 @@ Note the internal links will behave in a different way when you browse this *pag
 
 ## Separate exercises
 
+* **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_bounce_balls/index.html).**
+
 * Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
 * Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
@@ -96,9 +98,9 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] Assessment: [Adding features to our bouncing balls demo](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Adding_bouncing_balls_features)
 
-  * [ ] [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+  * [x] [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 
-    * [ ] [Asynchronous JavaScript overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+    * [x] [Asynchronous JavaScript overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 
     * [ ] [General asynchronous programming concepts](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts)
 

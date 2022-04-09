@@ -317,6 +317,7 @@ function loop(number, minRadius, maxRadius, velLimit) {
         sound('nextStage', 'b');
 
         game.stageCaughtBalls = 0;
+        game.ballsRemoved = 0;
 
         if (game.stage > 10) {
             console.log('Game Over!');
