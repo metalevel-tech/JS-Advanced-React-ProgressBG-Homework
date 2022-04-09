@@ -443,7 +443,8 @@ const gameInterface = {
         soundtrack.volume = 0.9;
         // soundtrack.autoplay = true;
         setTimeout(() => {
-            soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
+            // soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
+            soundtrack.play();
         }, 1000);
 
         this.changeMode();
