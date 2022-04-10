@@ -18,6 +18,7 @@ function randomRGB() {
 
 // function to play sound
 const sound = (function () {
+    const channel = { a: 0, b: 0, c: 0, d: 0, soundtrack: 0 };
     const path = './sound/';
     const extension = '.mp3';
 
@@ -27,74 +28,31 @@ const sound = (function () {
         moved: 'pop-alert',
         nextStage: 'orchestral-emergency-alarm-q',
         changeSize: 'software-interface-remove-q',
-        soundtrack: 'very80s',
+        soundtrack: 'very80s.storyblocks.com',
         shot: 'arcade-mechanical-bling'
     };
-    
-    const channels = {
-        collision: {
-            counter: 0,
-            limit: 15,
-            file: `${path}long-pop-q${extension}`
-        },
-        catch: {
-            counter: 0,
-            limit: 10,
-            file: `${path}cooking-stopwatch-alert${extension}`
-        },
-        moved: {
-            counter: 0,
-            limit: 10,
-            file: `${path}pop-alert${extension}`
-        },
-        nextStage: {
-            counter: 0,
-            limit: 10,
-            file: `${path}orchestral-emergency-alarm-q${extension}`
-        },
-        changeSize: {
-            counter: 0,
-            limit: 10,
-            file: `${path}software-interface-remove-q${extension}`
-        },
-        soundtrack: {
-            counter: 0,
-            limit: 1,
-            file: `${path}very80s${extension}`
-        },
-        shot: {
-            counter: 0,
-            limit: 10,
-            file: `${path}arcade-mechanical-bling${extension}`
-        }
-    };
 
-    console.dir(channels);
+    function play(name, the_channel) {
+        const audio = new Audio(path + files[name] + extension);
+        audio.addEventListener("canplaythrough", event => { audio.play(); });
 
-    function play(name, options) {
-        if (channels[name].counter < channels[name].limit) {
-            if (name === 'soundtrack' && options === 'soundtrack') {
-                const soundtrack = new Audio(channels[name].file);
-                soundtrack.addEventListener("canplaythrough", event => { 
-                    soundtrack.loop = true;
-                    soundtrack.volume = 0.9;
-                    // soundtrack.autoplay = true;
-                    setTimeout(() => { soundtrack.play(); }, 500); 
-                });
-            } else {
-                const audio = new Audio(channels[name].file);
-                audio.addEventListener("canplaythrough", event => { audio.play(); });
-        
-                channels[name].counter++;
-                setTimeout(() => { channels[name].counter--; }, 100);
-            }
-        }
+        channel[the_channel]++;
+        setTimeout(() => { channel[the_channel]--; }, 250);
     }
 
-    return function (name, options) {
+    return function (name, priority = 'a') {
         if (game.mode === 'demo') return;
+        
         try {
-            play(name, options);
+            if (channel[priority] <= 50 && priority === 'a') {
+                play(name, priority);
+            } else if (channel[priority] < 1 && priority === 'b') {
+                play(name, priority);
+            } else if (channel[priority] < 1 && priority === 'c') {
+                play(name, priority);
+            } else if (priority === 'd') {
+                play(name, priority);
+            }
         } catch (error) {
             // console.log(error);
         }
@@ -482,8 +440,18 @@ const gameInterface = {
     gameStart() {
         this.gameLegend.style.display = 'none';
         this.gameStatistic.style.display = 'block';
+        
+        // Play the soundtrack here // play('soundtrack', 'soundtrack');
+        const soundtrack = new Audio('./sound/very80s.storyblocks.com.mp3');
+        soundtrack.loop = true;
+        soundtrack.volume = 0.9;
+        // soundtrack.autoplay = true;
+        setTimeout(() => {
+            // soundtrack.addEventListener("canplaythrough", event => { soundtrack.play(); });
+            soundtrack.play();
+        }, 1000);
+
         this.changeMode();
-        sound('soundtrack', 'soundtrack');
     },
     modeIndicator: document.querySelector('#mode-indicator'),
     changeMode() {
