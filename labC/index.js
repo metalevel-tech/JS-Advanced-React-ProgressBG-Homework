@@ -3,4 +3,4 @@ const index = (() => {
     return () => { console.log(`${'*'.repeat(20)} ${++index} ${'*'.repeat(20)}`); };
 })();
 
-index();
+index(); 

@@ -1,7 +1,10 @@
 # Sources
 
 * https://mixkit.co/free-sound-effects/game/
+
 * https://www.storyblocks.com/video/search/very+80s
+
+* https://samplefocus.com/samples?utf8=%E2%9C%93&search=game+voice
 
 # Commands
 

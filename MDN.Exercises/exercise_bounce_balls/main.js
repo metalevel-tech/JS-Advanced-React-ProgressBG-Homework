@@ -2,8 +2,13 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-const width = canvas.width = window.innerWidth;
-const height = canvas.height = window.innerHeight;
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
 
 // function to generate random number
 function random(min, max) {
@@ -16,60 +21,60 @@ function randomRGB() {
     return `rgb(${random(100, 255)},${random(100, 255)},${random(100, 255)})`;
 }
 
+// function to format large numbers
+function formatNumber(number){
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+ }
+
 // function to play sound
 const sound = (function () {
     const path = './sound/';
     const extension = '.mp3';
 
-    const files = {
-        collision: 'long-pop-q',
-        catch: 'cooking-stopwatch-alert',
-        moved: 'pop-alert',
-        nextStage: 'orchestral-emergency-alarm-q',
-        changeSize: 'software-interface-remove-q',
-        soundtrack: 'very80s',
-        shot: 'arcade-mechanical-bling'
-    };
-    
     const channels = {
         collision: {
             counter: 0,
             limit: 15,
-            file: `${path}long-pop-q${extension}`
+            volume: 0.05,
+            file: `${path}long-pop${extension}`
         },
         catch: {
             counter: 0,
             limit: 10,
+            volume: 0.4,
             file: `${path}cooking-stopwatch-alert${extension}`
         },
         moved: {
             counter: 0,
             limit: 10,
+            volume: 0.3,
             file: `${path}pop-alert${extension}`
         },
         nextStage: {
             counter: 0,
             limit: 10,
-            file: `${path}orchestral-emergency-alarm-q${extension}`
+            volume: 0.3,
+            file: `${path}orchestral-emergency-alarm${extension}`
         },
         changeSize: {
             counter: 0,
             limit: 10,
-            file: `${path}software-interface-remove-q${extension}`
+            volume: 0.3,
+            file: `${path}software-interface-remove${extension}`
         },
         soundtrack: {
             counter: 0,
             limit: 1,
+            volume: 0.9,
             file: `${path}very80s${extension}`
         },
         shot: {
             counter: 0,
             limit: 10,
+            volume: 0.8,
             file: `${path}arcade-mechanical-bling${extension}`
         }
     };
-
-    console.dir(channels);
 
     function play(name, options) {
         if (channels[name].counter < channels[name].limit) {
@@ -77,13 +82,16 @@ const sound = (function () {
                 const soundtrack = new Audio(channels[name].file);
                 soundtrack.addEventListener("canplaythrough", event => { 
                     soundtrack.loop = true;
-                    soundtrack.volume = 0.9;
+                    soundtrack.volume = channels[name].volume;
                     // soundtrack.autoplay = true;
                     setTimeout(() => { soundtrack.play(); }, 500); 
                 });
             } else {
                 const audio = new Audio(channels[name].file);
-                audio.addEventListener("canplaythrough", event => { audio.play(); });
+                audio.addEventListener("canplaythrough", event => {
+                    audio.volume = channels[name].volume;
+                    audio.play();
+                });
         
                 channels[name].counter++;
                 setTimeout(() => { channels[name].counter--; }, 100);
@@ -102,7 +110,7 @@ const sound = (function () {
 })();
 
 class Shape {
-    constructor(x, y, velX, velY, color, size) {
+    constructor(x, y, velX, velY) {
         this.x = x;
         this.y = y;
         this.velX = velX;
@@ -111,14 +119,15 @@ class Shape {
 }
 
 class EvilCircle extends Shape {
-    constructor(x, y, size, velLimit) {
+    constructor(x, y, radius, velLimit) {
         super(x, y, velLimit, velLimit);
         this.color = 'white';
-        this.size = size;
+        this.radius = radius;
         this.active = false;
         
         // Keyboard AWSD/Enter=begin
         window.addEventListener('keydown', (e) => {
+            if (game.mode === 'demo') return;
             switch (true) {
                 case (e.key === 'a' || e.key === 'ArrowLeft'):
                     this.x -= this.velX;
@@ -137,6 +146,7 @@ class EvilCircle extends Shape {
 
         // Persistent capture mode
         window.addEventListener('keypress', e => {
+            if (game.mode === 'demo') return;
             if (e.key === 'Enter') {
                 if (this.active === false) {
                     this.active = true;
@@ -152,20 +162,23 @@ class EvilCircle extends Shape {
 
         // Mouse
         window.addEventListener('mousemove', event => {
+            if (game.mode === 'demo') return;
             this.x = event.clientX;
             this.y = event.clientY;
         });
         // Fire capture mode
         window.addEventListener('mousedown' , e => {
+            if (game.mode === 'demo') return;
             if (e) {
                 if (this.active === false) {
                     this.active = true;
-                    sound('shot', 'd');
+                    sound('shot');
                 }
                 else this.active = false;
             }
         });
         window.addEventListener('mouseup' , e => {
+            if (game.mode === 'demo') return;
             if (e) {
                 if (this.active === true) this.active = false;
                 else this.active = true;
@@ -176,22 +189,22 @@ class EvilCircle extends Shape {
     draw() {
         ctx.beginPath();
         ctx.strokeStyle = this.color;
-        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         ctx.stroke();
     }
     checkBounds() {
-        if ((this.x + this.size) >= width) {
-            this.x = width - this.size;
+        if ((this.x + this.radius) >= width) {
+            this.x = width - this.radius;
         }
-        if ((this.x - this.size) <= 0) {
-            this.x = this.size;
+        if ((this.x - this.radius) <= 0) {
+            this.x = this.radius;
         }
 
-        if ((this.y + this.size) >= height) {
-            this.y = height - this.size;
+        if ((this.y + this.radius) >= height) {
+            this.y = height - this.radius;
         }
-        if ((this.y - this.size) <= 0) {
-            this.y = this.size;
+        if ((this.y - this.radius) <= 0) {
+            this.y = this.radius;
         }
     }
     collisionDetect() {
@@ -202,9 +215,9 @@ class EvilCircle extends Shape {
                 const dy = this.y - ball.y;
                 const distance = Math.sqrt(dx ** 2 + dy ** 2);
 
-                if (distance < this.size + ball.size) {
+                if (distance < this.radius + ball.radius) {
                     ball.exists = false;
-                    sound('catch', 'd');
+                    sound('catch');
                 }
             }
         }
@@ -212,10 +225,10 @@ class EvilCircle extends Shape {
 }
 
 class Ball extends Shape {
-    constructor(x, y, velX, velY, color, size) {
+    constructor(x, y, velX, velY, color, radius) {
         super(x, y, velX, velY);
         this.color = color;
-        this.size = size;
+        this.radius = radius;
         this.exists = true;
         this.removedTime = 0; // not used yet
     }
@@ -223,7 +236,7 @@ class Ball extends Shape {
         if (this.exists) {
             ctx.beginPath();
             ctx.fillStyle = this.color;
-            ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             ctx.fill();
         }
     }
@@ -232,10 +245,10 @@ class Ball extends Shape {
             game.stageCaughtBalls++;
             game.totalCaughtBalls++;
 
-            let factorBallSize = ((game.maxRadius / this.size) + 1);
+            let factorBallSize = ((game.maxRadius / this.radius) + 1);
             let factorBallsCount = game.stageBalls / game.balls.length + 1;
             let factorVelocity = Math.sqrt(this.velX ** 2 + this.velY ** 2);
-            let factorGameMode = (game.mode === 'fire') ? 1.2 : 1;
+            let factorGameMode = (game.mode.toLocaleLowerCase === 'fire') ? 1.2 : 1;
 
             game.lastScore = Math.floor(
                 game.stageCaughtBalls *
@@ -246,7 +259,9 @@ class Ball extends Shape {
             );
             game.score += game.lastScore;
 
-            game.ballsRemoved = game.balls.splice(game.balls.findIndex(ball => ball === this), 1);
+            game.ballsRemoved.push(
+                ...game.balls.splice(game.balls.findIndex(ball => ball === this), 1)
+            );
             return;
         }
     }
@@ -256,20 +271,21 @@ class Ball extends Shape {
         if (this.velX === 0) {
             this.velX = random(-velLimit, velLimit);
         }
-        if ((this.x + this.size) >= width - 2) {
+
+        if ((this.x + this.radius) >= width - 2) {
             this.velX = -(this.velX);
         }
-        if ((this.x - this.size) <= 0 + 2) {
+        if ((this.x - this.radius) <= 0 + 2) {
             this.velX = -(this.velX);
         }
 
         if (this.velY === 0) {
             this.velY = random(-velLimit, velLimit);
         }
-        if ((this.y + this.size) >= height - 2) {
+        if ((this.y + this.radius) >= height - 2) {
             this.velY = -(this.velY);
         }
-        if ((this.y - this.size) <= 0 + 2) {
+        if ((this.y - this.radius) <= 0 + 2) {
             this.velY = -(this.velY);
         }
 
@@ -295,8 +311,8 @@ class Ball extends Shape {
 
     collisionDetect() {
         let collisionsCount = 0;
-        const ballsMaxSize = game.balls.map(ball => ball.size).reduce((max, size) => (size > max) ? size : max);
-        const ballsMinSize = game.balls.map(ball => ball.size).reduce((min, size) => (size < min) ? size : min);
+        const ballsMaxSize = game.balls.map(ball => ball.radius).reduce((max, radius) => (radius > max) ? radius : max);
+        const ballsMinSize = game.balls.map(ball => ball.radius).reduce((min, radius) => (radius < min) ? radius : min);
 
         for (const ball of game.balls) {
             if (!(this === ball) && ball.exists) {
@@ -306,12 +322,12 @@ class Ball extends Shape {
 
                 const { minRadius, maxRadius, velLimit } = this.constructor;
 
-                if (distance < this.size + ball.size) {
+                if (distance < this.radius + ball.radius) {
                     // ball.color = this.color = randomRGB();
                     collisionsCount++;
-                    sound('collision', 'a');
+                    sound('collision');
 
-                    if (this.size < ball.size) {
+                    if (this.radius < ball.radius) {
                         this.color = randomRGB();
                         if (this.velX < velLimit) this.velX++;
                         else this.velX = random(-velLimit, velLimit);
@@ -327,22 +343,21 @@ class Ball extends Shape {
                         else ball.velY = random(-velLimit, velLimit);
                     }
 
-
-                    if (this.size === ballsMaxSize || this.size === ballsMinSize) {
-                        this.size = random(minRadius, maxRadius);
+                    if (this.radius === ballsMaxSize || this.radius === ballsMinSize) {
+                        this.radius = random(minRadius, maxRadius);
                     }
 
-                    if (collisionsCount >= game.collisionsLimit) {
-                        sound('moved', 'c');
+                    if (collisionsCount >= game.collisionsLimit            ) {
+                        sound('moved');
 
-                        if (this.x > width / 2) this.x = random(0 + this.size, width / 2 - this.size);
-                        else this.x = random(width / 2 + this.size, width - this.size);
+                        if (this.x > width / 2) this.x = random(0 + this.radius, width / 2 - this.radius);
+                        else this.x = random(width / 2 + this.radius, width - this.radius);
 
-                        if (this.y > height / 2) this.y = random(0 + this.size, height / 2 - this.size);
-                        else this.y = random(height / 2 + this.size, height - this.size);
+                        if (this.y > height / 2) this.y = random(0 + this.radius, height / 2 - this.radius);
+                        else this.y = random(height / 2 + this.radius, height - this.radius);
 
-                        this.velX = random(-velLimit, velLimit);
-                        this.velY = random(-velLimit, velLimit);
+                        this.velX *= -1;
+                        this.velY *= -1;
                     }
                 }
             }
@@ -353,16 +368,16 @@ class Ball extends Shape {
 
 function createBalls(number, minRadius, maxRadius, velLimit) {
     while (game.balls.length < number) {
-        const size = random(minRadius, maxRadius);
+        const radius = random(minRadius, maxRadius);
         const ball = new Ball(
             // ball position always drawn at least one ball width
             // away from the edge of the canvas, to avoid drawing errors
-            random(0 + size, width - size),
-            random(0 + size, height - size),
+            random(0 + radius, width - radius),
+            random(0 + radius, height - radius),
             random(-velLimit, velLimit),
             random(-velLimit, velLimit),
             randomRGB(),
-            size
+            radius
         );
 
         game.balls.push(ball);
@@ -397,13 +412,13 @@ function loop(number, minRadius, maxRadius, velLimit) {
     if (game.balls.length > 0) {
         window.requestAnimationFrame(loop);
     } else {
-        // console.log(`Stage ${game.stage++} completed`);
+        sound('nextStage'); // console.log(`Stage ${game.stage++} completed`);
+        
         game.stage++;
-        sound('nextStage', 'd');
-
         game.stageCaughtBalls = 0;
+        game.ballsRemoved = [];
 
-        if (game.stage > 10) {
+        if (game.stage > game.maxStages) {
             // console.log('Game Over!');
             gameInterface.gameOver();
             return;
@@ -413,8 +428,8 @@ function loop(number, minRadius, maxRadius, velLimit) {
             game.collisionsLimit--;
         }
 
-        if (evilCircle.size > 0) {
-            evilCircle.size--;
+        if (evilCircle.radius > 0) {
+            evilCircle.radius--;
             evilCircle.velX = evilCircle.velY--;
         }
 
@@ -465,8 +480,8 @@ const gameInterface = {
     stageCaughtBalls: document.querySelector('#stage-caught-balls'),
     totalCaughtBalls: document.querySelector('#total-caught-balls'),
     update() {
-        this.score.textContent = game.score;
-        this.scoreWon.textContent = game.lastScore;
+        this.score.textContent = formatNumber(game.score);
+        this.scoreWon.textContent = formatNumber(game.lastScore);
         this.stage.textContent = game.stage;
         this.stageBalls.textContent = game.stageBalls;
         this.stageCaughtBalls.textContent = game.stageCaughtBalls;
@@ -476,14 +491,18 @@ const gameInterface = {
     gameLegend: document.querySelector('.legend'),
     gameStatistic: document.querySelector('.statistic'),
     gameOver() {
-        this.gameOverBanner.querySelector('.total-sore').innerHTML = game.score;
+        this.gameOverBanner.querySelector('.total-sore').innerHTML = formatNumber(game.score);
         this.gameOverBanner.style.display = 'block';
     },
     gameStart() {
         this.gameLegend.style.display = 'none';
         this.gameStatistic.style.display = 'block';
         this.changeMode();
-        sound('soundtrack', 'soundtrack');
+
+        window.addEventListener('click', function playSoundtrack(e) {
+            this.window.removeEventListener('click', playSoundtrack);
+            sound('soundtrack', 'soundtrack');
+        });
     },
     modeIndicator: document.querySelector('#mode-indicator'),
     changeMode() {
@@ -515,7 +534,8 @@ const game = {
     collisionsLimit: 3,
     score: 0,
     lastScore: 0,
-    mode: 'demo'
+    mode: 'demo',
+    maxStages: 2
 }
 
 // Evil circle will not eat the balls until game.mode === 'demo'
@@ -527,7 +547,7 @@ const evilCircle = new EvilCircle(
 );
 
 // Start the demoLoop when the page is loaded
-demoLoop(75, 5, 120, 7);
+demoLoop(45, 5, 120, 7);
 
 // Start the game by Esc key
 window.addEventListener('keydown', function startGameHandler(e) {
