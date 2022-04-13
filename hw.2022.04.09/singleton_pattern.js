@@ -1,4 +1,4 @@
-// The Singleton Pattern:
+// The Singleton Pattern: 
 // Singleton provides protection against accidentally creating multiple copies of a complex object.
 // Allows deferral of object instantiation until the first use.
 // It's main usage is for managing the global application state and name-spacing.
@@ -64,7 +64,7 @@ function Car(name = 'Car', speed = 180) {
     this.speed = speed;
 
     // cache the instance
-    this.constructor.instance = this
+    this.constructor.instance = this;
 }
 const car_1 = new Car('CarA', 220);
 const car_2 = new Car('CarB', 190);
@@ -91,3 +91,46 @@ console.log(car_A === car_B);
 // {name: 'Volvo', speed: 180}
 // {name: 'Volvo', speed: 180}
 // true
+
+console.log('*'.repeat(20));
+
+// Instance in a Closure: rewrite the Constructor - Constructor function style ---
+function CarClosure(name = 'Car', speed = 180) {
+    // catch the instance
+    const instance = this;
+
+    // set instance properties
+    this.name = name;
+    this.speed = speed;
+
+    // rewrite the constructor
+    CarClosure = function () {
+        return instance;
+    };
+}
+const car_X = new CarClosure('CarX', 205);
+const car_Y = new CarClosure('CarY', 170);
+console.log(car_X.name, car_X.speed);
+console.log(car_Y.name, car_Y.speed);
+console.log(car_X === car_Y);
+// CarX 205
+// CarX 205
+// true
+
+console.log('*'.repeat(20));
+
+// Instance in a Closure: rewrite the Constructor - Factory function style ---
+function carMakerClosure(name = 'Car', speed = 180) {
+    const instance = { name, speed };
+    carMakerClosure = function() { return instance; };
+    return instance;
+}
+const car_U = carMakerClosure('Volkswagen Type 82E', 110);
+const car_W = carMakerClosure('Volkswagen Passat', 170);
+console.log(car_U);
+console.log(car_W);
+console.log(car_U === car_W);
+// {name: 'Volkswagen Type 82E', speed: 110}
+// {name: 'Volkswagen Type 82E', speed: 110}
+// true
+

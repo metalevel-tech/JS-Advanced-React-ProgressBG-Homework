@@ -1,4 +1,4 @@
-// Creational design patterns:
+// Creational design patterns: 
 // Creational design patterns focus on object creation mechanisms
 // Summaries best practices for object creation suitable for different, common, situations
 // Removes the potential complexity in a project

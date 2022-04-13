@@ -1,11 +1,35 @@
 # JS-Advanced-React-ProgressBG-Homework
 
-[Object literal](hw.2022.04.10/singleton_pattern.js?plain=1#L18)
+## Homework [2022.04.09](./hw.2022.04.09) (Design Patterns)
 
-## Tasks [2022.04.03](./hw.2022.04.03)
+Singleton pattern in JS exercises:
 
+* [Object literal](hw.2022.04.09/singleton_pattern.js?plain=1#L17)
+
+* [Caching the singular instance, **ES6 Classes** style](hw.2022.04.09/singleton_pattern.js?plain=1#L28)
+
+* [Caching the singular instance, **Constructor function** style](hw.2022.04.09/singleton_pattern.js?plain=1#55)
+
+* [Caching the singular instance, **Factory function** style](hw.2022.04.09/singleton_pattern.js?plain=1#80)
+
+* [Instance in a closure - rewrite the constructor, **Constructor function** style](hw.2022.04.09/singleton_pattern.js?plain=1#97)
+
+* [Instance in a closure - rewrite the constructor, **Factory function** style](hw.2022.04.09/singleton_pattern.js?plain=1#122)
+
+Modules in JS examples:
+
+* [The Module pattern](hw.2022.04.09/module_pattern.js)
+
+Different ways to create and object in JS examples:
+
+ * [Creational patterns](hw.2022.04.09/creational_patterns.js)
  
-JavaScript Objects, Events and Functions recap:
+ * [Factory pattern](hw.2022.04.09/factory_pattern.js)
+
+
+## Homework [2022.04.03](./hw.2022.04.03)
+
+ JavaScript Objects, Events and Functions recap:
 
 * **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_bounce_balls/index.html).**
   
@@ -15,7 +39,7 @@ Exercise: Play with RegExp at [Regular expressions 101](https://regex101.com/acc
 
  * Live preview: [**exercise-1.regexp-match.html**](https://metalevel-tech.github.io/js_homework/hw.2022.04.03/exercise-1.regexp-match.html)
 
-## Tasks [2022.04.02](./hw.2022.04.02)
+## Homework [2022.04.02](./hw.2022.04.02)
 
 Task 1: [*From a given string find and print all words, which are 3 characters or more length and doesn't start with a number*](https://gist.githubusercontent.com/WWWCourses/f9212e587f8cf874c5b198c99147a27e/raw/b1797eba087773c354da00e75814592fdd8626f1/findAllWords.js)
 
@@ -24,7 +48,7 @@ Task 1: [*From a given string find and print all words, which are 3 characters o
 Exercise 1: Learn how actually `RexExp.exec()` works and why `rx.lastIndex` is not terminated after each execution - [exercise-1.String.methods-vs.RegExp.methods.js](./hw.2022.04.02/exercise-1.String.methods-vs.RegExp.methods.js)
 
 
-## Tasks [2022.03.26](./hw.2022.03.26)
+## Homework [2022.03.26](./hw.2022.03.26)
 
 Task 5: [*Map array of objects*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/mapFilterReduceMethods/mapFilterReduceMethods.html#/analyseGroupProductsByCategory)
 
@@ -46,7 +70,7 @@ Task 1: [*Filter Words Starting WithLetter*](https://wwwcourses.github.io/Progre
 
 * Solution: [task-1.filterWordsStartingWithLetter.js](./hw.2022.03.26/task-1.filterWordsStartingWithLetter.js)
 
-## Tasks [2022.03.20](./hw.2022.03.20)
+## Homework [2022.03.20](./hw.2022.03.20)
 Task 3: [*Sort array of objects by key*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/25/2)
 
 * Solution: [task-3.Sort_array_of_objects_by_key.js](./hw.2022.03.20/task-3.Sort_array_of_objects_by_key.js)
@@ -61,7 +85,7 @@ Task 1: [*Developer_Manager_Person with Class Syntax- task description*](https:/
 
 * Extend exercise which includes private members, static constructor members and more: [**es6-classes.js**](labs/es6-classes.js)
 
-## Tasks [2022.03.13](./hw.2022.03.13)
+## Homework [2022.03.13](./hw.2022.03.13)
 Task: [*Developer_Manager_Person - Task Description*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription)
 
 * Solution with Constructors: [**task-1.Developer_Manager_Person.with.constructor.js**](./hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.js) ([live preview](https://metalevel-tech.github.io/js_homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.html))
@@ -85,7 +109,7 @@ Question 1: ***What is the matter of the constructor's reassignment?** Is it jus
   Script file: [example.constructor.function.js](./hw.2022.03.13/example.constructor.function.js) ([live preview](https://metalevel-tech.github.io/js_homework/hw.2022.03.13/example.constructor.function.html))
 
 
-## Tasks [2022.03.12](./hw.2022.03.12)
+## Homework [2022.03.12](./hw.2022.03.12)
 
 TASK 2: [*Fix the problem in countdown function, so that we see in console the numbers 1,2,3 instead of NaN*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/thisContext/thisContext.html#/task2).
 
@@ -104,7 +128,7 @@ TASK 1: [*Fix the problem, so that we see in console numbers 1,2,3 instead of Na
 
 
   
-## Tasks [2022.03.05](./hw.2022.03.05)
+## Homework [2022.03.05](./hw.2022.03.05)
 
 TASK: [*The Factory as mechanism to enforce encapsulation*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/OOPinJS/OOPinJS.html#/taskTheFactoryAsMechanismToEnforceEncapsulation)
 
@@ -112,7 +136,7 @@ TASK: [*The Factory as mechanism to enforce encapsulation*](https://wwwcourses.g
 
 
 
-## Tasks [2022.03.04](./hw.2022.03.04)
+## Homework [2022.03.04](./hw.2022.03.04)
 
 TASK: *[Recursion - Traversing the DOM](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/Functions/Functions.html#/13/7): Change the elements' color based on the color names, mentioned within their text.*
 

@@ -1,4 +1,4 @@
-// Factory Pattern:
+// Factory Pattern: 
 // The Factory Pattern deals with the problem of creating objects
 //     (we can think of them as 'products') 
 //     without the need to specify the exact class of object being created.
