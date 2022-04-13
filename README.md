@@ -1,5 +1,7 @@
 # JS-Advanced-React-ProgressBG-Homework
 
+[Object literal](hw.2022.04.10/singleton_pattern.js?plain=1#L18)
+
 ## Tasks [2022.04.03](./hw.2022.04.03)
 
  
