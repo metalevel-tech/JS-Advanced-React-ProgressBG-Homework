@@ -26,6 +26,8 @@ Note the internal links will behave in a different way when you browse this *pag
 
 * [JSON](ref_JSON/)
 
+* [ES6 Modules](ref_es6_modules/)
+
 ## Separate exercises
 
 * **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_bounce_balls/index.html).**
@@ -177,7 +179,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [ ] [Meta programming](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming)
 
-	* [ ] [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+	* [x] [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 
 * [ ] [Intermediate](https://developer.mozilla.org/en-US/docs/Web/JavaScript#intermediate)
 
