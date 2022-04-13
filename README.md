@@ -5,20 +5,20 @@
 Singleton pattern in JS exercises:
 
 * [Object literal](hw.2022.04.09/singleton_pattern.js?plain=1#L17)
-
 * [Caching the singular instance, **ES6 Classes** style](hw.2022.04.09/singleton_pattern.js?plain=1#L28)
-
 * [Caching the singular instance, **Constructor function** style](hw.2022.04.09/singleton_pattern.js?plain=1#55)
-
 * [Caching the singular instance, **Factory function** style](hw.2022.04.09/singleton_pattern.js?plain=1#80)
-
 * [Instance in a closure - rewrite the constructor, **Constructor function** style](hw.2022.04.09/singleton_pattern.js?plain=1#97)
-
 * [Instance in a closure - rewrite the constructor, **Factory function** style](hw.2022.04.09/singleton_pattern.js?plain=1#122)
 
 Modules in JS examples:
 
-* [The Module pattern](hw.2022.04.09/module_pattern.js)
+* [The Module pattern](hw.2022.04.09/module_pattern.js) example
+* ES6 Modules references: 
+  * [Modules - chapter from Exploring ES6 by Axel Rauschmayer](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/CreationalPatterns/CreationalPatterns.html#/10/3)
+  * [MDN: import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+  * [MDN: export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+* [MDN: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) (CommonJS, AMD, RequireJS, WebPack, Babel)
 
 Different ways to create and object in JS examples:
 
