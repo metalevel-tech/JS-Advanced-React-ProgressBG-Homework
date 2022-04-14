@@ -1,1 +1,1 @@
-../labs/es6-classes.js
+../../labs/es6-classes.js
