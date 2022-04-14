@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: -webkit-fit-content;
+            margin: auto;
+            padding: 1em;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .container > *:last-child {
+            margin-bottom: 0;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <label for="letters">Select a letter: </label>
+            <select name="letters" id="letters">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+            </select>
+        </form>
+        <p>List of words to be colorized:</p>
+        <ul class="words"> 
+            <li>Abstraction</li>
+            <li>Encapsulation</li>
+            <li>Cell</li>
+            <li>Animation</li>
+            <li>Inheritance</li>
+            <li>Beer</li>
+            <li>City</li>
+            <li>Born</li>
+            <li>Turtle</li>
+            <li>Alias</li>
+            <li>Bacon</li>
+        </ul>
+    </div>
+    <script type="module" src="./main.js"></script>
+    <!-- <script src="./main.js"></script> -->
+</body>
+</html>
