@@ -6,7 +6,7 @@ Exercises:
 * [Member patterns](homework/hw.2022.04.10/member_patterns.js)
 * [Decorator Structural Pattern](homework/hw.2022.04.10/structural_patterns_decorator.js)
 * [Mixins Structural Pattern](homework/hw.2022.04.10/structural_patterns_mixins.js)
-* [Observer/Subject Structural Pattern](homework/hw.2022.04.10/structural_patterns_observer)
+* [Observer/Subject Structural Pattern](homework/hw.2022.04.10/structural_patterns_observer) [Live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.10/structural_patterns_observer/index.html) of the end result.
 
 ## Homework [2022.04.09](./homework/hw.2022.04.09) (Design Patterns)
 
