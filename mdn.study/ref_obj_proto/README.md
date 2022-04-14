@@ -30,7 +30,7 @@
   
 * The standard way to access an object's prototype is the `Object.getPrototypeOf(ourObject)` method.
   
-* Check the exercise [Developer Manager Person](../../hw.2022.03.13/) to see examples of inheritance.
+* Check the exercise [Developer Manager Person](../../homework/hw.2022.03.13/) to see examples of inheritance.
 
     ```js
     // Using constructor function

@@ -19,13 +19,13 @@
 * Task: [*Developer_Manager_Person - Task Description*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription).
 
 
-  * **Solution with ES6 Classes**: [**task-1.Developer_Manager_Person.with.es6.classes.js**](../../hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.js) ([live preview](https://metalevel-tech.github.io/js_homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.html))
+  * **Solution with ES6 Classes**: [**task-1.Developer_Manager_Person.with.es6.classes.js**](../../homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.js) ([live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.html))
 
-  * Solution with Constructors: [task-1.Developer_Manager_Person.with.constructor.js](../../hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.js) ([live preview](https://metalevel-tech.github.io/js_homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.html))
+  * Solution with Constructors: [task-1.Developer_Manager_Person.with.constructor.js](../../homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.js) ([live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.html))
 
 * [labs/**es6-classes.js**](../../labs/es6-classes.js) exercise: Play with ES6 Classes: prototype, constructor, inheritance, static members, etc.
 
-* See also how to create even more protected members by `WeakMap()`: [`hw.2022.03.05/`](../../hw.2022.03.05)[**`t1.WeakMap.and.ES6.Class.Proto.js`**](../../hw.2022.03.05/t1.WeakMap.and.ES6.Class.Proto.js)
+* See also how to create even more protected members by `WeakMap()`: [`homework/hw.2022.03.05/`](../../homework/hw.2022.03.05)[**`t1.WeakMap.and.ES6.Class.Proto.js`**](../../homework/hw.2022.03.05/t1.WeakMap.and.ES6.Class.Proto.js)
 
 * Class expression syntax is also possible, but not seen in the practice.
 

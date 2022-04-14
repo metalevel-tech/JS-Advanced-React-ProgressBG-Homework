@@ -2,7 +2,7 @@
 
 Here are the exercises I've done while reading the MDN's JavaScript Guides, Tutorials and References.
 
-Note the internal links will behave in a different way when you browse this *page* as [GitHub Repository](https://github.com/metalevel-tech/JS-Advanced-React-ProgressBG-Homework/tree/master/MDN.Exercises) or as [GitHub Page](https://metalevel.tech/js_homework/MDN.Exercises/).
+Note the internal links will behave in a different way when you browse this *page* as [GitHub Repository](https://github.com/metalevel-tech/JS-Advanced-React-ProgressBG-Homework/tree/master/mdn.study) or as [GitHub Page](https://metalevel.tech/js_homework/mdn.study/).
 
 ## Lessons, notes and exercises
 
@@ -30,13 +30,13 @@ Note the internal links will behave in a different way when you browse this *pag
 
 ## Separate exercises
 
-* **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_bounce_balls/index.html).**
+* **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_bounce_balls/index.html).**
 
-* Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
+* Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
-* Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_guess_the_number_game/number-guessing-game-start.html).
+* Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_guess_the_number_game/number-guessing-game-start.html).
 
-* Image gallery: [README.md](./exercise_image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_image_gallery/image-gallery-exercise-index.html). 
+* Image gallery: [README.md](./exercise_image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_image_gallery/image-gallery-exercise-index.html). 
 
 ## TOC: Guides, Tutorials and References
 

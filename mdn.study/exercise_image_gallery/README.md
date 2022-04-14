@@ -1,5 +1,5 @@
 # Image gallery
-[Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_image_gallery/image-gallery-exercise-index.html) of the end result. 
+[Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_image_gallery/image-gallery-exercise-index.html) of the end result. 
 
 Source and references:
 

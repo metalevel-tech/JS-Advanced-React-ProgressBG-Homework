@@ -1,6 +1,6 @@
 # Silly story generator | MDN JavaScript Guide
 
-[Live preview](https://metalevel-tech.github.io/js_homework/MDN.Exercises/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html) of the end result. 
+[Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html) of the end result. 
 
 Source and references:
 

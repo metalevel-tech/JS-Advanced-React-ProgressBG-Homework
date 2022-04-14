@@ -67,6 +67,6 @@
 
 * Phone number exercise: [`exercise-1.validate-phone-number.html`](./exercise-1.validate-phone-number.html)
 
-* [Exercises: hw.2022.04.02](../../hw.2022.04.02/)
+* [Exercises: homework/hw.2022.04.02](../../homework/hw.2022.04.02/)
 
-* [Exercises: hw.2022.04.03](../../hw.2022.04.03/)
+* [Exercises: homework/hw.2022.04.03](../../homework/hw.2022.04.03/)
