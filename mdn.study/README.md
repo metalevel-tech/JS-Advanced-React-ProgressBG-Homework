@@ -28,6 +28,8 @@ Note the internal links will behave in a different way when you browse this *pag
 
 * [ES6 Modules](ref_es6_modules/)
 
+* [Promises](ref_promises/)
+
 ## Separate exercises
 
 * **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_bounce_balls/index.html).**
