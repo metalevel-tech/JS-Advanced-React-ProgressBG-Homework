@@ -100,21 +100,17 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] Assessment: [Adding features to our bouncing balls demo](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Adding_bouncing_balls_features)
 
-  * [x] [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+  * [x] [Asynchronous JavaScript Overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 
-    * [x] [Asynchronous JavaScript overview](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+    * [x] [Introducing asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+    
+    * [ ] [How to use promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
 
-    * [ ] [General asynchronous programming concepts](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts)
+    * [ ] [How to implement a promise-based API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)
 
-    * [ ] [Introducing asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+    * [ ] [Introducing workers](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers)
 
-    * [ ] [Cooperative asynchronous Java​Script: Timeouts and intervals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals)
-
-    * [ ] [Graceful asynchronous programming with Promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
-
-    * [ ] [Making asynchronous programming easier with async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-
-    * [ ] [Choosing the right approach](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Choosing_the_right_approach)
+    * [ ] Assessments: [Sequencing animations](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Sequencing_animations)
 
   * [ ] [Client-side web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
 
@@ -173,7 +169,11 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [ ] [Details of the object model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
 
-	* [ ] [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) + [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
+	* [ ] [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) 
+	
+    * [ ] + [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
+
+    * [ ] + [Promise Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 	* [ ] [Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
 
