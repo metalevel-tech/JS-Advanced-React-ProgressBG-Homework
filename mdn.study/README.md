@@ -28,7 +28,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 * [ES6 Modules](ref_es6_modules/)
 
-* [Promises](ref_promises/)
+* [Asynchronous JavaScript](ref_asynchronous/)
 
 ## Separate exercises
 

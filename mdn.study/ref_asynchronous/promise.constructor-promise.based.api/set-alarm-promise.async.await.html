@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="box1" class="box">
+        <h1>
+            <pre>Promise() > async await</pre>
+        </h1>
+        <button class="set-alarm">Set alarm</button>
+        <div class="block">
+            <label for="delay1">Delay in seconds:</label>
+            <input type="number" name="delay1" id="delay1" class="delay" placeholder="0">
+        </div>
+        <div class="block">
+            <label for="person1">Person name:</label>
+            <input type="text" name="person1" id="person1" class="person" placeholder="Someone">
+        </div>
+        <!-- <button class="stop-alarm">Stop alarm</button> -->
+        <div class="output"><p>&nbsp;</p></div>
+    </div>
+    <script>
+        const box = document.querySelector('#box1');
+        const button = box.querySelector('.set-alarm');
+        const delay = box.querySelector('.delay');
+        const person = box.querySelector('.person');
+        const output = box.querySelector('.output p');
+
+        function alarm(person, delay) {
+            return new Promise((resolve, reject) => {
+                if (delay <= 0) {
+                    throw new Error('Delay must be greater than 0!')
+                    // If an error is thrown in the `executor`, the promise is rejected.
+                    // reject('Delay must be greater than 0!');
+                }
+                window.setTimeout(() => {
+                    resolve(`Wake up ${person}!`);
+                }, delay);
+            });
+        }
+
+        const setAlarm = async () => {
+            try {
+                const delayValue = Number(delay.value) * 1000;
+                const personName = person.value || 'Someone';
+                
+                const message = await alarm(personName, delayValue);
+
+                output.textContent = message;
+                output.parentNode.classList.add('true');
+                output.parentNode.classList.remove('false');
+            }
+            catch (error) {
+                output.innerHTML = `Could not set alarm: ${error}`;
+                output.parentNode.classList.add('false');
+                output.parentNode.classList.remove('true');
+            }
+        };
+
+        button.addEventListener('click', setAlarm);
+    </script>
+
+</body>
+
+</html>

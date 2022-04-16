@@ -535,7 +535,7 @@ const game = {
     score: 0,
     lastScore: 0,
     mode: 'demo',
-    maxStages: 2
+    maxStages: 10
 }
 
 // Evil circle will not eat the balls until game.mode === 'demo'
