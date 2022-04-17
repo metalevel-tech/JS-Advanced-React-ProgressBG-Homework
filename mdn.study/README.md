@@ -108,7 +108,7 @@ Note the internal links will behave in a different way when you browse this *pag
     
     * [x] [How to use promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
 
-    * [ ] [How to implement a promise-based API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)
+    * [x] [How to implement a promise-based API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)
 
     * [ ] [Introducing workers](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers)
 
