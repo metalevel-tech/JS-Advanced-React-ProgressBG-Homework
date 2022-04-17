@@ -23,7 +23,8 @@
 
 <body>
     <div class="container">
-        <form action="login" method="post" id="login-form">
+        <!-- <form action="login" method="post" id="login-form"> -->
+        <form id="login-form">
             <h1>Login</h1>
             <p>Please fill in this form to log-in to the server.</p>
             <hr>
@@ -77,28 +78,7 @@
                 sendData();
             });
         });
-        /*
-        form.addEventListener('submit', e => {
-            e.preventDefault();
 
-            const formData = new FormData(form);
-            const xhr = new XMLHttpRequest();
-
-            console.log(form);
-            console.log(formData.method);
-
-            xhr.open('POST', url);
-            xhr.send(formData);
-
-            xhr.onload = () => {
-                console.log(xhr.responseText);
-                if (xhr.status === 200) {
-                    output.innerHTML = xhr.responseText;
-                } else {
-                    output.innerHTML = `<p>An error occurred: ${xhr.status} ${xhr.statusText}</p>`;
-                }
-            };
-        });
         /**
         fetch(login)
             .then(response => {
