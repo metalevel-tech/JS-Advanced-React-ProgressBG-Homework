@@ -22,7 +22,8 @@ form > *:last-child {
 /* Add padding to containers */
 .container:not(:empty) {
     padding: 1em;
-    width: 480px;
+    max-width: 360px;
+    min-width: 200px;
     border: 1px solid #ddd;
     margin: 1em auto;
 }
@@ -77,6 +78,7 @@ hr {
 
 .login-btn:hover, .register-btn:hover {
     opacity: 1;
+    transition: opacity .3s;
 }
 
 /* Add a blue text color to links */
@@ -85,7 +87,7 @@ a {
 }
 
 /* Set a grey background color and center the text of the "sign in" section */
-.signin {
+.sign-in {
     background-color: #f1f1f1;
     text-align: center;
 }

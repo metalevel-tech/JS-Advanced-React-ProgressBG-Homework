@@ -8,6 +8,9 @@
 
   * [ ] [MDN: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
+  * [ ] [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+
 * [x] [MDN: How to implement a promise-based API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)
 
   * [x] [MDN: `Promise()` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)

@@ -1,8 +1,12 @@
-const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const multer = require('multer');
+const upload = multer();
+
+const express = require('express');
 const app = express();
+
 const port = 8080;
 
 const defaults = {
@@ -15,23 +19,27 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+// for parsing multipart/form-data
+app.use(upload.array()); 
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.use('/', express.static(path.join(__dirname, '')));
 
+// $ curl -X POST -d 'username=user&password=123' 'http://127.0.0.1:8080/login'
 app.post('/login', function (req, res) {
     console.log(req.body);
     if (defaults.user === req.body.username && defaults.password === req.body.password) {
-        const user = req.body.username.replace(/^\w/, c => c.toUpperCase());
-        const password = req.body.password;
-        res.send(`Hello ${user}! Your password is ${password}.\n`);
+        // const user = req.body.username.replace(/^\w/, c => c.toUpperCase());
+        // const password = req.body.password;
+        res.send(`Login succeed!\n`);
     } else {
         res.send('Login failed!\n');
     }
 });
 
 app.listen(port, function () {
-    console.log(`app listening on port ${port}!`);
+    console.log(`App listening on port ${port}!`);
 });

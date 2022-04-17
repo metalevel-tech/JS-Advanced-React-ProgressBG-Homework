@@ -3,8 +3,7 @@
 # @author      Spas Z. Spasov
 # @home	       https://askubuntu.com/a/1394951/566421
 # @version     1.0
-# @description Hybrid Bash/PowerShell script that creates port proxy
-#              of WSL2`s (virtual network) port to a Windows` public port.
+# @description Hybrid Bash/PowerShell script that creates port proxy of WSL2`s (virtual network) port to a Windows` public port.
 #              Place the cript in '~/bin/wsl-win-port-proxy.sh' and use it as shell command.
 # @parameters  $1 = default: 8080 => WSL Port (source)
 #              $2 = default: 8080 => Win Port (destination)
