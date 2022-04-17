@@ -11,7 +11,7 @@ fetchPromise
         
         return response.json();
     })
-    .then(json =>{
+    .then(json => {
         json.forEach(el => console.log(el));
     })
     .catch(error => {
