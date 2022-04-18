@@ -1,9 +1,3 @@
-// References:
-// - https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
-// - https://www.tutorialspoint.com/nodejs/nodejs_request_object.htm
-// - https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
-// - https://askubuntu.com/questions/968652/how-do-i-send-get-and-post-requests-using-curl
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();

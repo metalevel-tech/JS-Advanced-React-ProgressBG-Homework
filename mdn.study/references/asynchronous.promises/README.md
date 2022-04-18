@@ -17,27 +17,6 @@
 
   * [ ] [MDN: Promise Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-* [ ] [MDN: Introducing workers](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers)
-
-  * [ ] [MDN: Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
-
-  * [ ] [MDN: Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
-
-  * [ ] [MDN: Functions and classes available to Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
-  
-
-* [ ] [MDN: Assessment - Sequencing animations](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Sequencing_animations)
-
----
-
-* [ ] [MDN: Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
-
----
-
-* [Node `fetch()` module](https://www.npmjs.com/package//node-fetch)
-
-* [`fetch()` In Node.js Core](https://fusebit.io/blog/node-fetch/?utm_source=duckduckgo.com&utm_medium=referral&utm_campaign=none): *`node >= 17.5`:* `node --experimental-fetch file.js`
-
 
 ## Promise terminology
 
@@ -88,7 +67,7 @@ When called via `new`, the `Promise` constructor returns a Promise object. The p
 
 ## Exercise: How to implement a `Promise()`-based API
 
-* *Reference: [Implementing an `alarm()` API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)*
+Implementing an `alarm()` API ([reference](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)):
 
 * [no `Promise()` initial implementation](./promise.constructor-promise.based.api/set-alarm-no-promise.html)
 
@@ -96,24 +75,5 @@ When called via `new`, the `Promise` constructor returns a Promise object. The p
 
 * [`Promise()` > `async` `await`](./promise.constructor-promise.based.api/set-alarm-promise.async.await.html)
 
-## Web Workers API
 
-Web Workers makes it possible to run a script operation in a background ***thread*** separate from the main execution thread of a web application. A *thread* is a sequence of instructions that a program follows. 
-
-Workers give you the ability to run some tasks in a different thread, so you can start the task, then continue with other processing (such as handling user actions).
-
-A worker is an object created using a constructor (e.g. [`Worker()`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker)) that runs a named JavaScript file — this file contains the code that will run in the worker thread.
-
-You can run almost any code you like inside a worker thread. There are some exceptions: for example, you can't directly manipulate the DOM from inside a worker, or use some default methods and properties of the `window` object.  
-
-With multithreaded code, you never know when your thread will be suspended and the other thread will get a chance to run. So if both threads have access to the same variables, it's possible for a variable to change unexpectedly at any time, and this causes bugs that are hard to find.
-
-To avoid these problems in the web, your main code and your worker code never get direct access to each others' variables. Workers and the main code run in completely separate worlds, and only interact by sending each other messages. In particular, this means that workers can't access the DOM (the window, document, page elements, and so on).
-
-There are three different sorts of workers:
-
-* [Dedicated workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#dedicated_workers) - this type of workers are covered in the exercises below - see also [`DedicatedWorkerGlobalScope`](https://developer.mozilla.org/en-US/docs/Web/API/DedicatedWorkerGlobalScope) object.
-
-* [Shared workers](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker) can be shared by several different scripts running in different windows.
-
-* [Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) act like proxy servers, caching resources so that web applications can work when the user is offline. They're a key component of [Progressive Web Apps](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
+Sequencing animations by **Promises** (three solutions): [README.md](../../exercises/sequencing_animations_promises__alice/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.html) of the end result.

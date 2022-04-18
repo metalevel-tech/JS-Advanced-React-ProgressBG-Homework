@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+textarea {
+    display: block;
+    margin: 1rem 0;
+    width: 100%;
+    resize: none;
+    padding: .6em;
+}
+
+.box {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.box > *:first-child {
+    margin-top: 0;
+}
+
+.box > *:last-child {
+    margin-bottom: 0;
+}
+
+.output {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1rem;
+}

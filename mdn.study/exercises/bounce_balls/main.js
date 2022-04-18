@@ -22,7 +22,7 @@ function randomRGB() {
 }
 
 // function to format large numbers
-function formatNumber(number){
+function formatNumber(number) {
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
  }
 
@@ -521,13 +521,13 @@ const gameInterface = {
 const game = {
     balls: [],
     ballsRemoved: [],
-    stageBalls: 5,
+    stageBalls: 9,
     stageCaughtBalls: 0,
     totalCaughtBalls: 0,
     minRadius: 10,
     maxRadius: 120,
     lastScore: 0,
-    velLimit: 5,
+    velLimit: 6,
     stage: 1,
     evilCircleSize: 20,
     evilCircleVel: 20,
@@ -535,7 +535,7 @@ const game = {
     score: 0,
     lastScore: 0,
     mode: 'demo',
-    maxStages: 10
+    maxStages: 5
 }
 
 // Evil circle will not eat the balls until game.mode === 'demo'

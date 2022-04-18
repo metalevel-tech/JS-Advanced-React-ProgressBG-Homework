@@ -28,11 +28,15 @@ Note the internal links will behave in a different way when you browse this *pag
 
 * [ES6 Modules](references/es6_modules/)
 
-* [Asynchronous JavaScript](references/asynchronous/)
+* [Asynchronous JavaScript: Promises](references/asynchronous.promises/)
+
+* [Asynchronous JavaScript: Workers](references/asynchronous.web.workers/)
 
 ## Separate exercises
 
 * **Bouncing Balls Game: [JavaScriptCode](./exercises/bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/bounce_balls/index.html).**
+
+* Sequencing animations by **Promises** (three solutions): [README.md](./exercises/sequencing_animations_promises__alice/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.html) of the end result.
 
 * Silly story generator assessment: [README.md](./exercises/silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
@@ -110,9 +114,9 @@ Note the internal links will behave in a different way when you browse this *pag
 
     * [x] [How to implement a promise-based API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)
 
-    * [ ] [Introducing workers](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers)
+    * [x] [Introducing workers](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers)
 
-    * [ ] Assessments: [Sequencing animations](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Sequencing_animations)
+    * [x] Assessments: [Sequencing animations](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Sequencing_animations)
 
   * [ ] [Client-side web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs)
 
@@ -131,6 +135,11 @@ Note the internal links will behave in a different way when you browse this *pag
     * [ ] [Video and audio APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Video_and_audio_APIs)
 
     * [ ] [Client-side storage](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage)
+    
+      * [ ] [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) 
+      
+      * [x] [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) <sup>*`Only the key concept learned!`*</sup>
+      
 
 * [x] [Complete beginners](https://developer.mozilla.org/en-US/docs/Web/JavaScript#for_complete_beginners)
 
@@ -161,14 +170,15 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [x] [Text formatting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting):
 	
-    * [`String()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-    
-    * [`String.fromCodePoint()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint)
+      * [x] [`String()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+      
+      * [x] [`String.fromCodePoint()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint)
 
-    * [`String.prototype.codePointAt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt)
+      * [x] [`String.prototype.codePointAt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt)
 
-    * [`Intl` Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
-
+      * [x] [`Intl` Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+      
+      * [x] [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 	* [x] [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
@@ -182,15 +192,17 @@ Note the internal links will behave in a different way when you browse this *pag
 
 	* [ ] [Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) 
 	
-    * [ ] + [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
+      * [x] [Promise Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-    * [ ] + [Promise Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-
+      * [ ] [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
+      
 	* [ ] [Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
 
 	* [ ] [Meta programming](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming)
 
 	* [x] [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+
+  * [x] [The WebSocket API (WebSockets)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) <sup>*`Only the key concept learned!`*</sup>
 
 * [ ] [Intermediate](https://developer.mozilla.org/en-US/docs/Web/JavaScript#intermediate)
 
@@ -229,6 +241,3 @@ Note the internal links will behave in a different way when you browse this *pag
   * [x] [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 
   * [ ] [Functions - Learn how to work with JavaScript's functions to develop your applications](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
-
-  * [x] [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-
