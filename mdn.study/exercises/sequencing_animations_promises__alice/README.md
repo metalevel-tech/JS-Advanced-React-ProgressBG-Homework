@@ -1,6 +1,6 @@
 # Sequencing animations
 
-**[Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.html) of the end result.** 
+**[Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.alice.html) of the end result.** 
 In the [main.js](./main.js) are presented three solutions:
 
 * [Callback hell style](./main.js?plain=1#L25)

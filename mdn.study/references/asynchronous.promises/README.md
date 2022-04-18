@@ -76,4 +76,4 @@ Implementing an `alarm()` API ([reference](https://developer.mozilla.org/en-US/d
 * [`Promise()` > `async` `await`](./promise.constructor-promise.based.api/set-alarm-promise.async.await.html)
 
 
-Sequencing animations by **Promises** (three solutions): [README.md](../../exercises/sequencing_animations_promises__alice/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.html) of the end result.
+Sequencing animations by **Promises** (three solutions): [README.md](../../exercises/sequencing_animations_promises__alice/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.alice.html) of the end result.

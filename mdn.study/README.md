@@ -34,7 +34,7 @@ Note the internal links will behave in a different way when you browse this *pag
 
 ## Separate exercises
 
-* **Bouncing Balls Game: [JavaScriptCode](./exercises/bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/bounce_balls/index.html).**
+* **Bouncing Balls Game: [JavaScriptCode](./exercises/bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/bounce_balls/index.alice.html).**
 
 * Sequencing animations by **Promises** (three solutions): [README.md](./exercises/sequencing_animations_promises__alice/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/sequencing_animations_promises__alice/index.html) of the end result.
 
@@ -139,7 +139,6 @@ Note the internal links will behave in a different way when you browse this *pag
       * [ ] [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) 
       
       * [x] [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) <sup>*`Only the key concept learned!`*</sup>
-      
 
 * [x] [Complete beginners](https://developer.mozilla.org/en-US/docs/Web/JavaScript#for_complete_beginners)
 
