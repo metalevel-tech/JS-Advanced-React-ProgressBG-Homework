@@ -39,7 +39,7 @@ Different ways to create and object in JS examples:
 
  JavaScript Objects, Events and Functions recap:
 
-* **Bouncing Balls Game: [JavaScript code](./mdn.study/exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_bounce_balls/index.html).**
+* **Bouncing Balls Game: [JavaScript code](./mdn.study/exercises/bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/bounce_balls/index.html).**
   
 Exercise: Play with RegExp at [Regular expressions 101](https://regex101.com/account/library) and also here:
 

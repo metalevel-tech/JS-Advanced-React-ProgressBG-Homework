@@ -32,13 +32,13 @@ Note the internal links will behave in a different way when you browse this *pag
 
 ## Separate exercises
 
-* **Bouncing Balls Game: [JavaScriptCode](./exercise_bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_bounce_balls/index.html).**
+* **Bouncing Balls Game: [JavaScriptCode](./exercises/bounce_balls/main.js) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/bounce_balls/index.html).**
 
-* Silly story generator assessment: [README.md](./exercise_silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_silly_story_generator_arrays_assessment/silly_story_generator.index.html).
+* Silly story generator assessment: [README.md](./exercises/silly_story_generator_arrays_assessment/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/silly_story_generator_arrays_assessment/silly_story_generator.index.html).
 
-* Guess the number game: [README.md](./exercise_guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_guess_the_number_game/number-guessing-game-start.html).
+* Guess the number game: [README.md](./exercises/guess_the_number_game/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/guess_the_number_game/number-guessing-game-start.html).
 
-* Image gallery: [README.md](./exercise_image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercise_image_gallery/image-gallery-exercise-index.html). 
+* Image gallery: [README.md](./exercises/image_gallery/) and [Live preview](https://metalevel-tech.github.io/js_homework/mdn.study/exercises/image_gallery/image-gallery-exercise-index.html). 
 
 ## TOC: Guides, Tutorials and References
 
