@@ -1,1 +1,0 @@
-../hw.2022.03.13/task-1.Developer_Manager_Person.with.es6.classes.js
