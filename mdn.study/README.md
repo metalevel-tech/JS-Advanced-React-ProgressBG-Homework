@@ -6,29 +6,29 @@ Note the internal links will behave in a different way when you browse this *pag
 
 ## Lessons, notes and exercises
 
-* [Strings](ref_strings/)
+* [Strings](references/strings/)
 
-* [Arrays](ref_arrays/)
+* [Arrays](references/arrays/)
 
-* [Conditionals](ref_conditionals/)
+* [Conditionals](references/conditionals/)
 
-* [Looping code](ref_loops/)
+* [Looping code](references/loops/)
 
-* [Manipulating documents](ref_manipulating_documents/)
+* [Manipulating documents](references/manipulating_documents/)
    
-* [Functions](ref_functions/)
+* [Functions](references/functions/)
 
-* [ES6 Classes](ref_es6_classes/)
+* [ES6 Classes](references/es6_classes/)
 
-* [Events](ref_events/)
+* [Events](references/events/)
   
-* [Regular Expressions](ref_regexp/)
+* [Regular Expressions](references/regexp/)
 
-* [JSON](ref_JSON/)
+* [JSON](references/JSON/)
 
-* [ES6 Modules](ref_es6_modules/)
+* [ES6 Modules](references/es6_modules/)
 
-* [Asynchronous JavaScript](ref_asynchronous/)
+* [Asynchronous JavaScript](references/asynchronous/)
 
 ## Separate exercises
 
