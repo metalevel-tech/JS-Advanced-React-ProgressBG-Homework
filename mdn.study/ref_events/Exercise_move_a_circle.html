@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Events#events_2 -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Events: Task 2</title>
+    <style>
+        p {
+            color: purple;
+            margin: 0.5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+            margin: 2em auto 0;
+            display: block;
+            border-radius: 3px;
+            width: 100%;
+            height: auto;
+        }
+
+        body {
+            line-height: 1.75;
+        }
+
+        kbd {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: 1em auto;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1em;
+            box-sizing: border-box;
+            overflow: hidden;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>
+            Use the keys <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> to move the circle.
+        </p>
+        <p>
+            Use the keys <kbd>Q</kbd> and <kbd>E</kbd> to change the size of the circle.
+        </p>
+        <p>
+            Press <kbd>Space</kbd> to change in place the color of the circle.
+        </p>
+
+        <section class="preview">
+        </section>
+
+        <canvas tabindex="0">
+
+        </canvas>
+
+    </div>
+
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawCircle(x, y, size, color) {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc(x, y, size, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        let x = 20;
+        let y = 20;
+        let size = 15;
+
+        drawCircle(x, y, size, 'black');
+
+        // Add your code here
+        const random = (number) => Math.floor(Math.random() * (number + 1));
+        const randomColor = () => `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+
+        function keyHandler(e) {
+            if (e.key === 'd') { x += 5; drawCircle(x, y, size, randomColor()); }
+            if (e.key === 'a') { x -= 5; drawCircle(x, y, size, randomColor()); }
+            if (e.key === 'w') { y -= 5; drawCircle(x, y, size, randomColor()); }
+            if (e.key === 's') { y += 5; drawCircle(x, y, size, randomColor()); }
+            if (e.key === 'q') { size -= 5; drawCircle(x, y, size, randomColor()); }
+            if (e.key === 'e') { size += 5; drawCircle(x, y, size, randomColor()); }
+            if (e.key === ' ') { drawCircle(x, y, size, randomColor()); }
+
+        }
+        document.addEventListener('keypress', keyHandler);
+
+    </script>
+</body>
+
+</html>

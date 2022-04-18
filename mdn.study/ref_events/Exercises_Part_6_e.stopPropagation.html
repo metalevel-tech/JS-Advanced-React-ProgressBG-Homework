@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            line-height: 1.75;
+        }
+        kbd {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px;
+        }
+        .btn {
+            margin: 0 auto;
+            border: 1px solid #888;
+            padding: .5em;
+            border-radius: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+        #btn1 {
+            cursor: pointer;
+        }
+        .box * {
+            user-select: none;
+        }
+        .box > * {
+            cursor: pointer;
+        }
+        .box {
+            max-width: 600px;
+            margin: 1em auto;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1em;
+            box-sizing: border-box;
+            overflow: hidden;
+            height: auto;
+        }
+        body > .box {
+            min-height: 6em;
+        }
+        .box > *:first-child {
+            margin-top: 0;
+        }
+        .box > *:last-child {
+            margin-bottom: 0;
+        }
+        .box > p {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .box input.type-here {
+            line-height: 2em;
+            padding: 1em;
+            border: 1px solid #a5c;
+            border-radius: 3px;
+        }
+        .box input.type-here + label {
+            display: inline-block;
+            border: 1px solid #ddd;
+            padding: .5em;
+            margin: 0 1em;
+            border-radius: 3px;
+        }
+        .code {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="box4" class="box">
+        <p>Click on the Box to hide the second Button...</p>
+        <p><code class="code">Default behavior at the click event...</code></p>
+        <button id="btn_1" class="btn" style="color:#aaa">OK</button>
+        <button id="btn_2" class="btn">Click ME!</button>
+
+        <div style="height: auto; width: 100%" class="box"><p>&nbsp;</p></div>
+    </div>
+    <script>
+        (function() {
+            const nodes = {
+                box: document.querySelector('#box4'),
+                btn1: document.querySelector('#box4 #btn_1'),
+                btn2: document.querySelector('#box4 #btn_2'),
+                p: document.querySelector('#box4 > p'),
+                output: document.querySelector('#box4 > div > p')
+            };
+            const {
+                box,
+                btn1,
+                btn2,
+                p,
+                output
+            } = nodes;
+            
+            const random = (number) => Math.floor(Math.random() * (number + 1));
+            const randomColor = () => `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            const msg = e => `'${e.type}' e was fired on '${e.target.nodeName}' element`;
+            
+            const changeBgColor = (event) => {
+                //event.stopPropagation();
+                event.target.style.backgroundColor = randomColor();
+                output.textContent = msg(event);
+            };
+            
+            const hideBtn = (event) => {
+                //event.stopPropagation();
+                btn2.style.display = 'none';
+                btn1.textContent = "Show it";
+                btn1.style.color = "#000";
+                
+                output.textContent = msg(event);
+            };
+            
+            const showBtn = (event) => {
+                //event.stopPropagation();
+                btn2.style.display = '';
+                btn1.textContent = "OK";
+                output.textContent = msg(event);
+                btn1.style.color = "#aaa";
+            };
+
+            // btn1.addEventListener('click', changeBgColor);
+            btn1.addEventListener('click', showBtn);
+            btn2.addEventListener('click', changeBgColor);
+            box.addEventListener('click', hideBtn);
+        })();
+    </script>
+
+    <div id="box5" class="box">
+        <p>Click on the Box to hide the second Button...</p>
+        <p><code class="code">Default behavior changed: event.stopPropagation();</code></p>
+        <button id="btn_1" class="btn" style="color:#aaa">OK</button>
+        <button id="btn_2" class="btn">Click ME!</button>
+
+        <div style="height: auto; width: 100%" class="box"><p>&nbsp;</p></div>
+    </div>
+    <script>
+        (function() {
+            const nodes = {
+                box: document.querySelector('#box5'),
+                btn1: document.querySelector('#box5 #btn_1'),
+                btn2: document.querySelector('#box5 #btn_2'),
+                p: document.querySelector('#box5 > p'),
+                output: document.querySelector('#box5 > div > p')
+            };
+            const {
+                box,
+                btn1,
+                btn2,
+                p,
+                output
+            } = nodes;
+            
+            const random = (number) => Math.floor(Math.random() * (number + 1));
+            const randomColor = () => `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            const msg = e => `'${e.type}' e was fired on '${e.target.nodeName}' element`;
+            
+            const changeBgColor = (event) => {
+                event.stopPropagation();
+                event.target.style.backgroundColor = randomColor();
+                output.textContent = msg(event);
+            };
+            
+            const hideBtn = (event) => {
+                event.stopPropagation();
+                btn2.style.display = 'none';
+                btn1.textContent = "Show it";
+                btn1.style.color = "#000";
+                
+                output.textContent = msg(event);
+            };
+            
+            const showBtn = (event) => {
+                event.stopPropagation();
+                btn2.style.display = '';
+                btn1.textContent = "OK";
+                output.textContent = msg(event);
+                btn1.style.color = "#aaa";
+            };
+
+            // btn1.addEventListener('click', changeBgColor);
+            btn1.addEventListener('click', showBtn);
+            btn2.addEventListener('click', changeBgColor);
+            box.addEventListener('click', hideBtn);
+        })();
+    </script>
+</body>
+</html>

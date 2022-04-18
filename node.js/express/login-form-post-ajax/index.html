@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!--
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Slab', serif;
+    -->
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <form action="login" method="post" id="login-form">
+            <h1>Login</h1>
+            <p>Please fill in this form to log-in to the server.</p>
+            <hr>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+            <!-- <hr> -->
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+    <!-- It is hidden while is empty, because: .container:not(:empty) { ... } -->
+    <div id="output" class="container"></div>
+</body>
+
+</html>

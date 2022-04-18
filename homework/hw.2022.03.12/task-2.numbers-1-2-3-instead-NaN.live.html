@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>thisInEventListener </title>
+	<style>
+        div#output {            
+            padding: 3px 6px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 1.6em;
+            text-align: center;
+        }
+	</style>
+</head>
+<body>
+	<button class="btn-tick">Tick</button>
+    <div id="output">&nbsp;</div>
+	<script>
+		'use strict';
+		// Do not change the object
+		const counter = {
+			currentCount: 0,
+            output: document.getElementById('output'),
+			log: console.log,
+			tick(){
+				this.currentCount+=1;
+				this.output.textContent = this.currentCount;
+				this.log(this.currentCount);
+			}
+		}
+
+		const btnTick = document.querySelector('.btn-tick');
+		const output = document.querySelector('.output');
+
+		// fix the problem, so that we see numbers, instead of NaNs
+		btnTick.addEventListener('click', counter.tick.bind(counter));
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            line-height: 1.75;
+        }
+        kbd {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px;
+        }
+        .btn {
+            margin: 0 auto;
+            border: 1px solid #888;
+            padding: .5em;
+            border-radius: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+        #btn1 {
+            cursor: pointer;
+        }
+        .box * {
+            user-select: none;
+        }
+        .box > * {
+            cursor: pointer;
+        }
+        .box {
+            max-width: 600px;
+            margin: 1em auto;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1em;
+            box-sizing: border-box;
+            overflow: hidden;
+            height: auto;
+        }
+        body > .box {
+            min-height: 6em;
+        }
+        .box > *:first-child {
+            margin-top: 0;
+        }
+        .box > *:last-child {
+            margin-bottom: 0;
+        }
+        .box > p {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .box input.type-here {
+            line-height: 2em;
+            padding: 1em;
+            border: 1px solid #a5c;
+            border-radius: 3px;
+        }
+        .box input.type-here + label {
+            display: inline-block;
+            border: 1px solid #ddd;
+            padding: .5em;
+            margin: 0 1em;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box0" class="box"><button class="btn">Change color: <code>dblclick</code></button></div>
+    <script>
+        (function() {
+            const btn = document.querySelector('#box0 button');
+            const box = document.getElementById('box0');
+    
+            function random(number) {
+                return Math.floor(Math.random() * (number + 1));
+            }
+    
+            btn.addEventListener('dblclick', function() {
+                const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+                box.style.backgroundColor = randomColor;
+            });
+
+        })();
+    </script>
+
+    <div id="box1" class="box">
+        <p>Press <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> to change the color.    </p>
+        <div style="position: relative; min-height: 2em; padding: 0;">
+            <input id="hidden" style="opacity: 0; height:0; position: absolute;">   
+            <button id="btn_1" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left: 0;">Tab</button>
+            <button id="btn_2" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left:calc(50% - 15%);">Tab</button>
+            <button id="btn_3" class="btn" style="width:30%; margin: auto; display: block; position: absolute; right:0;">Tab</button>
+        </div>
+        <div style="height: auto; width: 100%;" class="box successOutput">
+            <pre style="overflow-x: auto;">buttons.forEach(btn => btn.addEventListener('focus', evHandler));
+buttons.forEach(btn => btn.addEventListener('blur', evHandler));</pre></div>
+    </div>
+    <script>
+        (function() {
+            const buttons = document.querySelectorAll('#box1 button');
+            const output = document.querySelector('#box1 .successOutput');
+            const hidden = document.getElementById('hidden');
+            
+            document.addEventListener('DOMContentLoaded', () => hidden.focus(), false);
+            document.addEventListener('click', () => { hidden.focus(); }, false);
+            
+            // buttons[0].addEventListener('blur', (ev) => {ev.preventDefault(); buttons[1].focus();});
+            // buttons[1].addEventListener('blur', (ev) => {ev.preventDefault(); buttons[2].focus();});
+            buttons[2].addEventListener('blur', (ev) => {ev.preventDefault(); buttons[0].focus();});
+
+            function random(number) {
+                const rand = Math.floor(Math.random() * ((number + 1)));
+                console.log(rand);
+                return rand;
+            }
+
+            function evHandler(event) {
+                // event.preventDefault()
+                console.log(event.target.id);
+                const randomColor = `rgba(${random(255)}, ${random(255)}, ${random(255)}, 30%)`;
+                event.target.style.backgroundColor = randomColor;
+            }
+
+            // buttons.forEach(btn => btn.addEventListener('click', (event) => event.preventDefault()));
+            buttons.forEach(btn => btn.addEventListener('focus', evHandler));
+            buttons.forEach(btn => btn.addEventListener('blur', evHandler));
+            
+            
+        })();
+    </script>
+
+    <div id="box2" class="box">
+        <p>Hover the buttons.</p>
+        <div style="position: relative; min-height: 2em; padding: 0;">
+            <button id="btn_1" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left: 0;">Hover</button>
+            <button id="btn_2" class="btn" style="width:30%; margin: auto; display: block; position: absolute; left:calc(50% - 15%);">Hover</button>
+            <button id="btn_3" class="btn" style="width:30%; margin: auto; display: block; position: absolute; right:0;">Hover</button>   
+        </div>
+        <div style="height: auto; width: 100%;" class="box successOutput">
+            <pre style="overflow-x: auto;">buttons.forEach(btn => btn.addEventListener('mouseover', evHandler));
+buttons.forEach(btn => btn.addEventListener('mouseout', evHandler));</pre>
+        </div>
+    </div>
+    <script>
+        (function() {
+            const buttons = document.querySelectorAll('#box2 button');
+            const output = document.querySelector('#box2 .successOutput');
+
+            function random(number) {
+                const rand = Math.floor(Math.random() * ((number + 1)));
+                console.log(rand);
+                return rand;
+            }
+
+            function evHandler(event) {
+                console.log(event.target.id);
+                const randomColor = `rgba(${random(255)}, ${random(255)}, ${random(255)}, 30%)`;
+                event.target.style.backgroundColor = randomColor;
+            }
+
+            buttons.forEach(btn => btn.addEventListener('mouseover', evHandler));
+            buttons.forEach(btn => btn.addEventListener('mouseout', evHandler));
+        })();
+    </script>
+</body>
+</html>

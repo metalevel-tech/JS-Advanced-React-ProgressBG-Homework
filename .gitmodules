@@ -1,0 +1,4 @@
+[submodule "ProgressBG.JS.Advanced.React.Labs"]
+	path = ProgressBG.JS.Advanced.React.Labs
+	url = https://github.com/WWWCourses/ProgressBG-JS-Advanced-React-Labs.git
+	branch = 7_JS_Advanced_React

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Function start</title>
+    <style>
+      .msgBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+        background: #eee;
+      }
+      
+      .msgBox p {
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333;
+      }
+      
+      .msgBox button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+      
+      </style>
+  </head>
+  <body>
+    <button>Display message box</button>
+    
+    <!-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function#calling_the_function -->
+    <script>
+        function displayMessage() {
+            const body = document.body;
+
+            const panel = document.createElement('div');
+            panel.setAttribute('class', 'msgBox');
+            body.appendChild(panel);
+
+            const msg = document.createElement('p');
+            msg.textContent = 'This is the message to be displayed...';
+            panel.appendChild(msg);
+
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'X';
+            panel.appendChild(closeButton);
+
+            closeButton.addEventListener('click', () => panel.parentNode.removeChild(panel));
+        }
+
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', displayMessage);
+    </script>
+  </body>
+</html>

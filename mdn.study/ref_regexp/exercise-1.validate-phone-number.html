@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Enter your phone number (with area code) and then click "Check".
+        <br>
+        The expected format is like ###-###-####.
+    </p>
+    <form id="form">
+        <input id="phone">
+        <button type="submit">Check</button>
+    </form>
+    <p id="output"></p>
+
+    <script>
+        const nodes ={
+            input: document.getElementById('phone'),
+            output: document.getElementById('output'),
+            form: document.getElementById('form')
+        }
+        const {input, output, form} = nodes;
+
+        const rx = /^\+?(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}$/;
+
+        function testPhone(phoneInput) {
+            const ok = rx.exec(phoneInput.value)
+            if (!ok) {
+                output.textContent = `${phoneInput.value} isn't a phone number with area code!`;
+            } else {
+                output.innerHTML = `The phone number <i>${ok[0]}</i> is correct.`;
+            }
+        }
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            testPhone(input);
+        });
+    </script>
+</body>
+
+</html>

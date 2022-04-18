@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body > div {
+            margin: 1em;
+            border: 1px solid #bbb;
+            border-radius: 0.4em;
+            padding: 1em;
+            min-height: 160px;
+            box-sizing: border-box;
+        }
+
+        body > div > *:last-child {
+            margin-bottom: .4em;
+        }
+
+        div:target {
+            background-color: rgba(255, 255, 0, 0.24);
+        }
+
+        h1 {
+            margin: 0 0 0.8em;
+            font-family: monospace;
+            font-size: 1.8em;
+        }
+
+        code {
+            background-color: #eaeaff;
+            padding: 0 .2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="drawRandomItems">
+        <style>
+            #drawRandomItems button#circles {
+                position: absolute;
+                margin: 1em;
+            }
+            #drawRandomItems button#squares {
+                position: absolute;
+                margin: 1em;
+                margin-left: 80px;
+            }
+            #drawRandomItems canvas {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 21 / 9;
+                background: #eee;
+                border: 1px solid #ccc;
+                border-radius: .2em;
+                display: block;
+            }
+        </style>
+
+        <h1>Draw 100 Random Items <span id="drawItemType"></span></h1>
+
+        <button id="circles">Circles</button>
+        <button id="squares">Squares</button>
+
+        <canvas></canvas>
+    </div>
+    <script src="./example_drawRandomItems.js"></script>
+    
+    <div id="contactsBreakLoop">
+        <h1>Search contacts: <code>break</code> in a loop example</h1>
+
+        <p class="contactList">Available contacts: </p>
+        
+        <label for="searchBreakLoop">Search by contact name: </label>
+        <input id="searchBreakLoop" type="text">
+        
+        <button class="submit">Search</button>
+
+        <p class="output"><em style="color: #999;">Type a contact name and click at the search button.</em></p>
+    </div>
+    <script src="./example_search_contact_break_loop.js"></script>
+    
+    <div id="contactsFind">
+        <h1>Search contacts: <code>.find()</code> example</h1>
+
+        <p class="contactList">Available contacts: </p>
+        
+        <label for="searchFind">Search by contact name: </label>
+        <input id="searchFind" type="text">
+        
+        <button class="submit">Search</button>
+
+        <p class="output"><em style="color: #999;">Type a contact name and click at the search button.</em></p>
+    </div>
+    <script src="./example_search_contact_find.js"></script>
+
+    <div id="squaresLoopContinue">
+        <h1>Squares to the entered limit: <code>continue</code> in a loop example</h1>
+
+        <label for="numberSquares">Enter number: </label>
+        <input id="numberSquares" type="text">
+
+        <button class="submit">Generate integer squares</button>
+
+        <p>Output: </p>
+        <p class="output"><em style="color: #999;">Enter a number for limit and click at the button.</em></p>
+    </div>
+    <script src="./example_return_squares_by_skip_loop_iteration.js"></script>
+
+</body>
+</html>
