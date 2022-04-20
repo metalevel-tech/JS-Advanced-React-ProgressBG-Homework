@@ -1,4 +1,5 @@
-# JS-Advanced-React-ProgressBG-Homework
+# JavaScript Advanced Course Homework
+<div class="latest" style="background-color: #efefef; padding: 6px 1em; border-radius: 4px">
 
 ## Homework [2022.04.10](./homework/hw.2022.04.10) (Structural Patterns)
 
@@ -7,6 +8,8 @@ Exercises:
 * [Decorator Structural Pattern](homework/hw.2022.04.10/structural_patterns_decorator.js)
 * [Mixins Structural Pattern](homework/hw.2022.04.10/structural_patterns_mixins.js)
 * [Observer/Subject Structural Pattern](homework/hw.2022.04.10/structural_patterns_observer) ([Live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.10/structural_patterns_observer/index.html) of the end result)
+
+</div>
 
 ## Homework [2022.04.09](./homework/hw.2022.04.09) (Design Patterns)
 
