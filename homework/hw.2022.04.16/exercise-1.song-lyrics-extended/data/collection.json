@@ -1,0 +1,38 @@
+[
+    {
+        "artist": "Garbage",
+        "album": "Garbage",
+        "year": "1995",
+        "cover": "",
+        "fvSong": "Only happy when it rains",
+        "fvSongMp3": "",
+        "fvSongLyr": ""
+    },
+    {
+        "artist": "Garbage",
+        "album": "Version 2.0",
+        "year": "1998",
+        "cover": "",
+        "fvSong": "Push it",
+        "fvSongMp3": "",
+        "fvSongLyr": ""
+    },
+    {
+        "artist": "Garbage",
+        "album": "Not Your Kind Of People",
+        "year": "2012",
+        "cover": "",
+        "fvSong": "Sugar",
+        "fvSongMp3": "",
+        "fvSongLyr": ""
+    },
+    {
+        "artist": "Madball",
+        "album": "For The Cause",
+        "year": "2018",
+        "cover": "",
+        "fvSong": "Rev Up",
+        "fvSongMp3": "",
+        "fvSongLyr": ""
+    }
+]

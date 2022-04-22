@@ -9,6 +9,12 @@
   * [ ] [MDN: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
   * [ ] [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+  
+  * [ ] [MDN: `fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
+
+  * [x] [MDN: The **Response** interface of the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+  
+  * [x] [MDN: The **Trailer** response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Trailer)
 
 
 * [x] [MDN: How to implement a promise-based API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API)
@@ -17,6 +23,42 @@
 
   * [ ] [MDN: Promise Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
+## Promises in brief
+
+* A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+
+* Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function... and do callback hell.
+
+* The promise can either be fulfilled with a value or rejected with a reason (error).
+
+* The promise object has method `then()` which accepts two callback functions and returns a promise object (which means that we can chain multiple `then()` calls).
+  
+* Once one promise is fulfilled or rejected, the respective handler function (*onFulfilled* or *onRejected*) will be called asynchronously.
+
+```js
+promise
+   .then(onFulfilled[, onRejected])
+  [.catch(onExceptionOrError)];
+```
+
+```js
+promise
+  .then(
+    (value) => {
+      // do something when the promise is fulfilled
+    },
+    (reason) => {
+      // do something when the promise is rejected
+      // i.e. throw new Error()
+    }
+  )
+  .catch(error => {
+      // handle the exceptions ... note:
+      // - we can throw an error within the promise constructor in case we made it...
+      // - we can throw an error within `onRejected` function...
+      // - also an error could arise within the `onFulfilled` function...
+  });
+```
 
 ## Promise terminology
 
@@ -38,6 +80,101 @@ A promise is **resolved** if it is *settled*, or if it has been "locked in" to f
 
 The article [Let's talk about how to talk about promises](https://thenewtoys.dev/blog/2021/02/08/lets-talk-about-how-to-talk-about-promises/) gives a great explanation of the details of this terminology.
 
+## `fetch()` method in brief
+
+* `fetch()` starts the process of fetching a resource from the network, returning a promise which is fulfilled once the response is available (even if the server response is an HTTP error status).
+
+* the `fetch()` method takes:
+
+  * one mandatory argument, the URL to the resource you want to fetch,
+
+  * an optional second argument - init object, that can be supplied containing any custom settings that we want to apply to the request.
+  
+* It returns a Promise that resolves to a [Response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) to that request.
+
+```js
+// Do a simple GET request
+const response = fetch(url);
+```
+```js
+// Do a POST request
+const response = fetch(url, { method: 'POST', body: formData });
+```
+Note the `response` returned by `fetch()` is a promise so one of the things we can do is:
+```js
+fetch(url)
+   .then(response => response.text())
+   .then(data => console.log(`Do something with ${data}`))
+   .catch(error => console.error(`We have an error: ${error}`));
+```
+```js
+fetch(url)
+   .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error(`Something went wrong: ${response.status}`)
+        }
+    )
+   .then(data => console.log(`Do something with ${data}`))
+   .catch(error => console.error(`We have an error: ${error}`));
+```
+Or we can handle it by `await` within `async function`:
+```js
+async function handleFetchPromise() {
+    try {
+        const responsePromise = await fetch(url);
+        
+        if (responsePromise.ok) {
+            const responseData = await responsePromise.json();
+            console.log(`Do something with ${data}`);
+        } else {
+            throw new Error(`Something went wrong: ${responsePromise.status}`)
+        }
+    }
+    catch (error) {
+        console.error(`We have a problem: ${error}`)
+    }
+}
+handleFetchPromise();
+```
+## Nested `fetch()` requests example
+```js
+
+const dom = {
+    'button': document.querySelector('button'),
+    'content': document.querySelector('.content')
+}
+const url1 = './data/sample1.txt';
+const url2 = './data/sample2.txt';
+
+function doSomethingWithData(data) {
+    dom.content.innerHTML = data;
+}
+function doSomethingElseWithData(data) {
+    dom.content.innerHTML += `<br>${data}`;
+}
+
+function processResponse(response) {
+    if (response.status === 200) {
+        return response.text()
+    } else {
+        throw new Error(`Error: ${response.status}`)
+    }
+}
+
+dom.button.addEventListener('click', (event) => {
+    fetch(url1)
+        .then(response => processResponse(response))
+        .then(text => {
+            doSomethingWithData(text);
+            return fetch(url2);
+        })
+        .then(response => processResponse(response))
+        .then(text => doSomethingElseWithData(text))
+        .catch(err => console.log(err));
+});
+```
 ## Examples and exercises about Promise:
 
 * [`fetch().then();`](./promises.fetch.then.examples.mjs)

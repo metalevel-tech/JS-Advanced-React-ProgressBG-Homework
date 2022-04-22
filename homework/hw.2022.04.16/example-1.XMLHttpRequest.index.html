@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 600px;
+        margin: auto;
+        padding: 1em;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 600;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .container>*:last-child {
+        margin-bottom: 0;
+    }
+
+    .red {
+        color: red;
+    }
+
+    .getDataBtn {
+        margin-bottom: 1em;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <button class="getDataBtn">Get data</button>
+        <div class="output">The response body will come here...</div>
+    </div>
+    <script>
+        /**
+         * Note, that we can not send synchronous requests even with XHR object,
+         * as it's in the process of being removed from the web platform...
+         */
+        const nodes = {
+            output: document.querySelector('.output'),
+            getDataBtn: document.querySelector('.getDataBtn'),
+        };
+        
+        const AJAXcall = () => {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            const dataUrl = `https://jsonplaceholder.typicode.com/posts/${randomNumber}`;
+            console.log(`Request: ${dataUrl}`);
+
+            // create a XMLHttpRequest object with old browsers compatibility
+            // var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+            // create a XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+
+            // initializes the request:
+            xhr.open('GET', dataUrl);
+
+            // EventHandler, that will be fired each time when the xhr state changes
+            // Variant 1 -------------------------------------------------------------
+            // xhr.onload = () => {
+            //     if (xhr.status === 200) {
+            //         nodes.output.innerHTML = JSON.parse(xhr.responseText).title;
+            //     } else {
+            //         nodes.output.innerHTML = `Error ${xhr.status}: ${xhr.statusText}`;
+            //     }
+            // };
+            //
+            // Variant 2 -------------------------------------------------------------
+            xhr.onreadystatechange = () => {
+                // finally do something with content:
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    nodes.output.innerHTML = JSON.parse(xhr.responseText).title;
+                } else {
+                    nodes.output.innerHTML = `Error ${xhr.status}: ${xhr.statusText}`;
+                }
+            };
+
+            xhr.onerror = () => {
+                nodes.output.innerHTML = `Error ${xhr.status}: ${xhr.statusText}`;
+            };
+
+            // sends the request:
+            xhr.send();
+        };
+
+        nodes.getDataBtn.addEventListener('click', AJAXcall);
+
+    </script>
+</body>
+
+</html>

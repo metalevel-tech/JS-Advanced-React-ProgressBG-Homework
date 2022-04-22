@@ -133,7 +133,7 @@ for (const event of events) {
 const EventConstruct = function(name) {
     // public
     this.name = name || '';
-    this.id = Event.count++;
+    this.id = EventConstruct.count++;
   
   }
   EventConstruct.count = 1;

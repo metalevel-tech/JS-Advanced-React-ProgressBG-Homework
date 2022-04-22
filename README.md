@@ -1,5 +1,13 @@
 # JavaScript Advanced Course Homework
-<div class="latest" style="background-color: #efefef; padding: 6px 1em; border-radius: 4px">
+
+## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
+
+* Exercise 2: [**Songs Gallery**](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html) - almost everything what I know about promises in one place: [live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html).
+
+* Exercise 1: [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
+
+
+# Revised Homework
 
 ## Homework [2022.04.10](./homework/hw.2022.04.10) (Structural Patterns)
 
@@ -9,7 +17,6 @@ Exercises:
 * [Mixins Structural Pattern](homework/hw.2022.04.10/structural_patterns_mixins.js)
 * [Observer/Subject Structural Pattern](homework/hw.2022.04.10/structural_patterns_observer) ([Live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.10/structural_patterns_observer/index.html) of the end result)
 
-</div>
 
 ## Homework [2022.04.09](./homework/hw.2022.04.09) (Design Patterns)
 
