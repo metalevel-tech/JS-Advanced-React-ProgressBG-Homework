@@ -77,10 +77,13 @@ form>*:last-child {
 }
 
 .cookie-banner {
-    font-size: .7em;
-    opacity: .4;
+    font-size: .64em;
+    /* opacity: .8; */
     text-align: right;
     font-family: 'Roboto Mono', monospace;
+    color: #888;
+    float: right;
+    clear: right;
 }
 
 /* Full-width input fields */

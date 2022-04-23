@@ -156,13 +156,15 @@
     eat(); // global object (in non-strict mode)
     ```
 
-* **Encapsulation. Private field declarations.**
+* **Encapsulation. Private fields (`#`) declarations.**
 
     ```js
     class Rectangle {
+        id;
         #height = 0;
         #width;
-        constructor(height, width) {
+        constructor(id, height, width) {
+            this.id = id;
             this.#height = height;
             this.#width = width;
         }
