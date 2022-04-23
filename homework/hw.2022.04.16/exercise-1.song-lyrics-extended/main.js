@@ -80,6 +80,7 @@ class Song {
     /**
      * The Instances Prototype model
      */
+
     fillData(index) {
         // Fill up the missing data
         this.cover = `${this.artist}-${this.album}.jpg`
@@ -91,10 +92,64 @@ class Song {
         this.index = index;
     }
 
+    // The main logic how a song is changed
+    async deploy(init = false) {
+        try {
+            // Deal with the cover
+            if (this.coverImg) {
+                await this.animateCover(init);
+            } else {
+                const imgResponse = await fetch(`${dataUrl}/${this.cover}`);
+
+                if (!imgResponse.ok)
+                    throw new Error(`${this.cover} not found, response: ${imgResponse.status}`);
+
+                const imgFile = await imgResponse.blob();
+
+                this.coverImg = document.createElement('img');
+                this.coverImg.src = URL.createObjectURL(imgFile);
+                this.coverImg.classList.add('cover');
+                this.coverImg.dataset.index = this.index;
+                this.coverImg.addEventListener('click', infoOnOff);
+
+                await this.animateCover(init);
+            }
+
+            // Deal with the lyrics
+            if (this.lyrics) {
+                this.replaceInfo();
+            } else {
+                const lyrResponse = await fetch(`${dataUrl}/${this.fvSongLyr}`);
+
+                if (!lyrResponse.ok)
+                    throw new Error(`${this.fvSongLyr} not found, response: ${lyrResponse.status}`);
+
+                this.lyrics = await lyrResponse.text();
+                this.replaceInfo();
+            }
+
+            // Deal with the audio
+            if (this.audio) {
+                this.replaceAudioAndPlay(init);
+            } else {
+                const audioResponse = await fetch(`${dataUrl}/${this.fvSongMedia}`);
+
+                if (!audioResponse.ok)
+                    throw new Error(`${this.fvSongMedia} not found, response: ${audioResponse.status}`);
+
+                const audioFile = await audioResponse.blob();
+                this.audio = URL.createObjectURL(audioFile);
+                this.replaceAudioAndPlay(init);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     async animateCover(init) {
         // Replace the previous cover
         if (init) {
-            // If it is the init call: just replace the node
+            // If it is the init call: just replace the placeholder node
             nodes.cover.parentNode.replaceChild(this.coverImg, nodes.cover);
             nodes.cover = this.coverImg;
 
@@ -201,58 +256,6 @@ class Song {
         }
     }
 
-    // The main logic how a song is changed
-    async deploy(init = false) {
-        try {
-            // Deal with the cover
-            if (this.coverImg) {
-                await this.animateCover(init);
-            } else {
-                const imgResponse = await fetch(`${dataUrl}/${this.cover}`);
-
-                if (!imgResponse.ok)
-                    throw new Error(`${this.cover} not found, response: ${imgResponse.status}`);
-
-                const imgFile = await imgResponse.blob();
-                this.coverImg = document.createElement('img');
-                this.coverImg.src = URL.createObjectURL(imgFile);
-                this.coverImg.classList.add('cover');
-                this.coverImg.dataset.index = this.index;
-                this.coverImg.addEventListener('click', infoOnOff);
-
-                await this.animateCover(init);
-            }
-
-            // Deal with the lyrics
-            if (this.lyrics) {
-                this.replaceInfo();
-            } else {
-                const lyrResponse = await fetch(`${dataUrl}/${this.fvSongLyr}`);
-
-                if (!lyrResponse.ok)
-                    throw new Error(`${this.fvSongLyr} not found, response: ${lyrResponse.status}`);
-
-                this.lyrics = await lyrResponse.text();
-                this.replaceInfo();
-            }
-
-            // Deal with the audio
-            if (this.audio) {
-                this.replaceAudioAndPlay(init);
-            } else {
-                const audioResponse = await fetch(`${dataUrl}/${this.fvSongMedia}`);
-
-                if (!audioResponse.ok)
-                    throw new Error(`${this.fvSongMedia} not found, response: ${audioResponse.status}`);
-
-                const audioFile = await audioResponse.blob();
-                this.audio = URL.createObjectURL(audioFile);
-                this.replaceAudioAndPlay(init);
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    }
 
     /**
      * The Class model
@@ -264,7 +267,7 @@ class Song {
 
     static changeSong(direction) {
         const songs = this.playList;
-        
+
         // changeSong() should be prototype method go have access to this.index,
         // but this will bring another complexity into init() - so:
         // let currentSong = this.index; 
@@ -388,7 +391,7 @@ async function buildPlaylist(url) {
         const songs = collection.map((entry, index) => {
             const song = Object.assign(new Song(), entry);
             song.fillData(index);
-            
+
             return song;
         });
 

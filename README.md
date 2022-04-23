@@ -8,7 +8,11 @@
   
     * When inside a function we need to use `await` it is mandatory.
   
-    * But whether we need it when the function just [`return new Promise()`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L94)?
+    * But whether we need it when the function just [`return new Promise()`]? For example these two cases:
+  
+      * [`async animateCover(init)`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L149) and
+  
+      * [`replaceAudioAndPlay(init)`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L181)
 
 * Exercise 1: [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
 
