@@ -2,16 +2,22 @@
 
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
 
-* Exercise 2: [**Songs Gallery**](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html) - almost everything what I know about promises in one place: [live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html).
+* Exercise 2: [**Songs Gallery**](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/) - almost everything what I know about promises in one place: [live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html).
+
+  * Question: **When exactly to use `async`?**
+  
+    * When inside a function we need to use `await` it is mandatory.
+  
+    * But whether we need it when the function just [`return new Promise()`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L94)?
 
 * Exercise 1: [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
-
 
 # Revised Homework
 
 ## Homework [2022.04.10](./homework/hw.2022.04.10) (Structural Patterns)
 
 Exercises:
+
 * [Member patterns](homework/hw.2022.04.10/member_patterns.js)
 * [Decorator Structural Pattern](homework/hw.2022.04.10/structural_patterns_decorator.js)
 * [Mixins Structural Pattern](homework/hw.2022.04.10/structural_patterns_mixins.js)

@@ -54,7 +54,6 @@ class Song {
     cover;
     fvSongMedia;
     fvSongLyr;
-    index;
     // Data that will be fetched dynamically by the other methods
     audio;
     lyrics;
@@ -70,7 +69,6 @@ class Song {
         this.cover = "fillData()";
         this.fvSongMedia = "fillData()";
         this.fvSongLyr = "fillData()";
-        this.index = null;
 
         this.audio = false;
         this.lyrics = false;
@@ -80,7 +78,7 @@ class Song {
     /**
      * The Instances Prototype model
      */
-    fillData(index) {
+    fillData() {
         // Fill up the missing data
         this.cover = `${this.artist}-${this.album}.jpg`
             .toLowerCase().replace(/\s/g, '.');
@@ -88,7 +86,6 @@ class Song {
             .toLowerCase().replace(/\s/g, '.');
         this.fvSongLyr = `${this.artist}-${this.album}-${this.fvSong}.txt`
             .toLowerCase().replace(/\s/g, '.');
-        this.index = index;
     }
 
     async animateCover(init) {
@@ -100,7 +97,7 @@ class Song {
 
             // Return a promise to resolve the next step
             return new Promise(function (resolve, reject) {
-                resolve('Chain with the next promise');
+                resolve('chain with the next promise');
             });
         } else {
             // If it is a regular call: animate the cover and replace the node
@@ -161,11 +158,29 @@ class Song {
         });
 
         // Auto decrease the volume at the end of the song and start next in autoplay mode
-        this.fadeAudio();
-    }
+        if (!fadeAudioInterval) {
+            fadeAudioInterval = setInterval(() => {
+                const fadePoint = nodes.player.duration - 6;
 
-    fadeAudio() {
-        function clearFadeAudioInterval_AndPlayNext() {
+                try {
+                    if (nodes.player.currentTime >= fadePoint) {
+                        if (nodes.player.volume > 0.05) {
+                            nodes.player.volume -= 0.05;
+                        } else {
+                            clearFadeAudioIntervalAndPlayNext();
+                        }
+                    } else {
+                        Song.currentVolume = Number(nodes.player.volume.toFixed(2));
+                    }
+                }
+                catch (error) {
+                    console.log(`Volume fade error: ${error}`);
+                    clearFadeAudioIntervalAndPlayNext();
+                }
+            }, 200);
+        }
+
+        function clearFadeAudioIntervalAndPlayNext() {
             // https://developer.mozilla.org/en-US/docs/Web/API/setInterval#example_2_alternating_two_colors
             clearInterval(fadeAudioInterval);
             fadeAudioInterval = null;
@@ -178,27 +193,6 @@ class Song {
             if (localStorage.getItem('autoPlay') === 'on') Song.changeSong('next');
         }
 
-        if (!fadeAudioInterval) {
-            fadeAudioInterval = setInterval(() => {
-                const fadePoint = nodes.player.duration - 5;
-
-                try {
-                    if (nodes.player.currentTime >= fadePoint) {
-                        if (nodes.player.volume > 0.05) {
-                            nodes.player.volume -= 0.05;
-                        } else {
-                            clearFadeAudioInterval_AndPlayNext();
-                        }
-                    } else {
-                        Song.currentVolume = Number(nodes.player.volume.toFixed(2));
-                    }
-                }
-                catch (error) {
-                    console.log(`Volume fade error: ${error}`);
-                    clearFadeAudioInterval_AndPlayNext();
-                }
-            }, 200);
-        }
     }
 
     // The main logic how a song is changed
@@ -217,7 +211,7 @@ class Song {
                 this.coverImg = document.createElement('img');
                 this.coverImg.src = URL.createObjectURL(imgFile);
                 this.coverImg.classList.add('cover');
-                this.coverImg.dataset.index = this.index;
+                this.coverImg.dataset.index = this.constructor.playList.indexOf(this);
                 this.coverImg.addEventListener('click', infoOnOff);
 
                 await this.animateCover(init);
@@ -264,10 +258,6 @@ class Song {
 
     static changeSong(direction) {
         const songs = this.playList;
-        
-        // changeSong() should be prototype method go have access to this.index,
-        // but this will bring another complexity into init() - so:
-        // let currentSong = this.index; 
         let currentSong = nodes.cover.dataset.index;
 
         if (direction === 'next') {
@@ -376,22 +366,15 @@ function lyricsOnOff(event) {
 nodes.lyricsSwitch.addEventListener('click', lyricsOnOff);
 
 // Get the sound collection collection 
-async function buildPlaylist(url) {
+async function getCollection(url) {
     try {
-        const data = await fetch(url);
-
-        if (!data.ok)
-            throw new Error(`${url} not found, response: ${data.status}`);
-
-        const collection = await data.json();
-
-        const songs = collection.map((entry, index) => {
+        const collection = await fetch(url);
+        const data = await collection.json();
+        const songs = data.map(entry => {
             const song = Object.assign(new Song(), entry);
-            song.fillData(index);
-            
+            song.fillData();
             return song;
         });
-
         return songs;
     }
     catch (error) {
@@ -401,7 +384,7 @@ async function buildPlaylist(url) {
 
 // The main logic
 (async function init() {
-    Song.playList = await buildPlaylist(collectionUrl);
+    Song.playList = await getCollection(collectionUrl);
 
     const randomSongNumber = Math.floor(Math.random() * Song.playList.length);
     Song.playList[randomSongNumber].deploy(true);
