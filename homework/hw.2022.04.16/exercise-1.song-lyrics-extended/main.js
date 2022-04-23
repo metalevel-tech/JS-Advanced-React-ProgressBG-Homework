@@ -33,7 +33,7 @@ const effectTiming = {
     fill: 'forwards'
 };
 
-let fadeAudioInterval;
+let fadeAudioIntervalId;
 
 // Controller to reset the 'Show info' button - not used
 // const controller = new AbortController();
@@ -190,18 +190,20 @@ class Song {
             }
 
             nodes.player.src = this.audio;
+
             setTimeout(() => {
                 resolve('The song source is changed.');
             }, 100);
         });
 
-        // We don't return promise from the .then() method, thus we don't need to a'wait it
+        // We don't return promise from the .then() method, thus we don't need to a'wait it?
         play.then(response => {
             // Solve: Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.
             if (localStorage.getItem('autoPlay') === 'on' && !init) {
                 // nodes.player.muted = init;
                 nodes.player.play();
             }
+
             // If autoplay is On and it is the init state play the audio, when the user clicks anywhere on the page 
             if (localStorage.getItem('autoPlay') === 'on' && init) {
                 // nodes.player.muted = init;
@@ -220,21 +222,8 @@ class Song {
     }
 
     fadeAudio() {
-        function clearFadeAudioInterval_AndPlayNext() {
-            // https://developer.mozilla.org/en-US/docs/Web/API/setInterval#example_2_alternating_two_colors
-            clearInterval(fadeAudioInterval);
-            fadeAudioInterval = null;
-
-            // nodes.player.volume = 0;
-            nodes.player.pause();
-            nodes.player.volume = Song.currentVolume;
-
-            // Call the next song, in auto play mode
-            if (localStorage.getItem('autoPlay') === 'on') Song.changeSong('next');
-        }
-
-        if (!fadeAudioInterval) {
-            fadeAudioInterval = setInterval(() => {
+        if (!fadeAudioIntervalId) {
+            fadeAudioIntervalId = setInterval(() => {
                 const fadePoint = nodes.player.duration - 5;
 
                 try {
@@ -253,6 +242,19 @@ class Song {
                     clearFadeAudioInterval_AndPlayNext();
                 }
             }, 200);
+        }
+
+        function clearFadeAudioInterval_AndPlayNext() {
+            // https://developer.mozilla.org/en-US/docs/Web/API/setInterval#example_2_alternating_two_colors
+            clearInterval(fadeAudioIntervalId);
+            fadeAudioIntervalId = null;
+
+            // nodes.player.volume = 0;
+            nodes.player.pause();
+            nodes.player.volume = Song.currentVolume;
+
+            // Call the next song, in auto play mode
+            if (localStorage.getItem('autoPlay') === 'on') Song.changeSong('next');
         }
     }
 
