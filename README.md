@@ -2,7 +2,7 @@
 
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
 
-* **Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/) - almost everything what I know about promises in one place: [**live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html).
+* **Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/task-1.song-lyrics-extended/) - almost everything what I know about promises in one place: [**live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/task-1.song-lyrics-extended/index.html).
 
   * The original task: [Songs Lyrics](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/AJAX/AJAX.html#/11/1).
   
@@ -22,9 +22,9 @@
   
     * But whether we need it when the function just `return new Promise()`? For example these two cases:
   
-      * [`async animateCover(init)`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L149) and
+      * [`async animateCover(init)`](./homework/hw.2022.04.16/task-1.song-lyrics-extended/main.js?plain=1#L149) and
   
-      * `async?` [`replaceAudioAndPlay(init)`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L181)
+      * `async?` [`replaceAudioAndPlay(init)`](./homework/hw.2022.04.16/task-1.song-lyrics-extended/main.js?plain=1#L181)
 
 * **Exercise 2:** Play with [Node.js Express module](./node.js/express/) - all of the following exercises require `npm install`, or you have to install the necessary modules globally:
 
