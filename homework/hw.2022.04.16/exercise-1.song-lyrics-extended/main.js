@@ -380,7 +380,7 @@ function lyricsOnOff(event) {
 }
 nodes.lyricsSwitch.addEventListener('click', lyricsOnOff);
 
-// Get the sound collection collection 
+// Get the sound collection and build Playlist array of objects
 async function buildPlaylist(url) {
     try {
         const data = await fetch(url);

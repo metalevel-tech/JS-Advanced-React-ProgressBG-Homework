@@ -2,9 +2,13 @@
 
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
 
-* Exercise 2: [**Songs Gallery**](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/) - almost everything what I know about promises in one place: [live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html).
+* **Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/) - almost everything what I know about promises in one place: [**live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/exercise-1.song-lyrics-extended/index.html).
 
-  * Question 2: **What about the `blob` objects?**
+  * The original task: [Songs Lyrics](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/AJAX/AJAX.html#/11/1).
+  
+  * The current solution is a little bit extended - it fetch dynamically: **1)** The collection of the favorite songs in JSON format; **2)** then for each song, when it comes time to play it fetch: **2.1)** the album cover, **2.2)** the lyrics of the song and **2.3)** the song itself in ogg format as blob.
+  
+  * **Question 2:** **What about the `blob` objects?**
 
     * Where they are stored in the RAM or at the data drive?
   
@@ -12,7 +16,7 @@
 
     * How to tell the browser to cache them as regular objects?
 
-  * Question 1: **When exactly to use `async`?**
+  * **Question 1:** **When exactly to use `async`?**
   
     * When inside a function we need to use `await` it is mandatory.
   
@@ -22,7 +26,19 @@
   
       * `async?` [`replaceAudioAndPlay(init)`](./homework/hw.2022.04.16/exercise-1.song-lyrics-extended/main.js?plain=1#L181)
 
-* Exercise 1: [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
+* **Exercise 2:** Play with [Node.js Express module](./node.js/express/) - all of the following exercises require `npm install`, or you have to install the necessary modules globally:
+
+  * [`basic-requests/`](./node.js/express/basic-requests/) Handle GET, POST, DELETE, HEAD, etc. requests with Express and do a response.
+
+  * [`login-form-post/`](./node.js/express/login-form-post/) Do a POST request to the Express server by HTML form.
+
+  * [`login-form-post-ajax/`](./node.js/express/login-form-post-ajax/) Do a POST request to the Express server by `XMLHttpRequest()`.
+
+  * [`login-form-post-fetch-then-catch/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `.then()` and `.catch()` methods to handle the response.
+
+  * [`login-form-post-fetch-async-await/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `async` function and `await` to handle the response.
+
+* **Exercise 1:** [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
 
 # Revised Homework
 
