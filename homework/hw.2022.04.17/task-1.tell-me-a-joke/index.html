@@ -14,21 +14,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" crossorigin>
     <!--
         font-family: 'Roboto', sans-serif;
         font-family: 'Roboto Mono', monospace;
         font-family: 'Roboto Slab', serif;
     -->
 
-        <link rel="stylesheet" href="./style.css">
-        <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./assets/dom-to-image.min.js"></script>
+    <script src="./main.js" defer></script>
+    <!-- <script type="module" src="./main.js"></script> -->
 </head>
 
 <body>
     <div class="container clearfix">
         <div id="output" class="joke-container">
-            <pre class="joke">Chuck Norris knows the last digit of pi. <b>I told him.</b></pre>
+            <div class="joke-canvas">
+                <pre class="joke">Chuck Norris knows the last digit of pi. <span>I told him.</span></pre>
+            </div>
         </div>
 
         <div class="nav grid-container">
@@ -37,10 +41,12 @@
             <div class="btn right-arrow nav-btn-right">&nbsp;</div>
         </div>
 
-        <div id="info" class="auto-width-content clearfix">    
+        <div id="info" class="auto-width-content">
             <div class="joke-info">
-                <h1 class="joke-source">Tell me a joke</h1>
-                <p class="joke-source-name">http://api.icndb.com/jokes/random</p>
+                <h1 class="joke-source">Joke #<span class="joke-index">0</span> Id:<span class="joke-id">0</span></h1>
+                <p class="joke-source-name">
+                    <a href="http://api.icndb.com/jokes/random">http://api.icndb.com/jokes/random</a>
+                </p>
             </div>
 
             <div class="auto-play switch-on">Autoplay</div>
@@ -48,6 +54,7 @@
             <div class="cookie-banner" style="margin-top: 8px;">This site uses functional cookies.</div>
         </div>
     </div>
+    <img src="#" alt="test" id="image">
 </body>
 
 </html>

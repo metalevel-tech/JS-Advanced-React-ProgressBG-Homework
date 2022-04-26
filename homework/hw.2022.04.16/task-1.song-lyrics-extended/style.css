@@ -6,6 +6,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     overflow-y: scroll;
+    display: block;
+    margin: 0;
 }
 
 h1 {
