@@ -407,7 +407,7 @@ class Joke {
     static jokeList = [];
 
     static async fetchJoke() {
-        return fetch('http://api.icndb.com/jokes/random')
+        return fetch('https://api.icndb.com/jokes/random')
             .then(response => {
                 if (!response.ok)
                     throw new Error(
