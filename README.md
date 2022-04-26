@@ -1,10 +1,23 @@
 # JavaScript Advanced Course Homework
 
+## Homework [2022.04.17](./homework/hw.2022.04.17) (AsyncJS/JSON/HTTP)
+
+* **Task 1:** [**Tell Me a Joke Typewriter**](./homework/hw.2022.04.17/task-1.tell-me-a-joke/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.17/task-1.tell-me-a-joke/index.html).
+
+  * The task: [Simple Joke Apps](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/WebServicesAndJSON/WebServicesAndJSON.html#/13).
+  
+  * The current solution provides much functionalities, including: **1)** Typewriter effect with sound; **2)** DOM element to image implementation; **3)** Session records of the fetched jokes; **4)** Cookies to store the user preferences; **5)** Dynamic fetch of all resources; **6)** Auto play feature; And more.
+  
+  * Question 1: How do I use [`dom-to-image.js`](https://github.com/tsayen/dom-to-image) with `require` ot `import`? 
+  
+  * Question 2: Is it possible to instruct the browser to cache `dom-to-image.js` within the [current](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main.js?plain=1#L366) way of invocation?
+
+
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
 
-* **Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/task-1.song-lyrics-extended/) - almost everything what I know about promises in one place: [**live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/task-1.song-lyrics-extended/index.html).
+* **Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/task-1.song-lyrics-extended/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/task-1.song-lyrics-extended/index.html).
 
-  * The original task: [Songs Lyrics](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/AJAX/AJAX.html#/11/1).
+  * The task: [Songs Lyrics](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/AJAX/AJAX.html#/11/1).
   
   * The current solution is a little bit extended - it fetch dynamically: **1)** The collection of the favorite songs in JSON format; **2)** then for each song, when it comes time to play it fetch: **2.1)** the album cover, **2.2)** the lyrics of the song and **2.3)** the song itself in ogg format as blob.
   
