@@ -8,9 +8,9 @@
   
   * The current solution provides much functionalities, including: **1)** Typewriter effect with sound; **2)** DOM element to image implementation; **3)** Session records of the fetched jokes; **4)** Cookies to store the user preferences; **5)** Dynamic fetch of all resources; **6)** Auto play feature; And more.
   
-  * Question 1: How do I use [`dom-to-image.js`](https://github.com/tsayen/dom-to-image) with `require` ot `import`? 
+  * **Question 1:** How do I use [`dom-to-image.js`](https://github.com/tsayen/dom-to-image) with `require` ot `import`? 
   
-  * Question 2: Is it possible to instruct the browser to cache `dom-to-image.js` within the [current](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main.js?plain=1#L366) way of invocation?
+  * **Question 2:** Is it possible to instruct the browser to cache `dom-to-image.js` within the [current](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main.js?plain=1#L366) way of invocation?
 
 
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
@@ -21,7 +21,7 @@
   
   * The current solution is a little bit extended - it fetch dynamically: **1)** The collection of the favorite songs in JSON format; **2)** then for each song, when it comes time to play it fetch: **2.1)** the album cover, **2.2)** the lyrics of the song and **2.3)** the song itself in ogg format as blob.
   
-  * **Question 2:** **What about the `blob` objects?**
+  * **Question 2:** What about the `blob` objects?
 
     * Where they are stored in the RAM or at the data drive?
   
@@ -29,7 +29,7 @@
 
     * How to tell the browser to cache them as regular objects?
 
-  * **Question 1:** **When exactly to use `async`?**
+  * **Question 1:** When exactly to use `async`?
   
     * When inside a function we need to use `await` it is mandatory.
   
