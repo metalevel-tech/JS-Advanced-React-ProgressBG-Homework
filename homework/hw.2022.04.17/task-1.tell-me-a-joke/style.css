@@ -54,8 +54,7 @@ h1 {
 }
 
 /** ScrollBar **/
-
-
+.output-image-shot-wrapper>*:first-child,
 .container>*:first-child,
 form>*:first-child {
     margin-top: 0;
@@ -97,6 +96,7 @@ form>*:last-child {
     display: none;
 } */
 #info {
+    position: relative;
     user-select: none;
 }
 
@@ -296,7 +296,8 @@ a {
 .joke-container {
     width: 560px;
     height: 200px;
-    margin: 1em 0;
+    /* margin: 1em 0; */
+    margin: 0;
 
     border: 1px solid #eee;
     border-radius: .6em;
@@ -320,7 +321,7 @@ a {
     padding: 0;
 }
 
-.joke-canvas::after {
+/* .joke-canvas::after {
     content: '';
     display: block;
     position: absolute;
@@ -334,6 +335,18 @@ a {
     background-position: left top;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    opacity: .8;
+} */
+
+.joke-canvas-after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 560px;
+    height: 560px;
+    z-index: -1;
     opacity: .8;
 }
 
@@ -367,7 +380,18 @@ audio.player {
     transform-origin: 100% 0;
 }
 
-/* Auto play switch */
+/* Auto play switch, etc... */
+.switches {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+.switch {
+    display: inline-block;
+}
+
+.img-switch,
 .auto-play,
 .sound-switch,
 .lyrics-switch {
@@ -384,8 +408,10 @@ audio.player {
     user-select: none;
     cursor: pointer;
     opacity: .8;
+    height : 20px;
 }
 
+/* .img-switch,
 .auto-play {
     float: right;
     clear: right;
@@ -395,18 +421,14 @@ audio.player {
 .lyrics-switch {
     float: right;
     margin-right: 1em;
-}
+} */
 
-.auto-play.switch-on,
-.sound-switch.switch-on,
-.lyrics-switch.switch-on {
+.switch-on {
     color: #aa66cc;
     background-image: url('./assets/switch-on.svg');
 }
 
-.auto-play.switch-off,
-.sound-switch.switch-off,
-.lyrics-switch.switch-off {
+.switch-off {
     color: #ccc;
     background-image: url('./assets/switch-off.svg');
 }
@@ -423,16 +445,48 @@ audio.player {
     margin: 1em 0 0;
 }
 
+.output-image-shot-wrapper {
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.joke-image-shot-link,
 .joke-source-name a {
     color: inherit;
     text-decoration: none;
 }
 
+.joke-image-shot-link {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* height: fit-content; */
+    /* height: auto; */
+    height: 216px;
+    overflow: hidden;
+    display: block;
+}
+
+.joke-image-shot {
+    margin: 1em 0 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+
+    background-color: #ffc10722;
+    border-radius: .6em;
+    opacity: .6;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Artist and Song data */
-.joke-info,
+/* .joke-info,
 .album-section {
     float: left;
-}
+} */
 
 .artist-name {
     margin: 0;

@@ -161,14 +161,12 @@ class Joke {
     // Properties provided by the constructor
     index;
     lineCount;
-    fontSize;
     // Properties provided by the other methods
     image;
 
     constructor() {
         this.index = this.constructor.countInstances();
         this.lineCount = 1;
-        this.fontSize = 25.6;
     }
 
     /**
@@ -187,6 +185,7 @@ class Joke {
 
         // Set the typewriter parameters
         const speed = 120;
+        let lineCount = 1;
 
         // Fix some problems in the text of the joke
         const text = this.joke.replace(/&quot;/g, '"');
@@ -203,8 +202,8 @@ class Joke {
 
             // Fit the long jokes to the container by decreasing the font size,
             // and play sound effect at new line
-            this.fitJokeToContainer();
-            this.newLineDetect();
+            lineCount = this.fitJokeToContainer(lineCount);
+            lineCount = this.newLineDetect(lineCount);
 
             // If it is the last charter do additional tasks
             if (index === array.length - 1) {
@@ -284,14 +283,19 @@ class Joke {
             .catch(error => { throw new Error(`Animate error: ${error}`); });
 
 
-        // Apply the sound preferences
-        typewriter.soundOnOff();
-        // Play the main typewriter sound effect
-        typewriter.type.audio.play();
-        // Display the new joke's visible data
-        this.displayVisibleData();
         // Resolve the next step
-        return new Promise(resolve => { resolve('Canvas prepared'); });
+        return new Promise(resolve => {
+            // Apply the sound preferences
+            typewriter.soundOnOff();
+
+            // Play the main typewriter sound effect
+            typewriter.type.audio.play();
+
+            // Display the new joke's visible data
+            this.displayVisibleData();
+
+            resolve('Canvas prepared');
+        });
     }
 
     displayVisibleData() {
@@ -303,17 +307,18 @@ class Joke {
         outputJoke.dataset.index = this.index;
         outputJokeId.textContent = this.id;
         outputJokeIndex.textContent = this.index + 1;
-        outputJoke.style.fontSize = `${this.fontSize}px`;
+        outputJoke.style.fontSize = this.constructor.defaultFontSize;
     }
 
-    newLineDetect() {
+    newLineDetect(lineCount) {
         const luneNumber = this.getNumberOfLines();
-        if (this.lineCount < luneNumber) {
-            this.lineCount = luneNumber;
+        if (lineCount < luneNumber) {
+            lineCount = luneNumber;
 
             typewriter.type.audio.currentTime = 0.25;
             typewriter.newLine.audio.play();
         }
+        return lineCount;
     }
 
     getNumberOfLines() {
@@ -330,7 +335,7 @@ class Joke {
         return Math.floor(jokeHeight / lineHeight);
     }
 
-    fitJokeToContainer() {
+    fitJokeToContainer(lineCount) {
         const { outputJoke, outputContainer } = nodes;
 
         let jokeHeight = parseFloat(
@@ -345,49 +350,29 @@ class Joke {
             window.getComputedStyle(outputJoke, null).getPropertyValue('font-size')
         );
 
+        lineCount = this.newLineDetect(lineCount);
+
         if (jokeHeight >= containerHeight) {
             jokeFontSize -= 0.1;
             outputJoke.style.fontSize = `${jokeFontSize}px`;
 
-            this.newLineDetect();
-            this.fitJokeToContainer();
+            lineCount = this.newLineDetect(lineCount);
+            this.fitJokeToContainer(lineCount);
         }
-        this.fontSize = jokeFontSize;
-        this.newLineDetect();
+
+        lineCount = this.newLineDetect(lineCount);
+        return lineCount;
     }
 
     async generateImage(sound = true) {
         if (newJokeButton.resolve) {
             const { imageShotWrapper, outputJokeImage, outputJokeImageLink } = nodes;
 
-            // Generate the image if it doesn't exist
             if (!this.image) {
-                // Deploy the 'dom-to-image' script if it doesn't exist
-                if (!document.querySelector('head #dom-to-image')) {
-                    await fetch('./assets/dom-to-image.min.js')
-                        .then(response => {
-                            if (response.ok) return response.blob();
-                            else throw new Error(`'dom-to-image' fetch error: ${response.status}`);
-                        })
-                        .then(src => {
-                            const script = document.createElement('script');
-                            script.src = URL.createObjectURL(src);
-                            script.type = 'text/javascript';
-                            script.id = 'dom-to-image';
-                            document.head.appendChild(script);
-
-                            return new Promise(resolve => {
-                                script.onload = () => { resolve('Script loaded'); };
-                            });
-                        })
-                        .catch(error => { throw new Error(`Fetch error: ${error}`); });
-                }
-
                 // const image = await domtoimage.toBlob(imageShotWrapper);
                 // this.image = URL.createObjectURL(image);
                 this.image = await domtoimage.toPng(imageShotWrapper);
             }
-
             outputJokeImage.src = this.image;
             outputJokeImageLink.href = this.image;
             outputJokeImageLink.download = `joke-${this.id}.png`;
@@ -475,18 +460,16 @@ class Joke {
             // Display the content of the existing jokes (don't type),
             // otherwise instead the below lines - to type the joke
             // just call: jokes[currentJokeIndex].jokeType();
-            const joke = jokes[currentJokeIndex];
-
-            outputJoke.innerHTML = joke.joke;
-            outputJoke.style.fontSize = `${joke.fontSize}px`;
-
-            joke.displayVisibleData();
-            joke.fitJokeToContainer();
-            joke.generateImage();
+            outputJoke.innerHTML = jokes[currentJokeIndex].joke;
+            jokes[currentJokeIndex].displayVisibleData();
+            jokes[currentJokeIndex].generateImage();
         } else {
             this.newJoke();
         }
     }
+
+    static defaultVolume = 0.8;
+    static defaultFontSize = `${25.6}px`;
 }
 
 // Autoplay switch
