@@ -472,10 +472,12 @@ audio.player {
     padding: 0;
     width: 100%;
     height: auto;
-
-    background-color: #ffc10722;
+    
     border-radius: .6em;
-    opacity: .6;
+    opacity: .9;
+}
+.joke-image-shot:hover {
+    background-color: #ffc10722;
 }
 
 .hidden {

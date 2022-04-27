@@ -161,12 +161,14 @@ class Joke {
     // Properties provided by the constructor
     index;
     lineCount;
+    fontSize;
     // Properties provided by the other methods
     image;
 
     constructor() {
         this.index = this.constructor.countInstances();
         this.lineCount = 1;
+        this.fontSize = 25.6;
     }
 
     /**
@@ -184,67 +186,105 @@ class Joke {
         await this.canvasPrepare();
 
         // Set the typewriter parameters
-        const speed = 120;
-        let lineCount = 1;
+        const speed = 60;
+        const interval = 100;
+        let even = false;
+        let calculatedSpeed = speed / 1.5;
+
+        // Function to display one character at a time
+        const typeSingleCharacter = async (char, index, array) => {
+            // This is the main function
+            await new Promise(resolve => {
+                const currentText = outputJoke.innerHTML;
+                if (char.match(/\s|[;'.,]/)) {
+                    outputJoke.innerHTML += '|';
+                    calculatedSpeed = speed / 1.5;
+                } else {
+                    outputJoke.innerHTML += '_';
+                    calculatedSpeed = speed;
+                }
+
+                this.fitJokeToContainer();
+                this.newLineDetect();
+
+                setTimeout(() => {
+                    outputJoke.innerHTML = currentText + char;
+
+                    this.fitJokeToContainer();
+                    this.newLineDetect();
+
+                    // If it is the last charter do additional tasks
+                    if (Number(index) === array.length - 1) {
+                        typewriter.type.audio.pause();
+                        typewriter.type.audio.currentTime = 0;
+                        typewriter.lineReturn.audio.play();
+                        typewriter.keyStroke.audio.play();
+
+                        // Unlock the new joke button 1 second later
+                        setTimeout(() => {
+                            // typewriter.lineReturn.audio.pause();
+                            typewriter.type.audio.pause();
+                            typewriter.keyStroke.audio.pause();
+
+                            newJokeButton.resolve = true;
+                            const btnMessage = newJokeButton.msgs[
+                                Math.random() * newJokeButton.msgs.length | 0
+                            ];
+                            nodes.btnShow.textContent = btnMessage;
+
+
+                            setTimeout(() => {
+                                if (localStorage.getItem('imageOnOff') === 'on') this.generateImage();
+                            }, 100);
+                        }, 1000);
+
+                        // Call new joke in autoplay mode
+                        setTimeout(() => {
+                            if (localStorage.getItem('autoPlayOnOff') === 'on') Joke.newJoke();
+                        }, 5000);
+                    } else {
+                        // Bind the sound effects more close to the displayed text
+                        if (char.match(/[.?!:,-/#"']/)) {
+                            typewriter.type.audio.currentTime = 0.08;
+                            typewriter.keyStroke.audio.play();
+                        } else if (char.match(/[skfNVI0-9]/)) {
+                            typewriter.type.audio.currentTime = 0.1;
+                            typewriter.keyStroke.audio.play();
+                        } else if (char.match(/\s/)) {
+                            if (even) {
+                                typewriter.type.audio.currentTime = 0.1;
+                                typewriter.keyStroke.audio.play();
+                                even = false;
+                            } else if (!even) {
+                                typewriter.type.audio.currentTime = 0.4;
+                                typewriter.keyStroke.audio.currentTime = 0.08;
+                                typewriter.keyStroke.audio.play();
+                                even = true;
+                            }
+                        }
+                    }
+
+                    resolve(`Resolve: ${char}`);
+                }, calculatedSpeed);
+            });
+
+            await new Promise(resolve => {
+                this.fitJokeToContainer();
+                this.newLineDetect();
+
+                setTimeout(() => {
+                    resolve(`Resolve: ${char}, with index: ${index}; array length: ${array.length}`);
+                }, interval);
+            });
+        }
 
         // Fix some problems in the text of the joke
         const text = this.joke.replace(/&quot;/g, '"');
 
         // Process the text of the joke as an array of characters...
-        [...text].forEach((char, index, array) => {
-            setTimeout(() => { typeSingleCharacter(char, index, array) }, index * speed);
-        });
-
-        // Function to display one character at a time
-        const typeSingleCharacter = (char, index, array) => {
-            // This is the main function
-            outputJoke.innerHTML += char;
-
-            // Fit the long jokes to the container by decreasing the font size,
-            // and play sound effect at new line
-            lineCount = this.fitJokeToContainer(lineCount);
-            lineCount = this.newLineDetect(lineCount);
-
-            // If it is the last charter do additional tasks
-            if (index === array.length - 1) {
-                typewriter.type.audio.pause();
-                typewriter.type.audio.currentTime = 0;
-                typewriter.lineReturn.audio.play();
-                typewriter.keyStroke.audio.play();
-
-                // Unlock the new joke button 1 second later
-                setTimeout(() => {
-                    // typewriter.lineReturn.audio.pause();
-                    typewriter.type.audio.pause();
-                    typewriter.keyStroke.audio.pause();
-
-                    newJokeButton.resolve = true;
-                    const btnMessage = newJokeButton.msgs[
-                        Math.random() * newJokeButton.msgs.length | 0
-                    ];
-                    nodes.btnShow.textContent = btnMessage;
-
-
-                    setTimeout(() => {
-                        if (localStorage.getItem('imageOnOff') === 'on') this.generateImage();
-                    }, 100);
-                }, 1000);
-
-                // Call new joke in autoplay mode
-                setTimeout(() => {
-                    if (localStorage.getItem('autoPlayOnOff') === 'on') Joke.newJoke();
-                }, 5000);
-            } else {
-                // Bind the sound effects more close to the displayed text
-                if (char.match(/[.?!:,-/#"']/)) {
-                    typewriter.type.audio.currentTime = 0.08;
-                    typewriter.keyStroke.audio.play();
-                }
-                if (char.match(/[skfNVI0-9]/)) {
-                    typewriter.type.audio.currentTime = 0.1;
-                    typewriter.keyStroke.audio.play();
-                }
-            }
+        for (const index in text) {
+            await typeSingleCharacter(text[index], index, text);
+            // .then(response => {console.log(response)});
         }
     }
 
@@ -283,19 +323,14 @@ class Joke {
             .catch(error => { throw new Error(`Animate error: ${error}`); });
 
 
+        // Apply the sound preferences
+        typewriter.soundOnOff();
+        // Play the main typewriter sound effect
+        typewriter.type.audio.play();
+        // Display the new joke's visible data
+        this.displayVisibleData();
         // Resolve the next step
-        return new Promise(resolve => {
-            // Apply the sound preferences
-            typewriter.soundOnOff();
-
-            // Play the main typewriter sound effect
-            typewriter.type.audio.play();
-
-            // Display the new joke's visible data
-            this.displayVisibleData();
-
-            resolve('Canvas prepared');
-        });
+        return new Promise(resolve => { resolve('Canvas prepared'); });
     }
 
     displayVisibleData() {
@@ -307,18 +342,17 @@ class Joke {
         outputJoke.dataset.index = this.index;
         outputJokeId.textContent = this.id;
         outputJokeIndex.textContent = this.index + 1;
-        outputJoke.style.fontSize = this.constructor.defaultFontSize;
+        outputJoke.style.fontSize = `${this.fontSize}px`;
     }
 
-    newLineDetect(lineCount) {
+    newLineDetect() {
         const luneNumber = this.getNumberOfLines();
-        if (lineCount < luneNumber) {
-            lineCount = luneNumber;
+        if (this.lineCount < luneNumber) {
+            this.lineCount = luneNumber;
 
             typewriter.type.audio.currentTime = 0.25;
             typewriter.newLine.audio.play();
         }
-        return lineCount;
     }
 
     getNumberOfLines() {
@@ -335,7 +369,7 @@ class Joke {
         return Math.floor(jokeHeight / lineHeight);
     }
 
-    fitJokeToContainer(lineCount) {
+    fitJokeToContainer() {
         const { outputJoke, outputContainer } = nodes;
 
         let jokeHeight = parseFloat(
@@ -350,29 +384,49 @@ class Joke {
             window.getComputedStyle(outputJoke, null).getPropertyValue('font-size')
         );
 
-        lineCount = this.newLineDetect(lineCount);
-
         if (jokeHeight >= containerHeight) {
             jokeFontSize -= 0.1;
             outputJoke.style.fontSize = `${jokeFontSize}px`;
 
-            lineCount = this.newLineDetect(lineCount);
-            this.fitJokeToContainer(lineCount);
+            this.newLineDetect();
+            this.fitJokeToContainer();
         }
-
-        lineCount = this.newLineDetect(lineCount);
-        return lineCount;
+        this.fontSize = jokeFontSize;
+        this.newLineDetect();
     }
 
     async generateImage(sound = true) {
         if (newJokeButton.resolve) {
             const { imageShotWrapper, outputJokeImage, outputJokeImageLink } = nodes;
 
+            // Generate the image if it doesn't exist
             if (!this.image) {
+                // Deploy the 'dom-to-image' script if it doesn't exist
+                if (!document.querySelector('head #dom-to-image')) {
+                    await fetch('./assets/dom-to-image.min.js')
+                        .then(response => {
+                            if (response.ok) return response.blob();
+                            else throw new Error(`'dom-to-image' fetch error: ${response.status}`);
+                        })
+                        .then(src => {
+                            const script = document.createElement('script');
+                            script.src = URL.createObjectURL(src);
+                            script.type = 'text/javascript';
+                            script.id = 'dom-to-image';
+                            document.head.appendChild(script);
+
+                            return new Promise(resolve => {
+                                script.onload = () => { resolve('Script loaded'); };
+                            });
+                        })
+                        .catch(error => { throw new Error(`Fetch error: ${error}`); });
+                }
+
                 // const image = await domtoimage.toBlob(imageShotWrapper);
                 // this.image = URL.createObjectURL(image);
                 this.image = await domtoimage.toPng(imageShotWrapper);
             }
+
             outputJokeImage.src = this.image;
             outputJokeImageLink.href = this.image;
             outputJokeImageLink.download = `joke-${this.id}.png`;
@@ -392,7 +446,7 @@ class Joke {
     static jokeList = [];
 
     static async fetchJoke() {
-        return fetch('http://api.icndb.com/jokes/random')
+        return fetch('https://api.icndb.com/jokes/random')
             .then(response => {
                 if (!response.ok)
                     throw new Error(
@@ -460,16 +514,18 @@ class Joke {
             // Display the content of the existing jokes (don't type),
             // otherwise instead the below lines - to type the joke
             // just call: jokes[currentJokeIndex].jokeType();
-            outputJoke.innerHTML = jokes[currentJokeIndex].joke;
-            jokes[currentJokeIndex].displayVisibleData();
-            jokes[currentJokeIndex].generateImage();
+            const joke = jokes[currentJokeIndex];
+
+            outputJoke.innerHTML = joke.joke;
+            outputJoke.style.fontSize = `${joke.fontSize}px`;
+
+            joke.displayVisibleData();
+            joke.fitJokeToContainer();
+            joke.generateImage();
         } else {
             this.newJoke();
         }
     }
-
-    static defaultVolume = 0.8;
-    static defaultFontSize = `${25.6}px`;
 }
 
 // Autoplay switch
