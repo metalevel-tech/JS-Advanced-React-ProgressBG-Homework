@@ -188,14 +188,6 @@ class Joke {
         // Set the typewriter parameters
         const speed = 120;
 
-        // Fix some problems in the text of the joke
-        const text = this.joke.replace(/&quot;/g, '"');
-
-        // Process the text of the joke as an array of characters...
-        [...text].forEach((char, index, array) => {
-            setTimeout(() => { typeSingleCharacter(char, index, array) }, index * speed);
-        });
-
         // Function to display one character at a time
         const typeSingleCharacter = (char, index, array) => {
             // This is the main function
@@ -247,6 +239,14 @@ class Joke {
                 }
             }
         }
+        
+        // Fix some problems in the text of the joke
+        const text = this.joke.replace(/&quot;/g, '"');
+
+        // Process the text of the joke as an array of characters...
+        [...text].forEach((char, index, array) => {
+            setTimeout(() => { typeSingleCharacter(char, index, array) }, index * speed);
+        });
     }
 
     async canvasPrepare() {
