@@ -8,7 +8,7 @@
 
   * [ ] [MDN: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 
-  * [ ] [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+  * [x] [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
   
   * [ ] [MDN: `fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
 
