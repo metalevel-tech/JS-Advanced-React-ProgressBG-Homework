@@ -2,29 +2,36 @@
 
 ## Homework [2022.04.17](./homework/hw.2022.04.17) (AsyncJS/JSON/HTTP)
 
-* **Task 1:** [**Tell Me a Joke Typewriter**](./homework/hw.2022.04.17/task-1.tell-me-a-joke/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.17/task-1.tell-me-a-joke/index.html).
+**Task 2:** [**Simple Task Manager**](./homework/hw.2022.04.17/task-2.to-do-app/) - [**Screenshot of the end result**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.17/task-2.to-do-app/_archive/simple-task-manager-print-screen.png).
 
-  * The task: [Simple Joke Apps](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/WebServicesAndJSON/WebServicesAndJSON.html#/13).
-  
-  * The current solution provides much functionalities, including: **1)** Typewriter effect with sound; **2)** DOM element to image implementation; **3)** Session records of the fetched jokes; **4)** Cookies to store the user preferences; **5)** Dynamic fetch of all resources; **6)** Auto play feature; and more.
-  
-  * There are two variants of the `main.js` file. The only difference is within the main `Joke.prototype.jokeType()` method:
-  
-    * [`main-one-speed-param.js`](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main-one-speed-param.js?plain=1#L178) has a single parameter for a single character write time (speed) - it uses the following code to loop over the text.
+* The task: [Hands on HTTP requests with demo project (TodoApp)](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/handsOnHTTPrequests/handsOnHTTPrequests.html#/)
 
-      ```js
-      [...text].forEach((char, index, array) => {
-          setTimeout(() => { typeSingleCharacter(char, index, array) }, index * speed);
-      });
-      ```
-    
-    * [`main-two-speed-params.js`](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main-two-speed-params.js?plain=1#L178) has two parameters for a single character write time (speed), one for the character write itself and one for a delay after that - it uses the code below to loop over the text, respectively the function `typeSingleCharacter()` is modified to work with promises.
+* The application require [`json-server`](https://github.com/typicode/json-server), so within the application directory you need to do: `npm install; npm start`
 
-      ```js
-      for (const index in text) {
-          await typeSingleCharacter(text[index], index, text);
-      }
-      ```
+
+**Task 1:** [**Tell Me a Joke Typewriter**](./homework/hw.2022.04.17/task-1.tell-me-a-joke/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.17/task-1.tell-me-a-joke/index.html).
+
+* The task: [Simple Joke Apps](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/WebServicesAndJSON/WebServicesAndJSON.html#/13).
+
+* The current solution provides much functionalities, including: **1)** Typewriter effect with sound; **2)** DOM element to image implementation; **3)** Session records of the fetched jokes; **4)** Cookies to store the user preferences; **5)** Dynamic fetch of all resources; **6)** Auto play feature; and more.
+
+* There are two variants of the `main.js` file. The only difference is within the main `Joke.prototype.jokeType()` method:
+
+  * [`main-one-speed-param.js`](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main-one-speed-param.js?plain=1#L178) has a single parameter for a single character write time (speed) - it uses the following code to loop over the text.
+
+    ```js
+    [...text].forEach((char, index, array) => {
+        setTimeout(() => { typeSingleCharacter(char, index, array) }, index * speed);
+    });
+    ```
+  
+  * [`main-two-speed-params.js`](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main-two-speed-params.js?plain=1#L178) has two parameters for a single character write time (speed), one for the character write itself and one for a delay after that - it uses the code below to loop over the text, respectively the function `typeSingleCharacter()` is modified to work with promises.
+
+    ```js
+    for (const index in text) {
+        await typeSingleCharacter(text[index], index, text);
+    }
+    ```
     
   
   * **Question 1:** How do I use [`dom-to-image.js`](https://github.com/tsayen/dom-to-image) with `require` ot `import`? 
@@ -34,41 +41,41 @@
 
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
 
-* **Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/task-1.song-lyrics-extended/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/task-1.song-lyrics-extended/index.html).
+**Task 1:** [**Songs Gallery**](./homework/hw.2022.04.16/task-1.song-lyrics-extended/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.16/task-1.song-lyrics-extended/index.html).
 
-  * The task: [Songs Lyrics](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/AJAX/AJAX.html#/11/1).
-  
-  * The current solution is a little bit extended - it fetch dynamically: **1)** The collection of the favorite songs in JSON format; **2)** then for each song, when it comes time to play it fetch: **2.1)** the album cover, **2.2)** the lyrics of the song and **2.3)** the song itself in ogg format as blob.
-  
-  * **Question 2:** What about the `blob` objects?
+* The task: [Songs Lyrics](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/AJAX/AJAX.html#/11/1).
 
-    * Where they are stored in the RAM or at the data drive?
-  
-    * Is it worth to cache them?
+* The current solution is a little bit extended - it fetch dynamically: **1)** The collection of the favorite songs in JSON format; **2)** then for each song, when it comes time to play it fetch: **2.1)** the album cover, **2.2)** the lyrics of the song and **2.3)** the song itself in ogg format as blob.
 
-    * How to tell the browser to cache them as regular objects?
+* **Question 2:** What about the `blob` objects?
 
-  * **Question 1:** When exactly to use `async`?
-  
-    * When inside a function we need to use `await` it is mandatory.
-  
-    * But whether we need it when the function just `return new Promise()`? For example these two cases:
-  
-      * [`async animateCover(init)`](./homework/hw.2022.04.16/task-1.song-lyrics-extended/main.js?plain=1#L149) and
-  
-      * `async?` [`replaceAudioAndPlay(init)`](./homework/hw.2022.04.16/task-1.song-lyrics-extended/main.js?plain=1#L181)
+  * Where they are stored in the RAM or at the data drive?
 
-* **Exercise 2:** Play with [Node.js Express module](./node.js/express/) - all of the following exercises require `npm install`, or you have to install the necessary modules globally:
+  * Is it worth to cache them?
 
-  * [`basic-requests/`](./node.js/express/basic-requests/) Handle GET, POST, DELETE, HEAD, etc. requests with Express and do a response.
+  * How to tell the browser to cache them as regular objects?
 
-  * [`login-form-post/`](./node.js/express/login-form-post/) Do a POST request to the Express server by HTML form.
+* **Question 1:** When exactly to use `async`?
 
-  * [`login-form-post-ajax/`](./node.js/express/login-form-post-ajax/) Do a POST request to the Express server by `XMLHttpRequest()`.
+  * When inside a function we need to use `await` it is mandatory.
 
-  * [`login-form-post-fetch-then-catch/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `.then()` and `.catch()` methods to handle the response.
+  * But whether we need it when the function just `return new Promise()`? For example these two cases:
 
-  * [`login-form-post-fetch-async-await/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `async` function and `await` to handle the response.
+    * [`async animateCover(init)`](./homework/hw.2022.04.16/task-1.song-lyrics-extended/main.js?plain=1#L149) and
+
+    * `async?` [`replaceAudioAndPlay(init)`](./homework/hw.2022.04.16/task-1.song-lyrics-extended/main.js?plain=1#L181)
+
+**Exercise 2:** Play with [Node.js Express module](./node.js/express/) - all of the following exercises require `npm install`, or you have to install the necessary modules globally:
+
+* [`basic-requests/`](./node.js/express/basic-requests/) Handle GET, POST, DELETE, HEAD, etc. requests with Express and do a response.
+
+* [`login-form-post/`](./node.js/express/login-form-post/) Do a POST request to the Express server by HTML form.
+
+* [`login-form-post-ajax/`](./node.js/express/login-form-post-ajax/) Do a POST request to the Express server by `XMLHttpRequest()`.
+
+* [`login-form-post-fetch-then-catch/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `.then()` and `.catch()` methods to handle the response.
+
+* [`login-form-post-fetch-async-await/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `async` function and `await` to handle the response.
 
 * **Exercise 1:** [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
 

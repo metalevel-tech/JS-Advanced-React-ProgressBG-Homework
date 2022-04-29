@@ -49,16 +49,16 @@ class Task {
         taskDom.querySelector('input.input-task-title').value = title;
 
         // Slider section
-        taskDom.querySelector('label.label-percent-number').htmlFor = `task-percentage-${id}`;
-        taskDom.querySelector('input.input-percent-number').id = `task-percentage-${id}`;
-        taskDom.querySelector('input.input-percent-number').value = progress;
-        taskDom.querySelector('input.input-percent-number').oninput = percentSliderHandler;
+        taskDom.querySelector('label.label-progress-number').htmlFor = `task-percentage-${id}`;
+        taskDom.querySelector('input.input-progress-number').id = `task-percentage-${id}`;
+        taskDom.querySelector('input.input-progress-number').value = progress;
+        taskDom.querySelector('input.input-progress-number').oninput = percentSliderHandler;
 
         // Number section
-        taskDom.querySelector('label.label-percent-slider').htmlFor = `task-progress-${id}`;
-        taskDom.querySelector('input.input-percent-slider').id = `task-progress-${id}`;
-        taskDom.querySelector('input.input-percent-slider').value = progress;
-        taskDom.querySelector('input.input-percent-slider').oninput = percentNumberHandler;
+        taskDom.querySelector('label.label-progress-slider').htmlFor = `task-progress-${id}`;
+        taskDom.querySelector('input.input-progress-slider').id = `task-progress-${id}`;
+        taskDom.querySelector('input.input-progress-slider').value = progress;
+        taskDom.querySelector('input.input-progress-slider').oninput = percentNumberHandler;
 
         // Note section
         taskDom.querySelector('label.label-task-note').htmlFor = `task-note-${id}`;
@@ -75,9 +75,9 @@ class Task {
         const taskDom = tasks.querySelector(`#task-${this.id}`);
 
         this.title = taskDom.querySelector('input.input-task-title').value;
-        this.progress = Number(taskDom.querySelector('input.input-percent-number').value);
+        this.progress = Number(taskDom.querySelector('input.input-progress-number').value);
         this.note = taskDom.querySelector('input.input-task-note').value;
-        this.completed = taskDom.querySelector('input.input-percent-slider').checked;
+        this.completed = taskDom.querySelector('input.input-progress-slider').checked;
     }
 
     saveTaskToDataBase() {
