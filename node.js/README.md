@@ -1,3 +1,14 @@
+## Restart Node on file change
+
+* StackOverflow: [Restart node upon changing a file](https://stackoverflow.com/questions/11175676/restart-node-upon-changing-a-file)
+
+One of the tools that can be used is `supervisor`. If it is installed globally by `npm install supervisor -g`, in the app dir use it in this way: `supervisor server.js`. Otherwise if it is installed as local dependency you can do the following:
+
+```bash
+ln -s ./node_modules/supervisor/lib/cli-wrapper.js ./supervisor
+./supervisor server.js
+```
+
 ## Node Express
 
 [**Examples**](./express/)
