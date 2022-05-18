@@ -93,3 +93,27 @@ Then update the scripts section in `tsconfig.json`:
   ]
 }
 ```
+
+## TypeScript Types
+
+JavaScript have several native types, which also exist in TypeScript:
+
+* `boolean` - true/false
+* `number` - integers, floats, Infinity and NaN
+* `[]` - arrays of other types
+* `{}` - object literal
+* `undefined` - for not set value
+
+But TypeScript also adds:
+
+* `enum` - enumerations like { Red, Blue, Green }
+* `any` - use any type
+* `void` - nothing
+
+Example:
+
+* [`src/example-4.types.ts`](src/example-4.types.ts) > [`dist/example-4.types.js`](dist/example-4.types.js)
+
+Reference: 
+
+* [Basic Types @typescriptlang.org](https://www.typescriptlang.org/docs/handbook/basic-types.html)

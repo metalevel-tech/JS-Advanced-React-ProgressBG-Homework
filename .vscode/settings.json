@@ -1,5 +1,29 @@
 {
     "cSpell.words": [
         "Proto"
-    ]
+    ],
+    "spellright.language": [
+        "Bulgarian",
+        "English (American)",
+        "English (British)"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "python",
+        "javascriptreact"
+    ],
+    // https://stackoverflow.com/a/67641757/6543935
+    "files.exclude": {
+        "**/node_modules": true
+    },
+    "search.exclude": {
+        "**/node_modules": true
+    },
+    "editor.fontSize": 14,
+    "liveServer.settings.port": 5500,
+    // "files.associations": {
+	// 	"*.js": "javascriptreact"
+	// },
 }
