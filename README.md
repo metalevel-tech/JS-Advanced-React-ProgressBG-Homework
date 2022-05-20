@@ -1,5 +1,9 @@
 # JavaScript Advanced Course Homework
 
+## Homework [2022.05.15](./homework/hw.2022.05.15.react.first.touch/) (ReactJS)
+
+* The directory has its own [README.md](./homework/hw.2022.05.15.react.first.touch/)
+  
 ## Homework [2022.05.08](./homework/hw.2022.05.08.typescript.basics/) (TypeScript basics)
 
 * The directory has its own [README.md](./homework/hw.2022.05.08.typescript.basics/)
