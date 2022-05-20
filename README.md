@@ -1,5 +1,9 @@
 # JavaScript Advanced Course Homework
 
+## Homework [2022.05.08](./homework/hw.2022.04.17) (TypeScript basics)
+
+
+
 ## Homework [2022.04.17](./homework/hw.2022.04.17) (AsyncJS/JSON/HTTP)
 
 **Task 2:** [**Simple Task Manager**](./homework/hw.2022.04.17/task-2.to-do-app/) - [**Screenshot of the end result**](./homework/hw.2022.04.17/task-2.to-do-app/_archive/simple-task-manager-print-screen.png).
@@ -7,7 +11,6 @@
 * The task: [Hands on HTTP requests with demo project (TodoApp)](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/handsOnHTTPrequests/handsOnHTTPrequests.html#/)
 
 * The application require [`json-server`](https://github.com/typicode/json-server), so within the application directory you need to do: `npm install; npm start`
-
 
 **Task 1:** [**Tell Me a Joke Typewriter**](./homework/hw.2022.04.17/task-1.tell-me-a-joke/) - [**Live preview**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.17/task-1.tell-me-a-joke/index.html).
 
