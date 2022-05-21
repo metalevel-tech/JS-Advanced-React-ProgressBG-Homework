@@ -12,6 +12,7 @@ JSX code is handled by Babel ot TypeScript transpilers. ake note of the followin
 
 * You can use a valid JavaScript expression inside the JSX through curly braces, `{}`.
 * In JSX, elements attributes, event handlers are always in `camelCase`. The few exceptions are `aria-*` and `data-*` attributes, which are lowercase.
+* User defined components starts with capital letter: `<ListItem>`.
 
 
 ## Using React with NPM (react.demo.proj.manual/) 
