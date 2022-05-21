@@ -1,5 +1,9 @@
 # JavaScript Advanced Course Homework
 
+To-Dos App, dedicated repository: [**simple-task-manager**](https://github.com/metalevel-tech/js-simple-task-manager).
+
+# Revised Homework
+
 ## Homework [2022.05.15](./homework/hw.2022.05.15.react.first.touch/) (ReactJS)
 
 * The directory has its own [README.md](./homework/hw.2022.05.15.react.first.touch/)
@@ -85,8 +89,6 @@
 * [`login-form-post-fetch-async-await/`](./node.js/express/) Do a POST request to the Express server by `fetch()` and use the `async` function and `await` to handle the response.
 
 * **Exercise 1:** [Use AJAX: `new XMLHttpRequest()` and do GET request](./homework/hw.2022.04.16/example-1.XMLHttpRequest.index.html)
-
-# Revised Homework
 
 ## Homework [2022.04.10](./homework/hw.2022.04.10) (Structural Patterns)
 
