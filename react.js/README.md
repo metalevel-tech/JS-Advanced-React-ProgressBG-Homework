@@ -1,14 +1,8 @@
-# Tutorial: Intro to React
+# React
 
-We will build a small game during this tutorial. You might be tempted to skip it because you’re not building games — but give it a chance. The techniques you’ll learn in the tutorial are fundamental to building any React app, and mastering it will give you a deep understanding of React.
+In this directory are located sone dedicated ReactJS exercises.
 
-Source:
-
-* [Tutorial: Intro to React @React](https://reactjs.org/tutorial/tutorial.html)
-
-## Setup for the Tutorial
-
-(Setup Option 2: Local Development Environment)
+## Setup the environment
 
 1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed. Here is how to install and update it at Ubuntu.
 
@@ -100,3 +94,25 @@ export { Square };
 **Note.** When we modified the Square to be a function component,
 we also changed `onClick={() => this.props.onClick()}` to a shorter
 `onClick={props.onClick}` (note the lack of parentheses on both sides).
+
+## Tutorial: Intro to React (Tic-tac-toe)
+
+We will build a small game during this tutorial. You might be tempted to skip it because you’re not building games — but give it a chance. The techniques you’ll learn in the tutorial are fundamental to building any React app, and mastering it will give you a deep understanding of React.
+
+Source:
+
+* [Tutorial: Intro to React @React](https://reactjs.org/tutorial/tutorial.html)
+
+### Steps to improve Tic-tac-toe
+
+* [x] Display the location for each move in the format (col, row) in the move history list.
+
+* [x] Bold the currently selected item in the move list.
+
+* [x] Rewrite Board to use two loops to make the squares instead of hard-coding them.
+
+* [x] Add a toggle button that lets you sort the moves in either ascending or descending order.
+
+* [x] When someone wins, highlight the three squares that caused the win.
+
+* [x] When no one wins, display a message about the result being a draw.

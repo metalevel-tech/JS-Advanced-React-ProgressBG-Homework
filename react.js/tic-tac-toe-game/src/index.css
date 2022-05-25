@@ -41,6 +41,14 @@ ul {
     background: #ddd;
 }
 
+.square.win {
+    background: rgba(255, 200, 0, 0.532);
+}
+
+.game.draw .square {
+    background: rgba(255, 200, 0, 0.532);
+}
+
 .game {
     display: flex;
     flex-direction: row;
@@ -48,4 +56,17 @@ ul {
 
 .game-info {
     margin-left: 20px;
+}
+
+.game-info .current button {
+    font-weight: bold;
+}
+
+.game-info > div {
+    margin-bottom: 1em;
+}
+
+.game-info ol {
+    list-style: none;
+    padding-left: 0;
 }
