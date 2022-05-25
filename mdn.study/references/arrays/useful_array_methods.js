@@ -18,6 +18,8 @@ console.log( array[0] );
 
 // Get the last element of an array
 console.log( array[array.length - 1] );
+console.log( array.at(-1) ); // JavaScript ES-2022
+
 
 // Change an element of an array
 array[1] = 'MILK';
