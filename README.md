@@ -2,7 +2,11 @@
 
 To-Dos App, dedicated repository: [**simple-task-manager**](https://github.com/metalevel-tech/js-simple-task-manager).
 
-# Revised Homework
+---
+
+## [ReactJS](./react.js/)
+
+* Challenge: [Tic-tac-toe](./react.js/tic-tac-toe-game/) /22.05.25/
 
 ## Homework [2022.05.15](./homework/hw.2022.05.15.react.first.touch/) (ReactJS)
 
@@ -43,12 +47,10 @@ To-Dos App, dedicated repository: [**simple-task-manager**](https://github.com/m
         await typeSingleCharacter(text[index], index, text);
     }
     ```
-    
-  
-  * **Question 1:** How do I use [`dom-to-image.js`](https://github.com/tsayen/dom-to-image) with `require` ot `import`? 
+
+  * **Question 1:** How do I use [`dom-to-image.js`](https://github.com/tsayen/dom-to-image) with `require` ot `import`?
   
   * **Question 2:** Is it possible to instruct the browser to cache `dom-to-image.js` within the [current](./homework/hw.2022.04.17/task-1.tell-me-a-joke/main-one-speed-param.js?plain=1#L366) way of invocation?
-
 
 ## Homework [2022.04.16](./homework/hw.2022.04.16) (HTTP/AJAX/AsyncJS)
 
@@ -99,7 +101,6 @@ Exercises:
 * [Mixins Structural Pattern](homework/hw.2022.04.10/structural_patterns_mixins.js)
 * [Observer/Subject Structural Pattern](homework/hw.2022.04.10/structural_patterns_observer) ([Live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.10/structural_patterns_observer/index.html) of the end result)
 
-
 ## Homework [2022.04.09](./homework/hw.2022.04.09) (Design Patterns)
 
 Singleton pattern in JS exercises:
@@ -114,7 +115,7 @@ Singleton pattern in JS exercises:
 Modules in JS examples:
 
 * [The Module pattern](homework/hw.2022.04.09/module_pattern.js) example
-* ES6 Modules references: 
+* ES6 Modules references:
   * [Modules - chapter from Exploring ES6 by Axel Rauschmayer](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/CreationalPatterns/CreationalPatterns.html#/10/3)
   * [MDN: import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
   * [MDN: export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
@@ -122,10 +123,9 @@ Modules in JS examples:
 
 Different ways to create and object in JS examples:
 
- * [Creational patterns](homework/hw.2022.04.09/creational_patterns.js)
- 
- * [Factory pattern](homework/hw.2022.04.09/factory_pattern.js)
+* [Creational patterns](homework/hw.2022.04.09/creational_patterns.js)
 
+* [Factory pattern](homework/hw.2022.04.09/factory_pattern.js)
 
 ## Homework [2022.04.03](./homework/hw.2022.04.03)
 
@@ -135,9 +135,9 @@ Different ways to create and object in JS examples:
   
 Exercise: Play with RegExp at [Regular expressions 101](https://regex101.com/account/library) and also here:
 
- * [exercise-1.regexp-match.html](./homework/hw.2022.04.03/exercise-1.regexp-match.html)
+* [exercise-1.regexp-match.html](./homework/hw.2022.04.03/exercise-1.regexp-match.html)
 
- * Live preview: [**exercise-1.regexp-match.html**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.03/exercise-1.regexp-match.html)
+* Live preview: [**exercise-1.regexp-match.html**](https://metalevel-tech.github.io/js_homework/homework/hw.2022.04.03/exercise-1.regexp-match.html)
 
 ## Homework [2022.04.02](./homework/hw.2022.04.02)
 
@@ -146,7 +146,6 @@ Task 1: [*From a given string find and print all words, which are 3 characters o
 * Solution: [task-1.find-and-print-all-words-3-or-more-chars-long.js](./homework/hw.2022.04.02/task-1.find-and-print-all-words-3-or-more-chars-long.js)
 
 Exercise 1: Learn how actually `RexExp.exec()` works and why `rx.lastIndex` is not terminated after each execution - [exercise-1.String.methods-vs.RegExp.methods.js](./homework/hw.2022.04.02/exercise-1.String.methods-vs.RegExp.methods.js)
-
 
 ## Homework [2022.03.26](./homework/hw.2022.03.26)
 
@@ -171,6 +170,7 @@ Task 1: [*Filter Words Starting WithLetter*](https://wwwcourses.github.io/Progre
 * Solution: [task-1.filterWordsStartingWithLetter.js](./homework/hw.2022.03.26/task-1.filterWordsStartingWithLetter.js)
 
 ## Homework [2022.03.20](./homework/hw.2022.03.20)
+
 Task 3: [*Sort array of objects by key*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/newES6syntax/newES6syntax.html#/25/2)
 
 * Solution: [task-3.Sort_array_of_objects_by_key.js](./homework/hw.2022.03.20/task-3.Sort_array_of_objects_by_key.js)
@@ -186,6 +186,7 @@ Task 1: [*Developer_Manager_Person with Class Syntax- task description*](https:/
 * Extend exercise which includes private members, static constructor members and more: [**es6-classes.js**](labs/es6-classes.js)
 
 ## Homework [2022.03.13](./homework/hw.2022.03.13)
+
 Task: [*Developer_Manager_Person - Task Description*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/prototypalInheritance/prototypalInheritance.html#/DeveloperManagerPersonTaskDescription)
 
 * Solution with Constructors: [**task-1.Developer_Manager_Person.with.constructor.js**](./homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.js) ([live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.03.13/task-1.Developer_Manager_Person.with.constructor.html))
@@ -199,6 +200,7 @@ Question 1: ***What is the matter of the constructor's reassignment?** Is it jus
   ```js
   Ford.prototype.__proto__ = Car.prototype;
   ```
+
   ...we need to...
 
   ```js
@@ -208,13 +210,11 @@ Question 1: ***What is the matter of the constructor's reassignment?** Is it jus
 
   Script file: [example.constructor.function.js](./homework/hw.2022.03.13/example.constructor.function.js) ([live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.03.13/example.constructor.function.html))
 
-
 ## Homework [2022.03.12](./homework/hw.2022.03.12)
 
 TASK 2: [*Fix the problem in countdown function, so that we see in console the numbers 1,2,3 instead of NaN*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/thisContext/thisContext.html#/task2).
 
 * Solution: [task-2.numbers-1-2-3-instead-NaN.html](./homework/hw.2022.03.12/task-2.numbers-1-2-3-instead-NaN.html) ([live preview](https://metalevel-tech.github.io/js_homework/homework/hw.2022.03.12/task-2.numbers-1-2-3-instead-NaN.live.html))
-
 
 TASK 1: [*Fix the problem, so that we see in console numbers 1,2,3 instead of NaNs, on each click*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/thisContext/thisContext.html#/task1).
 
@@ -226,15 +226,11 @@ TASK 1: [*Fix the problem, so that we see in console numbers 1,2,3 instead of Na
 
   * Is there an easy way to prevent asynchronous work of JS in such cases where, for example, we have consecutive invocations of *setTimeout()*?
 
-
-  
 ## Homework [2022.03.05](./homework/hw.2022.03.05)
 
 TASK: [*The Factory as mechanism to enforce encapsulation*](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/OOPinJS/OOPinJS.html#/taskTheFactoryAsMechanismToEnforceEncapsulation)
 
 * Solution: [t1.The_Factory_as_mechanism_to_enforce_encapsulation.Closure.js](./homework/hw.2022.03.05/t1.The_Factory_as_mechanism_to_enforce_encapsulation.Closure.js)
-
-
 
 ## Homework [2022.03.04](./homework/hw.2022.03.04)
 
