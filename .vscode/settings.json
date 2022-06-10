@@ -23,7 +23,7 @@
         // "**/node_modules": true
         "**/node_modules": false
     },
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "liveServer.settings.port": 5500,
     // "files.associations": {
 	// 	"*.js": "javascriptreact"
