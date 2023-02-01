@@ -1,8 +1,10 @@
 # JavaScript Advanced Course Homework
 
-ToDo App, dedicated repository: [**simple-task-manager**](https://github.com/metalevel-tech/js-simple-task-manager).
+[ProgressBG-JS-Advanced-React](https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/index.html#Course_Intro)
 
----
+## The final exercise of the course
+
+ToDo App, dedicated repository: [**simple-task-manager**](https://github.com/metalevel-tech/js-simple-task-manager).
 
 ## [ReactJS](../react.js/)
 
