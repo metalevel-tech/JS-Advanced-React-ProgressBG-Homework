@@ -186,67 +186,106 @@ class Joke {
         await this.canvasPrepare();
 
         // Set the typewriter parameters
-        const speed = 120;
+        const speed = 60;
+        const interval = 100;
+        let even = false;
+        let calculatedSpeed = speed / 1.5;
 
         // Function to display one character at a time
-        const typeSingleCharacter = (char, index, array) => {
+        const typeSingleCharacter = async (char, index, array) => {
             // This is the main function
-            outputJoke.innerHTML += char;
-
-            // Fit the long jokes to the container by decreasing the font size,
-            // and play sound effect at new line
-            this.fitJokeToContainer();
-            this.newLineDetect();
-
-            // If it is the last charter do additional tasks
-            if (index === array.length - 1) {
-                typewriter.type.audio.pause();
-                typewriter.type.audio.currentTime = 0;
-                typewriter.lineReturn.audio.play();
-                typewriter.keyStroke.audio.play();
-
-                // Unlock the new joke button 1 second later
-                setTimeout(() => {
-                    // typewriter.lineReturn.audio.pause();
-                    typewriter.type.audio.pause();
-                    typewriter.keyStroke.audio.pause();
-
-                    newJokeButton.resolve = true;
-                    const btnMessage = newJokeButton.msgs[
-                        Math.random() * newJokeButton.msgs.length | 0
-                    ];
-                    nodes.btnShow.textContent = btnMessage;
-
-
-                    setTimeout(() => {
-                        if (localStorage.getItem('imageOnOff') === 'on') this.generateImage();
-                    }, 100);
-                }, 1000);
-
-                // Call new joke in autoplay mode
-                setTimeout(() => {
-                    if (localStorage.getItem('autoPlayOnOff') === 'on') Joke.newJoke();
-                }, 5000);
-            } else {
-                // Bind the sound effects more close to the displayed text
-                if (char.match(/[.?!:,-/#"']/)) {
-                    typewriter.type.audio.currentTime = 0.08;
-                    typewriter.keyStroke.audio.play();
+            await new Promise(resolve => {
+                const currentText = outputJoke.innerHTML;
+                if (char.match(/\s|[;'.,]/)) {
+                    outputJoke.innerHTML += '|';
+                    calculatedSpeed = speed / 1.5;
+                } else {
+                    outputJoke.innerHTML += '_';
+                    calculatedSpeed = speed;
                 }
-                if (char.match(/[skfNVI0-9]/)) {
-                    typewriter.type.audio.currentTime = 0.1;
-                    typewriter.keyStroke.audio.play();
-                }
-            }
+
+                this.fitJokeToContainer();
+                this.newLineDetect();
+
+                setTimeout(() => {
+                    outputJoke.innerHTML = currentText + char;
+
+                    this.fitJokeToContainer();
+                    this.newLineDetect();
+
+                    // If it is the last charter do additional tasks
+                    if (Number(index) === array.length - 1) {
+                        typewriter.type.audio.pause();
+                        typewriter.type.audio.currentTime = 0;
+                        typewriter.lineReturn.audio.play();
+                        typewriter.keyStroke.audio.play();
+
+                        // Unlock the new joke button 1 second later
+                        setTimeout(() => {
+                            // typewriter.lineReturn.audio.pause();
+                            typewriter.type.audio.pause();
+                            typewriter.keyStroke.audio.pause();
+
+                            newJokeButton.resolve = true;
+                            const btnMessage = newJokeButton.msgs[
+                                Math.random() * newJokeButton.msgs.length | 0
+                            ];
+                            nodes.btnShow.textContent = btnMessage;
+
+
+                            setTimeout(() => {
+                                if (localStorage.getItem('imageOnOff') === 'on') this.generateImage();
+                            }, 100);
+                        }, 1000);
+
+                        // Call new joke in autoplay mode
+                        setTimeout(() => {
+                            if (localStorage.getItem('autoPlayOnOff') === 'on') Joke.newJoke();
+                        }, 5000);
+                    } else {
+                        // Bind the sound effects more close to the displayed text
+                        if (char.match(/[.?!:,-/#"']/)) {
+                            typewriter.type.audio.currentTime = 0.08;
+                            typewriter.keyStroke.audio.play();
+                        } else if (char.match(/[skfNVI0-9]/)) {
+                            typewriter.type.audio.currentTime = 0.1;
+                            typewriter.keyStroke.audio.play();
+                        } else if (char.match(/\s/)) {
+                            if (even) {
+                                typewriter.type.audio.currentTime = 0.1;
+                                typewriter.keyStroke.audio.play();
+                                even = false;
+                            } else if (!even) {
+                                typewriter.type.audio.currentTime = 0.4;
+                                typewriter.keyStroke.audio.currentTime = 0.08;
+                                typewriter.keyStroke.audio.play();
+                                even = true;
+                            }
+                        }
+                    }
+
+                    resolve(`Resolve: ${char}`);
+                }, calculatedSpeed);
+            });
+
+            await new Promise(resolve => {
+                this.fitJokeToContainer();
+                this.newLineDetect();
+
+                setTimeout(() => {
+                    resolve(`Resolve: ${char}, with index: ${index}; array length: ${array.length}`);
+                }, interval);
+            });
         }
-        
+
         // Fix some problems in the text of the joke
         const text = this.joke.replace(/&quot;/g, '"');
 
         // Process the text of the joke as an array of characters...
-        [...text].forEach((char, index, array) => {
-            setTimeout(() => { typeSingleCharacter(char, index, array) }, index * speed);
-        });
+        for (const index in text) {
+            await typeSingleCharacter(text[index], index, text);
+            // .then(response => {console.log(response)});
+        }
     }
 
     async canvasPrepare() {
@@ -407,7 +446,8 @@ class Joke {
     static jokeList = [];
 
     static async fetchJoke() {
-        return fetch('https://api.icndb.com/jokes/random')
+        // return fetch('https://api.icndb.com/jokes/random')
+        return fetch('https://api.chucknorris.io/')
             .then(response => {
                 if (!response.ok)
                     throw new Error(
