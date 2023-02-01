@@ -4,7 +4,7 @@
 
 ## The final exercise of the course
 
-ToDo App, dedicated repository: [**simple-task-manager**](https://github.com/metalevel-tech/js-simple-task-manager).
+ToDo App, dedicated repository: [**simple-task-manager**](https://github.com/metalevel-tech/exc-js-simple-task-manager).
 
 ## [ReactJS](../react.js/)
 
