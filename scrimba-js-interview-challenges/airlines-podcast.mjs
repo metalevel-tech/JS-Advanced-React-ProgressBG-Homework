@@ -25,29 +25,32 @@ each podcast to the console, like this:
 */
 
 // Filter by the flight duration
-// function sortByDuration(data, flightLength) {
-//     return data
-//         .filter(({ duration }) => duration <= flightLength)
-//         .sort((b, a) => a.duration - b.duration)
-//         .map(({ title, duration }, i) => ({ i, title, duration }))
-//         .forEach(({ i, title, duration }) => {
-//             console.log(`${i + 1}. ${title}, ${duration} minutes`);
-//         });
-// }
-// sortByDuration(podcasts, 60);
+function filterByDuration(data, flightLength) {
+  return data
+    .filter(({ duration }) => duration <= flightLength)
+    .sort((b, a) => a.duration - b.duration)
+    .map(({ title, duration }, i) => ({ i, title, duration }))
+    .forEach(({ i, title, duration }) => {
+      console.log(`${i + 1}. ${title}, ${duration} minutes`);
+    });
+}
+filterByDuration(podcasts, 120);
 
+console.log("*".repeat(30));
 
 // Just order according by the flight duration
 function sortByDuration(data, flightLength) {
-    return data
-        .sort((a, b) => {
-            if (flightLength > 60) return b.duration - a.duration;
-            return a.duration - b.duration;
-        })
-        .map(({ title, duration }, i) => ({ i, title, duration }))
-        .forEach(({ i, title, duration }) => {
-            console.log(`${i + 1}. ${title}, ${duration} minutes`);
-        });
+  const lengthBase = 60;
+
+  return data
+    .sort((a, b) => {
+      if (flightLength > lengthBase) return b.duration - a.duration;
+      return a.duration - b.duration;
+    })
+    .map(({ title, duration }, i) => ({ i, title, duration }))
+    .forEach(({ i, title, duration }) => {
+      console.log(`${i + 1}. ${title}, ${duration} minutes`);
+    });
 }
 
-sortByDuration(podcasts, 60);
+sortByDuration(podcasts, 120);

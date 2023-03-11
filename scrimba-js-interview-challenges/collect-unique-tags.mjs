@@ -16,38 +16,37 @@ Expected output:
 
 */
 
-function getUniqueTags(data) {
-    const unqTagsTrack = {};
-    const unqTagsList = [];
+function getUniqueTagsForInLoop(data) {
+  const unqTagsTrack = {};
+  const unqTagsList = [];
 
-    data
-        .map(({ tags }) => tags)
-        .flat().forEach(tag => {
-            unqTagsTrack[tag] = true;
-        });
+  data
+    .map(({ tags }) => tags)
+    .flat()
+    .forEach((tag) => {
+      unqTagsTrack[tag] = true;
+    });
 
-    for (const key in unqTagsTrack) {
-        unqTagsList.push(key);
-    }
+  for (const key in unqTagsTrack) {
+    unqTagsList.push(key);
+  }
 
-    return unqTagsList;
+  return unqTagsList;
 }
-console.log(getUniqueTags(mediaData));
-
+console.log(getUniqueTagsForInLoop(mediaData));
 
 function getUniqueTagsWithFilter(data) {
-    const unqTagsTrack = {};
+  const unqTagsTrack = {};
 
-    return data
-        .map(({ tags }) => tags)
-        .flat()
-        .filter(tag => {
-            if (!unqTagsTrack[tag]) {
-                unqTagsTrack[tag] = true;
-                return true;
-            }
-            return false;
-        });
+  return data
+    .map(({ tags }) => tags)
+    .flat()
+    .filter((tag) => {
+      if (!unqTagsTrack[tag]) {
+        unqTagsTrack[tag] = true;
+        return true;
+      }
+      return false;
+    });
 }
 console.log(getUniqueTagsWithFilter(mediaData));
-

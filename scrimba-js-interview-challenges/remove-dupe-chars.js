@@ -14,20 +14,21 @@ Example output: "abc12"
 const password = "9338dsabbbadjdjdj2sdfdfdf282ff8fdsd888ss8cfgfg332q23";
 
 function removeDupeChars(chars = "") {
-    // return chars.split("").reduce((prev, current) => {
-    //     if (prev.includes(current)) return prev;
-    //     return prev + current;
-    // });
+  // return chars.split("").reduce((prev, current) => {
+  //     if (prev.includes(current)) return prev;
+  //     return prev + current;
+  // });
 
-    let output = "";
-    for (const char of chars) if (!output.includes(char)) output += char;
-    return output;
+  let output = "";
+  for (const char of chars) if (!output.includes(char)) output += char;
+  return output;
 
-    // let output = "";
-    // for (let i = 0; i <= chars.length - 1; i++) {
-    //     if (!output.includes(chars[i])) output += chars[i];
-    // }
-    // return output;
+  // let output = "";
+  // for (let i = 0; i <= chars.length - 1; i++) {
+  //     if (!output.includes(chars[i])) output += chars[i];
+  // }
+  // return output;
 }
 
 console.log(removeDupeChars(password));
+console.log(removeDupeChars("pumpkin pranced purposefully across the pond"));

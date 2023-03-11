@@ -11,17 +11,17 @@ Example output: ["🌈 rainbow", "🦄 unicorn", "🍭 lollipops"];
 */
 
 const eggScrambleRecipe = [
-    "🥓 bacon",
-    "🥓 bacon",
-    "🍳 eggs",
-    "🫑 green peppers",
-    "🧀 cheese",
-    "🌶️ hot sauce",
-    "🥓 bacon",
-    "🥦 broccoli",
-    "🧀 cheese",
-    "🥦 broccoli",
-    "🌶️ hot sauce"
+  "🥓 bacon",
+  "🥓 bacon",
+  "🍳 eggs",
+  "🫑 green peppers",
+  "🧀 cheese",
+  "🌶️ hot sauce",
+  "🥓 bacon",
+  "🥦 broccoli",
+  "🧀 cheese",
+  "🥦 broccoli",
+  "🌶️ hot sauce",
 ];
 
 // const rul = [
@@ -36,14 +36,14 @@ let start, end;
 
 // 2.121855 ms
 function removeDupesFromArray_1(arr = []) {
-    const newArr = [];
+  const newArr = [];
 
-    for (const entry of arr) {
-        if (newArr.includes(entry)) continue;
-        newArr.push(entry);
-    }
+  for (const entry of arr) {
+    if (newArr.includes(entry)) continue;
+    newArr.push(entry);
+  }
 
-    return newArr;
+  return newArr;
 }
 
 start = performance.now();
@@ -58,18 +58,19 @@ console.log("*".repeat(30));
 // instead using the nesting loop newArr.includes(entry)
 // 0.1757799 ms
 function removeDupesFromArray_2(arr = []) {
-    const obj = [];
-    for (const entry of arr) {
-        // if (obj[entry]) continue;
-        obj[entry] = true;
-    }
+  const obj = {};
 
-    const newArr = [];
-    for (const key in obj) {
-        newArr.push(key);
-    }
+  for (const entry of arr) {
+    // if (obj[entry]) continue;
+    obj[entry] = true;
+  }
 
-    return newArr;
+  const newArr = [];
+  for (const key in obj) {
+    newArr.push(key);
+  }
+
+  return newArr;
 }
 start = performance.now();
 console.log(removeDupesFromArray_2(eggScrambleRecipe));
@@ -82,12 +83,13 @@ console.log("*".repeat(30));
 // Similar to the above but using filter
 // 0.1652799 ms
 function removeDupesFromArray_3(arr = []) {
-    const trackDupesObj = [];
+  const obj = {};
 
-    return arr.filter(entry => {
-        if (trackDupesObj[entry]) return false;
-        trackDupesObj[entry] = true; return true;
-    });
+  return arr.filter((entry) => {
+    if (obj[entry]) return false;
+    obj[entry] = true;
+    return true;
+  });
 }
 start = performance.now();
 console.log(removeDupesFromArray_3(eggScrambleRecipe));
@@ -100,10 +102,10 @@ console.log("*".repeat(30));
 // By using a Set of items :)
 // 0.15741600 ms
 function removeDupesFromArray_4(arr = []) {
-    return [...new Set(arr)];
+  return [...new Set(arr)];
 }
 start = performance.now();
 console.log(removeDupesFromArray_4(eggScrambleRecipe));
 end = performance.now();
-console.log(`${end - start} ms`)
+console.log(`${end - start} ms`);
 // console.log(removeDupesFromArray_4(rul));
